@@ -45,4 +45,9 @@ end
 vim.cmd "set whichwrap+=<,>,[,],h,l"
 vim.cmd [[set iskeyword+=-]]
 vim.cmd [[set formatoptions-=cro]] -- TODO: this doesn't seem to work
---vim.cmd [[autocmd filetype cpp nnoremap <F5> :w <bar> !g++ -std=c++17 -O2 -Wall % -o %:r && %:r.exe <CR>]]
+-- vim.cmd [[autocmd filetype cpp nnoremap <F5> :w <bar> !g++ -std=c++17 -O2 -Wall % -o %:r && %:r.exe <CR>]]
+-- vim.cmd [[autocmd filetype cpp nnoremap <F5> :!g++ -std=c++11 % -Wall -g -o %.out && ./%.out <CR>]]
+-- vim.cmd [[autocmd vimEnter *.cpp map <F9> :w <CR> :!clear ; g++ --std=c++11 %; if [ -f a.out ]; then time ./a.out; rm a.out; fi <CR>]]
+-- vim.cmd [[autocmd filetype cpp nnoremap <C-c> :w <bar> !clear && g++ -std=gnu++14 -O2 % -o %:p:h/%:t:r.exe && ./%:r.exe<CR>]]
+vim.cmd [[nnoremap <C-c> :!g++ -o %:r.out % -std=c++11<Enter>]]
+vim.cmd [[nnoremap <C-x> :!%:r.out<Enter>]]
