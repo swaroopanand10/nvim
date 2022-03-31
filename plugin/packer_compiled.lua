@@ -244,6 +244,11 @@ _G.packer_plugins = {
     path = "/home/anand/.local/share/nvim/site/pack/packer/start/vim-hexokinase",
     url = "https://github.com/RRethy/vim-hexokinase"
   },
+  ["vim-startify"] = {
+    loaded = true,
+    path = "/home/anand/.local/share/nvim/site/pack/packer/start/vim-startify",
+    url = "https://github.com/mhinz/vim-startify"
+  },
   ["which-key.nvim"] = {
     loaded = true,
     path = "/home/anand/.local/share/nvim/site/pack/packer/start/which-key.nvim",

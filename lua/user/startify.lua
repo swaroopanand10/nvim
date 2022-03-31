@@ -1,18 +1,29 @@
-local status_ok, lualine = pcall(require, "vim-startify")
-if not status_ok then
-	return
-end
-
-
-vim.cmd [[let g:startify_session_dir = '~/vimsessions/']] 
+-- local status_ok, lualine = pcall(require, "vim-startify")
+-- if not status_ok then
+-- 	return
+-- end
+--
+--
+vim.cmd [[let g:startify_session_dir = '~/vimsessions/']]
 vim.cmd [[let g:startify_update_oldfiles = 1 ]]   -- Using this option updates it on-the-fly, so that :Startify is always up-to-date.
 vim.cmd [[let g:startify_session_persistence = 1]] -- Automatically update sessions in two cases
 vim.cmd [[let g:startify_session_delete_buffers = 1]] --Delete all buffers when loading or closing a session
 vim.cmd [[let g:startify_change_to_dir = 1]] -- When opening a file or bookmark, change to its directory
-vim.cmd [[let g:startify_padding_left = 3]] 
-vim.cmd [[let g:startify_custom_header = startify#fortune#quote()]]
-vim.cmd [[let g:startify_relative_path = 1]] -- If the file is in or below the current working directory, use a relative path.Otherwise an absolute path is used 
-
-
-
-
+vim.cmd [[let g:startify_padding_left = 3]]
+-- vim.cmd [[let g:startify_custom_header = startify#fortune#quote()]]
+vim.cmd [[let g:startify_custom_header = ['   Neovim'] ]]
+vim.cmd [[let g:startify_relative_path = 1]] -- If the file is in or below the current working directory, use a relative path.Otherwise an absolute path is used
+--
+-- g.startify_enable_special = 0
+-- g.startify_session_autoload = 1
+-- g.startify_session_delete_buffers = 1
+-- g.startify_change_to_vcs_root = 1
+-- g.startify_fortune_use_unicode = 1
+-- g.startify_session_persistence = 1
+-- g:startify_session_dir = '~/vimsessions/' 
+-- g:startify_update_oldfiles = 1    -- Using this option updates it on-the-fly, so that :Startify is always up-to-date.
+-- g:startify_session_persistence = 1 -- Automatically update sessions in two cases
+-- g:startify_session_delete_buffers = 1 --Delete all buffers when loading or closing a session
+-- g:startify_change_to_dir = 1 -- When opening a file or bookmark, change to its directory
+-- g:startify_padding_left = 3 
+-- g:startify_relative_path = 1 -- If the file is in or below the current working directory, use a relative path.Otherwise an absolute path is used 
