@@ -64,7 +64,7 @@ return packer.startup(function(use)
   use "antoinemadec/FixCursorHold.nvim" -- This is needed to fix lsp doc highlight
   use "folke/which-key.nvim"
 	use "mhinz/vim-startify" -- startify
-  use "RRethy/vim-hexokinase"
+  use "RRethy/vim-hexokinase" -- vim colorshower
 
   -- Colorschemes
  -- use "lunarvim/colorschemes" -- A bunch of colorschemes you can try out
@@ -74,7 +74,7 @@ return packer.startup(function(use)
   -- use "bignimbus/pop-punk.vim"
   use "cooperuser/glowbeam.nvim"
   -- use "betoissues/contrastneed-theme"
-
+  -- use "nonetallt/vim-neon-dark"
   -- cmp plugins
   use "hrsh7th/nvim-cmp" -- The completion plugin
   use "hrsh7th/cmp-buffer" -- buffer completions
@@ -105,6 +105,7 @@ return packer.startup(function(use)
 
   -- Git
   use "lewis6991/gitsigns.nvim"
+  -- use "kdheepak/lazygit.nvim"-- was not working
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
