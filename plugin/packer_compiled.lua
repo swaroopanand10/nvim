@@ -114,6 +114,11 @@ _G.packer_plugins = {
     path = "/home/anand/.local/share/nvim/site/pack/packer/start/cmp_luasnip",
     url = "https://github.com/saadparwaiz1/cmp_luasnip"
   },
+  ["codi.vim"] = {
+    loaded = true,
+    path = "/home/anand/.local/share/nvim/site/pack/packer/start/codi.vim",
+    url = "https://github.com/metakirby5/codi.vim"
+  },
   ["darkplus.nvim"] = {
     loaded = true,
     path = "/home/anand/.local/share/nvim/site/pack/packer/start/darkplus.nvim",
@@ -223,6 +228,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/anand/.local/share/nvim/site/pack/packer/start/project.nvim",
     url = "https://github.com/ahmedkhalf/project.nvim"
+  },
+  ["quick-scope"] = {
+    loaded = true,
+    path = "/home/anand/.local/share/nvim/site/pack/packer/start/quick-scope",
+    url = "https://github.com/unblevable/quick-scope"
   },
   ["telescope.nvim"] = {
     loaded = true,

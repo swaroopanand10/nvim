@@ -106,6 +106,13 @@ return packer.startup(function(use)
   -- Git
   use "lewis6991/gitsigns.nvim"
   -- use "kdheepak/lazygit.nvim"-- was not working
+  
+  --Some extra stuff
+  use "metakirby5/codi.vim"
+  use "unblevable/quick-scope"
+  -- use "justinmk/vim-sneak"
+  -- use "ggandor/lightspeed.nvim"
+  -- use "easymotion/vim-easymotion"
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins

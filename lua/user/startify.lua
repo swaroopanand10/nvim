@@ -2,8 +2,7 @@
 -- if not status_ok then
 -- 	return
 -- end
---
---
+
 vim.cmd [[let g:startify_session_dir = '~/vimsessions/']]
 vim.cmd [[let g:startify_update_oldfiles = 1 ]]   -- Using this option updates it on-the-fly, so that :Startify is always up-to-date.
 vim.cmd [[let g:startify_session_persistence = 1]] -- Automatically update sessions in two cases
