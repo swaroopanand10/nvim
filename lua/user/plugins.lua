@@ -40,6 +40,7 @@ packer.init {
 
 -- Install your plugins here
 return packer.startup(function(use)
+
   -- My plugins here
   use "wbthomason/packer.nvim" -- Have packer manage itself
   use "nvim-lua/popup.nvim" -- An implementation of the Popup API from vim in Neovim
@@ -67,7 +68,7 @@ return packer.startup(function(use)
   use "RRethy/vim-hexokinase" -- vim colorshower
 
   -- Colorschemes
- -- use "lunarvim/colorschemes" -- A bunch of colorschemes you can try out
+  -- use "lunarvim/colorschemes" -- A bunch of colorschemes you can try out
   use "lunarvim/darkplus.nvim"
   use "gleich/monovibrant" 
   -- use "rafamadriz/neon"
@@ -75,6 +76,7 @@ return packer.startup(function(use)
   use "cooperuser/glowbeam.nvim"
   -- use "betoissues/contrastneed-theme"
   -- use "nonetallt/vim-neon-dark"
+
   -- cmp plugins
   use "hrsh7th/nvim-cmp" -- The completion plugin
   use "hrsh7th/cmp-buffer" -- buffer completions
@@ -82,6 +84,7 @@ return packer.startup(function(use)
   use "hrsh7th/cmp-cmdline" -- cmdline completions
   use "saadparwaiz1/cmp_luasnip" -- snippet completions
   use "hrsh7th/cmp-nvim-lsp"
+  -- use "mattn/emmet-vim"  -- emmet 
 
   -- snippets
   use "L3MON4D3/LuaSnip" --snippet engine
@@ -108,7 +111,7 @@ return packer.startup(function(use)
   -- use "kdheepak/lazygit.nvim"-- was not working
   
   --Some extra stuff
-  use "metakirby5/codi.vim"
+  -- use "metakirby5/codi.vim"
   use "unblevable/quick-scope"
   -- use "justinmk/vim-sneak"
   -- use "ggandor/lightspeed.nvim"
