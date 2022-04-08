@@ -49,7 +49,7 @@ return packer.startup(function(use)
   use "numToStr/Comment.nvim" -- Easily comment stuff
   use "kyazdani42/nvim-web-devicons"
   use "kyazdani42/nvim-tree.lua"
-  use "akinsho/bufferline.nvim"
+  -- use "akinsho/bufferline.nvim"
   use "moll/vim-bbye"
   use "nvim-lualine/lualine.nvim"
   use "akinsho/toggleterm.nvim"
@@ -97,7 +97,9 @@ return packer.startup(function(use)
   use "jose-elias-alvarez/null-ls.nvim" -- for formatters and linters
 
   -- Telescope
-  use "nvim-telescope/telescope.nvim"
+  use "nvim-telescope/telescope.nvim" -- ripgrep is important for livegrep so install it seperately by pacman
+  -- use "BurntSushi/ripgrep" -- I don't know the correct method of installing ripgrep this way so leave it for now
+  -- use "sharkdp/fd"
 
   -- Treesitter
   use {
