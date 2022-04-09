@@ -18,6 +18,8 @@ let g:startify_bookmarks = [
       \ {'c' : '~/.config/i3/config'},
       \ {'i' : '~/.config/nvim/init.lua'},
       \ {'p' : '~/.config/polybar/config.ini'},
+      \ {'b' : '~/.config/bspwm/bspwmrc'},
+      \ {'s' : '~/.config/sxhkd/sxhkdrc'},
       \ ] 
 ]]) 
 

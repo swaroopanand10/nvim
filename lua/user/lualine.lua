@@ -65,7 +65,7 @@ end
 -- Bubbles config for lualine
 -- Author: lokesh-krishna
 -- MIT license, see LICENSE for more details.
-
+-- maybe I (anand) am going to customize it a little bit so be aware that it could be customized little bit
 -- stylua: ignore
 local colors = {
   blue   = '#80a0ff',
@@ -75,11 +75,19 @@ local colors = {
   red    = '#ff5189',
   violet = '#d183e8',
   grey   = '#303030',
+  personal = '#52b0ef',
+  red1= '#ef5262',
+  red2= '#ff0000',
+  red3= '#ff3f4f',
+  red4 = '#ec5f67',
+  black1= '#191919',
+  black2 = '#0c0c0c',
 }
 
 local bubbles_theme = {
   normal = {
-    a = { fg = colors.black, bg = colors.violet },
+    -- a = { fg = colors.black, bg = colors.violet },
+    a = { fg = colors.black, bg = colors.red4 },
     b = { fg = colors.white, bg = colors.grey },
     c = { fg = colors.black, bg = colors.black },
   },
@@ -91,7 +99,8 @@ local bubbles_theme = {
   inactive = {
     a = { fg = colors.white, bg = colors.black },
     b = { fg = colors.white, bg = colors.black },
-    c = { fg = colors.black, bg = colors.black },
+    -- c = { fg = colors.black, bg = colors.black },
+    c = { fg = colors.black, bg = colors.black2 },
   },
 }
 
@@ -99,18 +108,21 @@ lualine.setup {
   options = {
     theme = bubbles_theme,
     component_separators = '|',
-    section_separators = { left = '', right = '' },
+    -- section_separators = { left = '', right = '' },
+    -- section_separators = { left = '|', right = '|' },
   },
   sections = {
     lualine_a = {
-      { 'mode', separator = { left = '' }, right_padding = 2 },
+      -- { 'mode', separator = { left = '' }, right_padding = 2 },
+      { 'mode',  left_padding = 2 },
     },
     lualine_b = { 'filename', 'branch' },
     lualine_c = { 'fileformat' },
     lualine_x = {},
     lualine_y = { 'filetype', 'progress' },
     lualine_z = {
-      { 'location', separator = { right = '' }, left_padding = 2 },
+      -- { 'location', separator = { right = '' }, left_padding = 2 },
+      { 'location', left_padding = 2 },
     },
   },
   inactive_sections = {
