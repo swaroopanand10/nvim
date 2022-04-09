@@ -144,6 +144,11 @@ _G.packer_plugins = {
     path = "/home/anand/.local/share/nvim/site/pack/packer/start/lualine.nvim",
     url = "https://github.com/nvim-lualine/lualine.nvim"
   },
+  monocustom = {
+    loaded = true,
+    path = "/home/anand/.local/share/nvim/site/pack/packer/start/monocustom",
+    url = "https://github.com/swaroopanand10/monocustom"
+  },
   monovibrant = {
     loaded = true,
     path = "/home/anand/.local/share/nvim/site/pack/packer/start/monovibrant",

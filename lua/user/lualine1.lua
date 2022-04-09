@@ -453,7 +453,7 @@ ins_right {
     }
     return { fg = mode_color[vim.fn.mode()] }
   end,
-  padding = { left = 1 },
+  padding = { left = 0 },
 }
 
 -- Now don't forget to initialize lualine

@@ -71,6 +71,7 @@ return packer.startup(function(use)
   -- use "lunarvim/colorschemes" -- A bunch of colorschemes you can try out
   use "lunarvim/darkplus.nvim"
   use "gleich/monovibrant" 
+  use "swaroopanand10/monocustom"
   -- use "rafamadriz/neon"
   -- use "bignimbus/pop-punk.vim"
   use "cooperuser/glowbeam.nvim"
