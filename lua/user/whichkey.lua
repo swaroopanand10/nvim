@@ -137,7 +137,7 @@ local mappings = {
       "Diff",
     },
   },
-
+ 
   l = {
     name = "LSP",
     a = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action" },
@@ -191,6 +191,11 @@ local mappings = {
     h = { "<cmd>ToggleTerm size=10 direction=horizontal<cr>", "Horizontal" },
     v = { "<cmd>ToggleTerm size=80 direction=vertical<cr>", "Vertical" },
   },
+ v = {
+    name = "splits",
+    v = {"<cmd>vsplit<cr>", "vertical split"} ,
+    h = {"<cmd>split<cr>", "horizontal split"}, 
+}
 }
 
 which_key.setup(setup)
