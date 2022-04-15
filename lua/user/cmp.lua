@@ -57,7 +57,7 @@ cmp.setup {
     ["<C-b>"] = cmp.mapping(cmp.mapping.scroll_docs(-1), { "i", "c" }),
     ["<C-f>"] = cmp.mapping(cmp.mapping.scroll_docs(1), { "i", "c" }),
     ["<C-Space>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
-    ["<C-y>"] = cmp.config.disable, -- Specify `cmp.config.disable` if you want to remove the default `<C-y>` mapping.
+    -- ["<C-y>"] = cmp.config.disable, -- Specify `cmp.config.disable` if you want to remove the default `<C-y>` mapping.
     ["<C-e>"] = cmp.mapping {
       i = cmp.mapping.abort(),
       c = cmp.mapping.close(),
@@ -119,11 +119,25 @@ cmp.setup {
     behavior = cmp.ConfirmBehavior.Replace,
     select = false,
   },
+  --  option = {
+  --   behavior = cmp.ConfirmBehavior.Replace,
+  --   select = false,
+  -- },
+
+  window = {
+   -- documentation = false,
   documentation = {
     border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
   },
-  experimental = {
-    ghost_text = false,
-    native_menu = false,
+  },
+  -- documentation = {
+  --   border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
+  -- },
+  -- experimental = {
+  --   ghost_text = false,
+  --   native_menu = false,
+  -- },
+  view = {
+    entries = 'native',
   },
 }

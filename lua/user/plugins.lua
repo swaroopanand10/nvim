@@ -71,8 +71,9 @@ return packer.startup(function(use)
   -- Colorschemes
   -- use "lunarvim/colorschemes" -- A bunch of colorschemes you can try out
   use "lunarvim/darkplus.nvim"
-  use "gleich/monovibrant" 
+  -- use "gleich/monovibrant" 
   use "swaroopanand10/monocustom"
+  use "swaroopanand10/monovibrantdark"
   -- use "rafamadriz/neon"
   -- use "bignimbus/pop-punk.vim"
   use "cooperuser/glowbeam.nvim"
@@ -86,7 +87,7 @@ return packer.startup(function(use)
   use "hrsh7th/cmp-cmdline" -- cmdline completions
   use "saadparwaiz1/cmp_luasnip" -- snippet completions
   use "hrsh7th/cmp-nvim-lsp"
-  -- use "mattn/emmet-vim"  -- emmet 
+  -- use "mattn/emmet-vim"  -- emmet (not working for unknown reasons)
 
   -- snippets
   use "L3MON4D3/LuaSnip" --snippet engine
