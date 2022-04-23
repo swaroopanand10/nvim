@@ -79,6 +79,7 @@ return packer.startup(function(use)
   use "cooperuser/glowbeam.nvim"
   -- use "betoissues/contrastneed-theme"
   -- use "nonetallt/vim-neon-dark"
+  use "navarasu/onedark.nvim"
 
   -- cmp plugins
   use "hrsh7th/nvim-cmp" -- The completion plugin

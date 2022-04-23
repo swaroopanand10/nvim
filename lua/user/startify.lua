@@ -20,7 +20,7 @@ let g:startify_bookmarks = [
       \ {'p' : '~/.config/polybar/config.ini'},
       \ {'b' : '~/.config/bspwm/bspwmrc'},
       \ {'s' : '~/.config/sxhkd/sxhkdrc'},
-      \ {'m' : '~/.local/share/nvim/site/pack/packer/start/monovibrant/colors/monovibrant.vim'}      
+      \ {'m' : '~/.local/share/nvim/site/pack/packer/start/monovibrantdark/colors/monovibrantdark.vim'}      
       \ ] 
 ]]) 
 
