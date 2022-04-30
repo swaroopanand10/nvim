@@ -1,12 +1,12 @@
 vim.cmd [[
 try
-  colorscheme monovibrantdark
+  colorscheme glowbeamdark
 catch /^Vim\%((\a\+)\)\=:E185/
   colorscheme default
   set background=dark
 endtry
 ]]
 -- require('onedark').setup {
---     style = 'cool'
+--     style = 'darker'
 -- }
 -- require('onedark').load()

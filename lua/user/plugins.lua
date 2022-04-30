@@ -49,7 +49,7 @@ return packer.startup(function(use)
   use "numToStr/Comment.nvim" -- Easily comment stuff
   use "kyazdani42/nvim-web-devicons"
   use "kyazdani42/nvim-tree.lua"
-  -- use "akinsho/bufferline.nvim"
+  use "akinsho/bufferline.nvim"
   use "moll/vim-bbye"
   use "nvim-lualine/lualine.nvim"
   use "akinsho/toggleterm.nvim"
@@ -65,22 +65,25 @@ return packer.startup(function(use)
   use "antoinemadec/FixCursorHold.nvim" -- This is needed to fix lsp doc highlight
   use "folke/which-key.nvim"
 	use "mhinz/vim-startify" -- startify
-  use "chrisbra/Colorizer"
-  -- use "RRethy/vim-hexokinase" -- vim colorshower
+  -- use "chrisbra/Colorizer"
+
+  use {'rrethy/vim-hexokinase', 
+  run = 'cd ~/.local/share/nvim/site/pack/packer/start/vim-hexokinase && make hexokinase'}
 
   -- Colorschemes
   -- use "lunarvim/colorschemes" -- A bunch of colorschemes you can try out
   use "lunarvim/darkplus.nvim"
   -- use "gleich/monovibrant" 
-  use "swaroopanand10/monocustom"
+  -- use "swaroopanand10/monocustom"
   use "swaroopanand10/monovibrantdark"
+  use "swaroopanand10/glowbeamdark"
   -- use "rafamadriz/neon"
-  -- use "bignimbus/pop-punk.vim"
+  use "bignimbus/pop-punk.vim"
   use "cooperuser/glowbeam.nvim"
   -- use "betoissues/contrastneed-theme"
   -- use "nonetallt/vim-neon-dark"
-  use "navarasu/onedark.nvim"
-
+  -- use 'folke/tokyonight.nvim'
+  
   -- cmp plugins
   use "hrsh7th/nvim-cmp" -- The completion plugin
   use "hrsh7th/cmp-buffer" -- buffer completions

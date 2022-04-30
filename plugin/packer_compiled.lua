@@ -69,11 +69,6 @@ end
 time([[try_loadstring definition]], false)
 time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
-  Colorizer = {
-    loaded = true,
-    path = "/home/swaroop/.local/share/nvim/site/pack/packer/start/Colorizer",
-    url = "https://github.com/chrisbra/Colorizer"
-  },
   ["Comment.nvim"] = {
     loaded = true,
     path = "/home/swaroop/.local/share/nvim/site/pack/packer/start/Comment.nvim",
@@ -88,6 +83,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/swaroop/.local/share/nvim/site/pack/packer/start/LuaSnip",
     url = "https://github.com/L3MON4D3/LuaSnip"
+  },
+  ["bufferline.nvim"] = {
+    loaded = true,
+    path = "/home/swaroop/.local/share/nvim/site/pack/packer/start/bufferline.nvim",
+    url = "https://github.com/akinsho/bufferline.nvim"
   },
   ["cmp-buffer"] = {
     loaded = true,
@@ -134,6 +134,11 @@ _G.packer_plugins = {
     path = "/home/swaroop/.local/share/nvim/site/pack/packer/start/glowbeam.nvim",
     url = "https://github.com/cooperuser/glowbeam.nvim"
   },
+  glowbeamdark = {
+    loaded = true,
+    path = "/home/swaroop/.local/share/nvim/site/pack/packer/start/glowbeamdark",
+    url = "https://github.com/swaroopanand10/glowbeamdark"
+  },
   ["impatient.nvim"] = {
     loaded = true,
     path = "/home/swaroop/.local/share/nvim/site/pack/packer/start/impatient.nvim",
@@ -148,11 +153,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/swaroop/.local/share/nvim/site/pack/packer/start/lualine.nvim",
     url = "https://github.com/nvim-lualine/lualine.nvim"
-  },
-  monocustom = {
-    loaded = true,
-    path = "/home/swaroop/.local/share/nvim/site/pack/packer/start/monocustom",
-    url = "https://github.com/swaroopanand10/monocustom"
   },
   monovibrantdark = {
     loaded = true,
@@ -209,11 +209,6 @@ _G.packer_plugins = {
     path = "/home/swaroop/.local/share/nvim/site/pack/packer/start/nvim-web-devicons",
     url = "https://github.com/kyazdani42/nvim-web-devicons"
   },
-  ["onedark.nvim"] = {
-    loaded = true,
-    path = "/home/swaroop/.local/share/nvim/site/pack/packer/start/onedark.nvim",
-    url = "https://github.com/navarasu/onedark.nvim"
-  },
   ["packer.nvim"] = {
     loaded = true,
     path = "/home/swaroop/.local/share/nvim/site/pack/packer/start/packer.nvim",
@@ -223,6 +218,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/swaroop/.local/share/nvim/site/pack/packer/start/plenary.nvim",
     url = "https://github.com/nvim-lua/plenary.nvim"
+  },
+  ["pop-punk.vim"] = {
+    loaded = true,
+    path = "/home/swaroop/.local/share/nvim/site/pack/packer/start/pop-punk.vim",
+    url = "https://github.com/bignimbus/pop-punk.vim"
   },
   ["popup.nvim"] = {
     loaded = true,
@@ -253,6 +253,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/swaroop/.local/share/nvim/site/pack/packer/start/vim-bbye",
     url = "https://github.com/moll/vim-bbye"
+  },
+  ["vim-hexokinase"] = {
+    loaded = true,
+    path = "/home/swaroop/.local/share/nvim/site/pack/packer/start/vim-hexokinase",
+    url = "https://github.com/rrethy/vim-hexokinase"
   },
   ["vim-startify"] = {
     loaded = true,
