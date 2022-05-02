@@ -73,12 +73,12 @@ return packer.startup(function(use)
   -- Colorschemes
   -- use "lunarvim/colorschemes" -- A bunch of colorschemes you can try out
   use "lunarvim/darkplus.nvim"
-  -- use "gleich/monovibrant" 
+  -- use "gleich/monovibrant"
   -- use "swaroopanand10/monocustom"
   use "swaroopanand10/monovibrantdark"
   use "swaroopanand10/glowbeamdark"
   -- use "rafamadriz/neon"
-  use "bignimbus/pop-punk.vim"
+  -- use "bignimbus/pop-punk.vim"
   use "cooperuser/glowbeam.nvim"
   -- use "betoissues/contrastneed-theme"
   -- use "nonetallt/vim-neon-dark"
@@ -91,11 +91,13 @@ return packer.startup(function(use)
   use "hrsh7th/cmp-cmdline" -- cmdline completions
   use "saadparwaiz1/cmp_luasnip" -- snippet completions
   use "hrsh7th/cmp-nvim-lsp"
-  -- use "mattn/emmet-vim"  -- emmet (not working for unknown reasons)
+  use "mattn/emmet-vim"  -- emmet (just install it this way and it's fine)
+  use "mlaursen/vim-react-snippets" -- react snippets
 
   -- snippets
   use "L3MON4D3/LuaSnip" --snippet engine
   use "rafamadriz/friendly-snippets" -- a bunch of snippets to use
+  use "SirVer/ultisnips"
 
   -- LSP
   use "neovim/nvim-lspconfig" -- enable LSP
@@ -114,12 +116,14 @@ return packer.startup(function(use)
     run = ":TSUpdate",
   }
   use "JoosepAlviste/nvim-ts-context-commentstring"
+  use "windwp/nvim-ts-autotag"
 
   -- Git
   use "lewis6991/gitsigns.nvim"
   -- use "kdheepak/lazygit.nvim"-- was not working
   
   --Some extra stuff
+  use "tpope/vim-surround"
   -- use "metakirby5/codi.vim"
   use "unblevable/quick-scope"
   -- use "justinmk/vim-sneak"

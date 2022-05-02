@@ -22,8 +22,11 @@ npairs.setup {
     check_comma = true,
     highlight = "PmenuSel",
     highlight_grey = "LineNr",
+    enable_check_bracket_line = false, --added by me
   },
 }
+
+
 
 local cmp_autopairs = require "nvim-autopairs.completion.cmp"
 local cmp_status_ok, cmp = pcall(require, "cmp")
