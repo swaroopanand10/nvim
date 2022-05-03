@@ -3,3 +3,6 @@ require'nvim-treesitter.configs'.setup {
     enable = true,
   }
 }
+
+--setting for vim surround
+vim.cmd[[set timeout timeoutlen=100]] -- this feature can cause some problems in time etc
