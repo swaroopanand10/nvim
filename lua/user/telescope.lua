@@ -4,6 +4,10 @@ if not status_ok then
 end
 
 local actions = require "telescope.actions"
+local action_state = require('telescope.actions.state')
+-- local selection = action_state.get_current_selection()
+
+
 
 telescope.setup {
   defaults = {
@@ -17,10 +21,10 @@ telescope.setup {
         ["<C-n>"] = actions.cycle_history_next,
         ["<C-p>"] = actions.cycle_history_prev,
 
-        ["<C-j>"] = actions.move_selection_next,
-        ["<C-k>"] = actions.move_selection_previous,
+        ["<A-j>"] = actions.move_selection_next,   --changed both from Ctrl to Alt
+        ["<A-k>"] = actions.move_selection_previous,
 
-        ["<C-c>"] = actions.close,
+        ["<A-c>"] = actions.close,  --changed it from C-c to A-c
 
         ["<Down>"] = actions.move_selection_next,
         ["<Up>"] = actions.move_selection_previous,
@@ -74,6 +78,8 @@ telescope.setup {
         ["<PageDown>"] = actions.results_scrolling_down,
 
         ["?"] = actions.which_key,
+        -- ["<a-h>"] = "which_key",
+        -- ["d"] = delete_buf
       },
     },
   },
@@ -100,3 +106,20 @@ telescope.setup {
     -- please take a look at the readme of the extension you want to configure
   },
 }
+
+-- functionality for deleting buffers from the buffermenu itself
+require('telescope').setup {
+  defaults = {
+    -- Default configuration for telescope goes here:
+    -- config_key = value,
+    mappings = {
+      n = {
+        ['<a-d>'] = actions.delete_buffer
+      }, -- n
+      i = {
+        -- ["<a-h>"] = "which_key",
+        ['<a-d>'] = actions.delete_buffer
+      } -- i
+    } -- mappings
+  }, -- defaults
+} -- telescope setup

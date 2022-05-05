@@ -5,14 +5,14 @@
 
 -- vim.cmd [[let g:startify_session_dir = '~/vimsessions/']]
 vim.cmd [[let g:startify_update_oldfiles = 1 ]]   -- Using this option updates it on-the-fly, so that :Startify is always up-to-date.
-vim.cmd [[let g:startify_session_persistence = 1]] -- Automatically update sessions in two cases
+vim.cmd [[let g:startify_session_persistence = 0]] -- Automatically update sessions in two cases
 vim.cmd [[let g:startify_session_delete_buffers = 1]] --Delete all buffers when loading or closing a session
 vim.cmd [[let g:startify_change_to_dir = 1]] -- When opening a file or bookmark, change to its directory
 vim.cmd [[let g:startify_padding_left = 3]]
 -- vim.cmd [[let g:startify_custom_header = startify#fortune#quote()]]
 vim.cmd [[let g:startify_custom_header = ['   Neovim'] ]]
 vim.cmd [[let g:startify_relative_path = 1]] -- If the file is in or below the current working directory, use a relative path.Otherwise an absolute path is used
-vim.cmd [[let g:startify_session_dir = '~/Desktop/vs/']] 
+vim.cmd [[let g:startify_session_dir = '~/.config/nvim/sessions/']] 
 vim.cmd([[
 let g:startify_bookmarks = [
       \ {'c' : '~/.config/i3/config'},
