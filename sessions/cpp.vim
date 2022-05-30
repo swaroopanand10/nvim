@@ -10,7 +10,7 @@ endif
 let s:shortmess_save = &shortmess
 set shortmess=aoO
 badd +1 ~/Desktop/cf/out.txt
-badd +18 ~/Desktop/cf/cpp.cpp
+badd +15 ~/Desktop/cf/cpp.cpp
 badd +1 ~/Desktop/cf/in.txt
 argglobal
 %argdel
@@ -35,11 +35,11 @@ set winminheight=0
 set winheight=1
 set winminwidth=0
 set winwidth=1
-exe 'vert 1resize ' . ((&columns * 67 + 67) / 135)
-exe '2resize ' . ((&lines * 15 + 17) / 34)
-exe 'vert 2resize ' . ((&columns * 67 + 67) / 135)
-exe '3resize ' . ((&lines * 15 + 17) / 34)
-exe 'vert 3resize ' . ((&columns * 67 + 67) / 135)
+exe 'vert 1resize ' . ((&columns * 72 + 72) / 144)
+exe '2resize ' . ((&lines * 16 + 17) / 35)
+exe 'vert 2resize ' . ((&columns * 71 + 72) / 144)
+exe '3resize ' . ((&lines * 15 + 17) / 35)
+exe 'vert 3resize ' . ((&columns * 71 + 72) / 144)
 argglobal
 setlocal fdm=manual
 setlocal fde=0
@@ -51,12 +51,12 @@ setlocal fdn=20
 setlocal fen
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 21 - ((20 * winheight(0) + 15) / 31)
+let s:l = 15 - ((14 * winheight(0) + 16) / 32)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 21
-normal! 0
+keepjumps 15
+normal! 02|
 lcd ~/Desktop/cf
 wincmd w
 argglobal
@@ -75,7 +75,7 @@ setlocal fdn=20
 setlocal fen
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 1 - ((0 * winheight(0) + 7) / 15)
+let s:l = 1 - ((0 * winheight(0) + 8) / 16)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
@@ -107,11 +107,11 @@ keepjumps 1
 normal! 0
 lcd ~/Desktop/cf
 wincmd w
-exe 'vert 1resize ' . ((&columns * 67 + 67) / 135)
-exe '2resize ' . ((&lines * 15 + 17) / 34)
-exe 'vert 2resize ' . ((&columns * 67 + 67) / 135)
-exe '3resize ' . ((&lines * 15 + 17) / 34)
-exe 'vert 3resize ' . ((&columns * 67 + 67) / 135)
+exe 'vert 1resize ' . ((&columns * 72 + 72) / 144)
+exe '2resize ' . ((&lines * 16 + 17) / 35)
+exe 'vert 2resize ' . ((&columns * 71 + 72) / 144)
+exe '3resize ' . ((&lines * 15 + 17) / 35)
+exe 'vert 3resize ' . ((&columns * 71 + 72) / 144)
 tabnext 1
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0 && getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'
   silent exe 'bwipe ' . s:wipebuf
