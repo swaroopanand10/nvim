@@ -65,16 +65,21 @@ return packer.startup(function(use)
   use "antoinemadec/FixCursorHold.nvim" -- This is needed to fix lsp doc highlight
   use "folke/which-key.nvim"
 	use "mhinz/vim-startify" -- startify
-  -- use "chrisbra/Colorizer"
-
+  use {
+    "SmiteshP/nvim-navic",
+    requires = "neovim/nvim-lspconfig"
+   }
+  -- use { "christianchiarulli/nvim-gps", branch = "text_hl" }
   use {'rrethy/vim-hexokinase', 
   run = 'cd ~/.local/share/nvim/site/pack/packer/start/vim-hexokinase && make hexokinase'}
+  -- use { "christianchiarulli/JABS.nvim" }
+
 
   -- Colorschemes
   -- use "lunarvim/colorschemes" -- A bunch of colorschemes you can try out
   use "lunarvim/darkplus.nvim"
   -- use "gleich/monovibrant"
-  -- use "swaroopanand10/monocustom"
+  use "swaroopanand10/monocustom"
   use "swaroopanand10/monovibrantdark"
   use "swaroopanand10/glowbeamdark"
   -- use "rafamadriz/neon"
@@ -91,8 +96,10 @@ return packer.startup(function(use)
   use "hrsh7th/cmp-cmdline" -- cmdline completions
   use "saadparwaiz1/cmp_luasnip" -- snippet completions
   use "hrsh7th/cmp-nvim-lsp"
+  use "hrsh7th/cmp-nvim-lua"
   use "mattn/emmet-vim"  -- emmet (just install it this way and it's fine)
   use "mlaursen/vim-react-snippets" -- react snippets
+
 
   -- snippets
   use "L3MON4D3/LuaSnip" --snippet engine
@@ -101,6 +108,11 @@ return packer.startup(function(use)
 
   -- LSP
   use "neovim/nvim-lspconfig" -- enable LSP
+-- local use = require('packer').use
+-- require('packer').startup(function()
+--   use 'wbthomason/packer.nvim' -- Package manager
+--   use 'neovim/nvim-lspconfig' -- Configurations for Nvim LSP
+-- end)
   use "williamboman/nvim-lsp-installer" -- simple to use language server installer
   use "tamago324/nlsp-settings.nvim" -- language server settings defined in json for
   use "jose-elias-alvarez/null-ls.nvim" -- for formatters and linters
@@ -117,7 +129,7 @@ return packer.startup(function(use)
   }
   use "JoosepAlviste/nvim-ts-context-commentstring"
   use "windwp/nvim-ts-autotag"
-
+  use "RRethy/vim-illuminate"
   -- Git
   use "lewis6991/gitsigns.nvim"
   -- use "kdheepak/lazygit.nvim"-- was not working

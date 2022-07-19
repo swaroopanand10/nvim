@@ -104,6 +104,11 @@ _G.packer_plugins = {
     path = "/home/swaroop/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp",
     url = "https://github.com/hrsh7th/cmp-nvim-lsp"
   },
+  ["cmp-nvim-lua"] = {
+    loaded = true,
+    path = "/home/swaroop/.local/share/nvim/site/pack/packer/start/cmp-nvim-lua",
+    url = "https://github.com/hrsh7th/cmp-nvim-lua"
+  },
   ["cmp-path"] = {
     loaded = true,
     path = "/home/swaroop/.local/share/nvim/site/pack/packer/start/cmp-path",
@@ -159,6 +164,11 @@ _G.packer_plugins = {
     path = "/home/swaroop/.local/share/nvim/site/pack/packer/start/lualine.nvim",
     url = "https://github.com/nvim-lualine/lualine.nvim"
   },
+  monocustom = {
+    loaded = true,
+    path = "/home/swaroop/.local/share/nvim/site/pack/packer/start/monocustom",
+    url = "https://github.com/swaroopanand10/monocustom"
+  },
   monovibrantdark = {
     loaded = true,
     path = "/home/swaroop/.local/share/nvim/site/pack/packer/start/monovibrantdark",
@@ -193,6 +203,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/swaroop/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
     url = "https://github.com/neovim/nvim-lspconfig"
+  },
+  ["nvim-navic"] = {
+    loaded = true,
+    path = "/home/swaroop/.local/share/nvim/site/pack/packer/start/nvim-navic",
+    url = "https://github.com/SmiteshP/nvim-navic"
   },
   ["nvim-tree.lua"] = {
     loaded = true,
@@ -268,6 +283,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/swaroop/.local/share/nvim/site/pack/packer/start/vim-hexokinase",
     url = "https://github.com/rrethy/vim-hexokinase"
+  },
+  ["vim-illuminate"] = {
+    loaded = true,
+    path = "/home/swaroop/.local/share/nvim/site/pack/packer/start/vim-illuminate",
+    url = "https://github.com/RRethy/vim-illuminate"
   },
   ["vim-react-snippets"] = {
     loaded = true,

@@ -44,21 +44,46 @@ M.setup = function()
   })
 end
 
+-- local function lsp_highlight_document(client)
+--   -- Set autocommands conditional on server_capabilities
+--   if client.resolved_capabilities.document_highlight then
+--     vim.api.nvim_exec(
+--       [[
+--       augroup lsp_document_highlight
+--         autocmd! * <buffer>
+--         autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight()
+--         autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
+--       augroup END
+--     ]],
+--       false
+--     )
+--   end
+-- end
+
 local function lsp_highlight_document(client)
-  -- Set autocommands conditional on server_capabilities
-  if client.resolved_capabilities.document_highlight then
-    vim.api.nvim_exec(
-      [[
-      augroup lsp_document_highlight
-        autocmd! * <buffer>
-        autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight()
-        autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
-      augroup END
-    ]],
-      false
-    )
+  local status_ok, illuminate = pcall(require, "illuminate")
+  if not status_ok then
+    return
   end
+  illuminate.on_attach(client)
 end
+
+-- local function attach_navic(client, bufnr)
+--   vim.g.navic_silence = true
+--   local status_ok, navic = pcall(require, "nvim-navic")
+--   if not status_ok then
+--     return
+--   end
+--   navic.attach(client, bufnr)
+-- end
+
+local navic = require("nvim-navic")
+
+require("lspconfig").clangd.setup {
+    on_attach = function(client, bufnr)
+        navic.attach(client, bufnr)
+    end
+}
 
 local function lsp_keymaps(bufnr)
   local opts = { noremap = true, silent = true }
@@ -85,6 +110,7 @@ local function lsp_keymaps(bufnr)
   vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>Q", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts) 
   vim.cmd [[ command! Format execute 'lua vim.lsp.buf.formatting()' ]]
 end
+
 
 M.on_attach = function(client, bufnr)
   if client.name == "tsserver" then

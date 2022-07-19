@@ -4,7 +4,7 @@ if not status_ok then
 end
 
 local actions = require "telescope.actions"
-local action_state = require('telescope.actions.state')
+-- local action_state = require('telescope.actions.state')
 -- local selection = action_state.get_current_selection()
 
 
