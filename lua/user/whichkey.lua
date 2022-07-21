@@ -98,8 +98,11 @@ local mappings = {
   -- },
   -- ["F"] = { "<cmd>Telescope live_grep theme=ivy<cr>", "Find Text" },
   ["P"] = { "<cmd>lua require('telescope').extensions.projects.projects()<cr>", "Projects" },
-  ["j"] = { "<cmd>FZF! --layout=reverse ~<cr>", "fzf_file_prv" },
-  ["o"] = { "<cmd>Files! ~<cr>", "fzf_file" },
+  ["o"] = { "<cmd>FZF! --layout=reverse ~<cr>", "fzf_file" },
+  ["j"] = {
+    "<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>",
+    "Find files",
+  },
 
   a = {
      name = "startify",
@@ -110,20 +113,21 @@ local mappings = {
      D = { "<cmd>StartifyDebug<cr>", "Startify Debug" },
   }, 
 
-  r = {
+  k = {
      name = "fzf_grep",
+     a = { "<cmd>Files! ~<cr>", "fzf_file_prv" },
      r = { "<cmd>Lines!<cr>", "buffer_grep" },
      f = { "<cmd>Rg!<cr>", "normal_grep" },
-     h = { "<cmd>History:! <cr>", "history" },
-     p = { "<cmd>Commands! <cr>", "commands" },
+     d = { "<cmd>History!: <cr>", "history" },
+     c = { "<cmd>Commands! <cr>", "commands" },
   }, 
 
   f = {
      name = "find",
-  f = {
-    "<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>",
-    "Find files",
-  },
+  -- f = {
+  --   "<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>",
+  --   "Find files",
+  -- },
   t = { "<cmd>Telescope live_grep theme=ivy<cr>", "Find Text" },
 
   b = { "<cmd>:Telescope file_browser<cr>", "file_browser" },
