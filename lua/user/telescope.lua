@@ -21,10 +21,11 @@ telescope.setup {
         ["<C-n>"] = actions.cycle_history_next,
         ["<C-p>"] = actions.cycle_history_prev,
 
-        ["<A-j>"] = actions.move_selection_next,   --changed both from Ctrl to Alt
-        ["<A-k>"] = actions.move_selection_previous,
+        ["<C-j>"] = actions.move_selection_next,   --doesn't seem to work with both ctrl and alt for some reason but are working for fzf
 
-        ["<A-c>"] = actions.close,  --changed it from C-c to A-c
+        ["<C-k>"] = actions.move_selection_previous,
+
+        ["<C-c>"] = actions.close,  --changed it from C-c to A-c
 
         ["<Down>"] = actions.move_selection_next,
         ["<Up>"] = actions.move_selection_previous,
@@ -50,6 +51,7 @@ telescope.setup {
 
       n = {
         ["<esc>"] = actions.close,
+        -- ["<C-c>"] = actions.close,
         ["<CR>"] = actions.select_default,
         ["<C-x>"] = actions.select_horizontal,
         ["<C-v>"] = actions.select_vertical,
@@ -123,3 +125,30 @@ require('telescope').setup {
     } -- mappings
   }, -- defaults
 } -- telescope setup
+
+
+-- Telescope file browser
+-- You don't need to set any of these options.
+-- IMPORTANT!: this is only a showcase of how you can set default options!
+require("telescope").setup {
+  extensions = {
+    file_browser = {
+      theme = "ivy",
+      hidden = true,
+      -- depth = false, -- makes it slow
+      -- disables netrw and use telescope-file-browser in its place
+      hijack_netrw = true,
+      mappings = {
+        ["i"] = {
+          -- your custom insert mode mappings
+        },
+        ["n"] = {
+          -- your custom normal mode mappings
+        },
+      },
+    },
+  },
+}
+-- To get telescope-file-browser loaded and working with telescope,
+-- you need to call load_extension, somewhere after setup function:
+require("telescope").load_extension "file_browser"

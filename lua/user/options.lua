@@ -2,6 +2,7 @@ local options = {
   backup = false,                          -- creates a backup file
   clipboard = "unnamedplus",               -- allows neovim to access the system clipboard
   cmdheight = 1,                           -- more space in the neovim command line for displaying messages
+  -- cmdheight = 0,                           -- more space in the neovim command line for displaying messages
   -- cmdwinheight = 1,
   completeopt = { "menuone", "noselect" }, -- mostly just for cmp
   conceallevel = 0,                        -- so that `` is visible in markdown files
@@ -36,6 +37,7 @@ local options = {
   sidescrolloff = 8,
   guifont = "monospace:h12",               -- the font used in graphical neovim applications
   laststatus=3,
+  -- background="dark",
 }
 
 vim.opt.shortmess:append "c"

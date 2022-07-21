@@ -52,6 +52,7 @@ return packer.startup(function(use)
   use "akinsho/bufferline.nvim"
   use "moll/vim-bbye"
   use "nvim-lualine/lualine.nvim"
+  -- use "christianchiarulli/lualine.nvim"
   use "akinsho/toggleterm.nvim"
   use "ahmedkhalf/project.nvim"
   use "lewis6991/impatient.nvim"
@@ -119,9 +120,10 @@ return packer.startup(function(use)
 
   -- Telescope
   use "nvim-telescope/telescope.nvim" -- ripgrep is important for livegrep so install it seperately by pacman
-  -- use "BurntSushi/ripgrep" -- I don't know the correct method of installing ripgrep this way so leave it for now
+  use { "nvim-telescope/telescope-file-browser.nvim" }
   -- use "sharkdp/fd"
-
+  use 'junegunn/fzf'
+  use 'junegunn/fzf.vim'
   -- Treesitter
   use {
     "nvim-treesitter/nvim-treesitter",
@@ -129,7 +131,17 @@ return packer.startup(function(use)
   }
   use "JoosepAlviste/nvim-ts-context-commentstring"
   use "windwp/nvim-ts-autotag"
-  use "RRethy/vim-illuminate"
+  -- use "RRethy/vim-illuminate"
+
+  -- Dap
+ -- DAP
+  use "mfussenegger/nvim-dap"
+  -- use "theHamsta/nvim-dap-virtual-text"
+  use "rcarriga/nvim-dap-ui"
+  -- use "Pocco81/DAPInstall.nvim"
+  use "Pocco81/dap-buddy.nvim"
+  use { "ravenxrz/DAPInstall.nvim", commit = "8798b4c36d33723e7bba6ed6e2c202f84bb300de" }
+  use "nvim-telescope/telescope-dap.nvim"
   -- Git
   use "lewis6991/gitsigns.nvim"
   -- use "kdheepak/lazygit.nvim"-- was not working
@@ -141,6 +153,7 @@ return packer.startup(function(use)
   -- use "justinmk/vim-sneak"
   -- use "ggandor/lightspeed.nvim"
   -- use "easymotion/vim-easymotion"
+
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins

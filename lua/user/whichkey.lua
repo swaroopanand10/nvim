@@ -89,14 +89,17 @@ local mappings = {
   ["i"] = {"<cmd>wq!<CR>", "Save+Quit"},
   ["z"] = {"<cmd>wqa!<CR>", "Save+Quit+all"},
   ["q"] = { "<cmd>q!<CR>", "Quit" },
+  ["Q"] = { "<cmd>qa!<CR>", "Quit all without saving" },
   ["c"] = { "<cmd>Bdelete!<CR>", "Close Buffer" },
   ["h"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
-  ["f"] = {
-    "<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>",
-    "Find files",
-  },
-  ["F"] = { "<cmd>Telescope live_grep theme=ivy<cr>", "Find Text" },
+  -- ["f"] = {
+  --   "<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>",
+  --   "Find files",
+  -- },
+  -- ["F"] = { "<cmd>Telescope live_grep theme=ivy<cr>", "Find Text" },
   ["P"] = { "<cmd>lua require('telescope').extensions.projects.projects()<cr>", "Projects" },
+  ["j"] = { "<cmd>FZF! --layout=reverse ~<cr>", "fzf_file_prv" },
+  ["o"] = { "<cmd>Files! ~<cr>", "fzf_file" },
 
   a = {
      name = "startify",
@@ -105,8 +108,39 @@ local mappings = {
      c = { "<cmd>SClose<cr>", "Close session" },
      d = { "<cmd>SDelete<cr>", "Delete session" },
      D = { "<cmd>StartifyDebug<cr>", "Startify Debug" },
-     
   }, 
+
+  r = {
+     name = "fzf_grep",
+     r = { "<cmd>Lines!<cr>", "buffer_grep" },
+     f = { "<cmd>Rg!<cr>", "normal_grep" },
+     h = { "<cmd>History:! <cr>", "history" },
+     p = { "<cmd>Commands! <cr>", "commands" },
+  }, 
+
+  f = {
+     name = "find",
+  f = {
+    "<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>",
+    "Find files",
+  },
+  t = { "<cmd>Telescope live_grep theme=ivy<cr>", "Find Text" },
+
+  b = { "<cmd>:Telescope file_browser<cr>", "file_browser" },
+  }, 
+
+    d = {
+    name = "Debug",
+    b = { "<cmd>lua require'dap'.toggle_breakpoint()<cr>", "Breakpoint" },
+    c = { "<cmd>lua require'dap'.continue()<cr>", "Continue" },
+    i = { "<cmd>lua require'dap'.step_into()<cr>", "Into" },
+    o = { "<cmd>lua require'dap'.step_over()<cr>", "Over" },
+    O = { "<cmd>lua require'dap'.step_out()<cr>", "Out" },
+    r = { "<cmd>lua require'dap'.repl.toggle()<cr>", "Repl" },
+    l = { "<cmd>lua require'dap'.run_last()<cr>", "Last" },
+    u = { "<cmd>lua require'dapui'.toggle()<cr>", "UI" },
+    x = { "<cmd>lua require'dap'.terminate()<cr>", "Exit" },
+  },
 
   p = {
     name = "Packer",
@@ -151,7 +185,8 @@ local mappings = {
       "<cmd>Telescope lsp_workspace_diagnostics<cr>",
       "Workspace Diagnostics",
     },
-    f = { "<cmd>lua vim.lsp.buf.formatting()<cr>", "Format" },
+    f = { "<cmd>lua vim.lsp.buf.format {async=true}<cr>", "Format" },
+    -- f = { "<cmd>lua vim.lsp.buf.formatting()<cr>", "Format" },
     i = { "<cmd>LspInfo<cr>", "Info" },
     I = { "<cmd>LspInstallInfo<cr>", "Installer Info" },
     j = {

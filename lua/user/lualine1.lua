@@ -79,14 +79,18 @@ local colors = {
   fg       = '#51afef',
   yellow   = '#ECBE7B',
   cyan     = '#008080',
+  -- cyan   = '#b668cd',
   darkblue = '#081633',
   green    = '#98be65',
   orange   = '#FF8800',
   violet   = '#a9a1e1',
   magenta  = '#c678dd',
-  blue     = '#51afef',
-  red      = '#ec5f67',
-  red1     = '#ff5189'
+  blue2     = '#51afef',
+  blue    = '#519fdf',
+  red2     = '#ec5f67',
+  red1     = '#ff5189',
+  red3    = '#d05c65',
+  red =   '#F44747',
 }
 
 local conditions = {
@@ -160,7 +164,8 @@ end
 
 insleft{
   function()
-    return '▊'
+    -- return '▊'
+    return  '███' 
   end,
   color = { fg = colors.blue }, -- Sets highlighting of component
   padding = { left = 0, right = 1 }, -- We don't need space before this
@@ -192,7 +197,7 @@ insright{
   end,
   color = { fg = colors.blue }, -- Sets highlighting of component
   -- padding = { left = 0, right = 1 }, -- We don't need space before this
-  padding = {left =1 },
+  padding = {left = 1 },
 }
 -- Defining styles for active windows
 
@@ -423,7 +428,9 @@ ins_right {
 
 ins_right {
   function()
-    return '█'
+    -- return '█'
+    -- return '|'
+    return  '███'
   end,
   color = function()
 
@@ -453,7 +460,8 @@ ins_right {
     }
     return { fg = mode_color[vim.fn.mode()] }
   end,
-  padding = { left = 0 },
+  -- padding = { left = 0 },
+  padding = { left = 0, right =0 },
 }
 
 -- Now don't forget to initialize lualine
