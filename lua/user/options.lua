@@ -38,6 +38,7 @@ local options = {
   guifont = "monospace:h12",               -- the font used in graphical neovim applications
   laststatus=3,
   -- background="dark",
+  -- autochdir = true,
 }
 
 vim.opt.shortmess:append "c"

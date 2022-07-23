@@ -104,6 +104,8 @@ local mappings = {
     "Find files",
   },
 
+  ["u"] = { "<cmd>:lcd %:p:h<cr>", "fzf_file" },
+
   a = {
      name = "startify",
      s = { "<cmd>SSave<cr>", "Save session" },

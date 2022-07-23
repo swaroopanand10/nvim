@@ -14,10 +14,7 @@ if not dap_install_status_ok then
   return
 end
 
-dap_install.setup {}
-
-dap_install.config("python", {})
--- add other configs here
+dap_install.setup {} --debug adapters are installed in ~/.local/share/nvim/dapinstall/  by default 
 
 
 -- dapui.setup()

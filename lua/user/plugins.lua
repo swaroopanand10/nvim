@@ -74,7 +74,7 @@ return packer.startup(function(use)
   use {'rrethy/vim-hexokinase', 
   run = 'cd ~/.local/share/nvim/site/pack/packer/start/vim-hexokinase && make hexokinase'}
   -- use { "christianchiarulli/JABS.nvim" }
-
+  -- use {'ygm2/rooter.nvim'}
 
   -- Colorschemes
   -- use "lunarvim/colorschemes" -- A bunch of colorschemes you can try out
