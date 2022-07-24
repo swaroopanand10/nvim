@@ -49,6 +49,13 @@ keymap("n", "<C-h>", ":vertical resize +2<CR>", opts)
 keymap("n", "<S-l>", ":bnext<CR>", opts)
 keymap("n", "<S-h>", ":bprevious<CR>", opts)
 
+
+
+-- Setting the keymaps for easy copy pasting
+keymap("n", "yp", '"+p', opts)
+keymap("n", "yP", '"+P' , opts)
+
+
 --keymap("n", "<leader>e", ":Lex 25<cr>", opts)
 
 -- Move text up and down

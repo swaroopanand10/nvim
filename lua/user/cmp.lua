@@ -126,25 +126,40 @@ cmp.setup {
   --   select = false,
   -- },
 
-  window = {
-   -- documentation = false,
-  documentation = {
-    border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
-  },
-    -- completion = cmp.config.window.bordered(),
-    -- documentation = cmp.config.window.bordered(),
-  },
+  -- window = {                                              -- these were old
+  --  -- documentation = false,
   -- documentation = {
   --   border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
   -- },
-  -- experimental = {
-  --   ghost_text = false,
-  --   native_menu = false,
+  --   -- completion = cmp.config.window.bordered(),
+  --   -- documentation = cmp.config.window.bordered(),
   -- },
-  view = {
-    -- entries = 'native',
-    entries = {name = 'custom', selection_order = 'near_cursor' }
+  -- -- experimental = {
+  -- --   ghost_text = false,
+  -- --   native_menu = false,
+  -- -- },
+  -- view = {
+  --   -- entries = 'native',
+  --   entries = {name = 'custom', selection_order = 'near_cursor' }
+  -- },
+
+window = {
+    documentation = {
+      border = "rounded",
+      winhighlight = "NormalFloat:Pmenu,NormalFloat:Pmenu,CursorLine:PmenuSel,Search:None",
+    },
+    completion = {
+      border = "rounded",
+      winhighlight = "NormalFloat:Pmenu,NormalFloat:Pmenu,CursorLine:PmenuSel,Search:None",
+    },
   },
+  experimental = {
+    ghost_text = true,
+  },
+
+
+
+
 }
 
 
