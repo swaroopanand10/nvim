@@ -105,16 +105,17 @@ local mappings = {
   },
 
   ["u"] = { "<cmd>:lcd %:p:h<cr>", "fzf_file" },
+  ["W"] = { "<cmd>:set wrap!<cr>", "wrap" },
 
   a = {
      name = "startify",
-     s = { "<cmd>SSave<cr>", "Save session" },
+     s = { "<cmd>SSave!<cr>", "Save session" }, -- save a session without asking 
      l = { "<cmd>SLoad<cr>", "Load session" },
      c = { "<cmd>SClose<cr>", "Close session" },
      d = { "<cmd>SDelete<cr>", "Delete session" },
      D = { "<cmd>StartifyDebug<cr>", "Startify Debug" },
   }, 
-
+   
   k = {
      name = "fzf_grep",
      a = { "<cmd>Files! ~<cr>", "fzf_file_prv" },
@@ -238,6 +239,9 @@ local mappings = {
     name = "splits",
     v = {"<cmd>vsplit<cr>", "vertical split"} ,
     h = {"<cmd>split<cr>", "horizontal split"}, 
+    s = {"<C-w>r", "swap"}, 
+    e = {"<C-w>=", "swap"}, 
+
 }
 }
 

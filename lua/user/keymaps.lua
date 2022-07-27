@@ -35,15 +35,18 @@ keymap("n", "<A-l>", "<C-w>l", opts)
 --keymap("n", "<C-Down>", ":resize +2<CR>", opts)
 --keymap("n", "<C-Left>", ":vertical resize -2<CR>", opts)
 --keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
-keymap("n", "<C-l>", ":vertical resize -2<CR>", opts)
-keymap("n", "<C-j>", ":resize -2<CR>", opts)
-keymap("n", "<C-k>", ":resize +2<CR>", opts)
-keymap("n", "<C-h>", ":vertical resize +2<CR>", opts)
+-- keymap("n", "<C-l>", ":vertical resize -2<CR>", opts)
+-- keymap("n", "<C-j>", ":resize -2<CR>", opts)
+-- keymap("n", "<C-k>", ":resize +2<CR>", opts)
+-- keymap("n", "<C-h>", ":vertical resize +2<CR>", opts)
 
--- keymap("n", "<C-L>", ":vertical resize -2<CR>", opts)
--- keymap("n", "<C-J>", ":resize -2<CR>", opts)
--- keymap("n", "<C-K>", ":resize +2<CR>", opts)
--- keymap("n", "<C-H>", ":vertical resize +2<CR>", opts)
+
+keymap("n", "<C-h>", ":vertical resize -2<CR>", opts)
+keymap("n", "<C-k>", ":resize -2<CR>", opts)
+keymap("n", "<C-j>", ":resize +2<CR>", opts)
+keymap("n", "<C-l>", ":vertical resize +2<CR>", opts)
+
+
 
 -- Navigate buffers
 keymap("n", "<S-l>", ":bnext<CR>", opts)
@@ -51,9 +54,9 @@ keymap("n", "<S-h>", ":bprevious<CR>", opts)
 
 
 
--- Setting the keymaps for easy copy pasting
-keymap("n", "yp", '"+p', opts)
-keymap("n", "yP", '"+P' , opts)
+-- Setting the keymaps for easy copy pasting from the last yank only
+keymap("n", "yp", '"0p', opts)
+keymap("n", "yb", '"0P' , opts)
 
 
 --keymap("n", "<leader>e", ":Lex 25<cr>", opts)

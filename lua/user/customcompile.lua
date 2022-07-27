@@ -6,9 +6,15 @@
 -- vim.cmd [[autocmd filetype cpp nnoremap <F9> :!g++ -o %:p:h/a.out % -std=c++17 && !%:p:h/a.out<Enter>]]
 
 -- For cpp ...
-vim.cmd [[autocmd filetype cpp nnoremap <F9> :w <bar> !g++ -O2 % -o %:p:h/a.out && %:p:h/a.out<Enter><CR>]]
-vim.cmd [[nnoremap <C-c> :!g++ -o %:p:h/a.out % -std=c++17<Enter><CR>]]
-vim.cmd [[nnoremap <C-x> :!%:p:h/a.out<Enter><CR>]]
+-- vim.cmd [[autocmd filetype cpp nnoremap <F9> :w <bar> !g++ -O2 % -o %:p:h/a.out && %:p:h/a.out<Enter><CR>]]
+vim.cmd [[autocmd filetype cpp nnoremap <F9> :w <bar> !g++ -O2 % &>%:p:h/out.txt -o %:p:h/a.out && %:p:h/a.out < %:p:h/in.txt &> %:p:h/out.txt <Enter><CR>]]
+
+-- vim.cmd [[nnoremap <C-c> :!g++ -o %:p:h/a.out % -std=c++17<Enter><CR>]]
+-- vim.cmd [[nnoremap <C-x> :!%:p:h/a.out<Enter><CR>]]
+
+vim.cmd [[nnoremap <C-c> :w <bar> :!g++ -o %:p:h/a.out % &>%:p:h/out.txt -std=c++17<Enter><CR>]]
+vim.cmd [[nnoremap <C-x> :!%:p:h/a.out < %:p:h/in.txt &> %:p:h/out.txt <Enter><CR>]]
 
 -- For python...
-vim.cmd [[ autocmd filetype python nnoremap <C-c> :w <bar> !python % <Enter><CR> ]]
+-- vim.cmd [[ autocmd filetype python nnoremap <C-c> :w <bar> !python % <Enter><CR> ]]
+vim.cmd [[ autocmd filetype python nnoremap <C-c> :w <bar> !python % < %:p:h/in.txt &> %:p:h/out.txt <Enter><CR> ]]
