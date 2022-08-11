@@ -114,8 +114,8 @@ local mappings = {
      c = { "<cmd>SClose<cr>", "Close session" },
      d = { "<cmd>SDelete<cr>", "Delete session" },
      D = { "<cmd>StartifyDebug<cr>", "Startify Debug" },
-  }, 
-   
+  },
+
   k = {
      name = "fzf_grep",
      a = { "<cmd>Files! ~<cr>", "fzf_file_prv" },
@@ -123,7 +123,7 @@ local mappings = {
      f = { "<cmd>Rg!<cr>", "normal_grep" },
      d = { "<cmd>History!: <cr>", "history" },
      c = { "<cmd>Commands! <cr>", "commands" },
-  }, 
+  },
 
   f = {
      name = "find",
@@ -193,7 +193,7 @@ local mappings = {
       "Workspace Diagnostics",
     },
     f = { "<cmd>lua vim.lsp.buf.format {async=true}<cr>", "Format" },
-    -- f = { "<cmd>lua vim.lsp.buf.formatting()<cr>", "Format" },
+    -- f = { "<cmd>lua vim.lsp.buf.formatting()<cr>", "Format" }, -- this option is depriciated so I changed it 
     i = { "<cmd>LspInfo<cr>", "Info" },
     I = { "<cmd>LspInstallInfo<cr>", "Installer Info" },
     j = {
@@ -242,7 +242,8 @@ local mappings = {
     s = {"<C-w>r", "swap"}, 
     e = {"<C-w>=", "swap"}, 
 
-}
+},
+
 }
 
 which_key.setup(setup)

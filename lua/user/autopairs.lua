@@ -22,7 +22,9 @@ npairs.setup {
     check_comma = true,
     highlight = "PmenuSel",
     highlight_grey = "LineNr",
-    enable_check_bracket_line = false, --added by me
+    -- enable_check_bracket_line = false, --added by me
+    enable_check_bracket_line = true, --added by me
+    enable_check_in_quote = true, --added by me
   },
 }
 

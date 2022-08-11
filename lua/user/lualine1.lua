@@ -366,7 +366,21 @@ ins_left {
 --   color = { fg = colors.green, gui = 'bold' },
 -- }
 
-
+-- ins_right {
+--   'vim.v.hlsearch',
+--   cond = conditions.buffer_not_empty,
+--     
+--   function()
+--     return vim.v.hlsearch
+--   end,
+--   color = function() 
+--     local mode_color = {
+--       -- n = colors.red,
+--       i = colors.red,
+--     }
+--     return { fg = mode_color[vim.fn.mode()], gui = 'bold' }
+--   end,
+-- }
 
 
 ins_right {

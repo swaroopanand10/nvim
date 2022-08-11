@@ -40,7 +40,6 @@ packer.init {
 
 -- Install your plugins here
 return packer.startup(function(use)
-
   -- My plugins here
   use "wbthomason/packer.nvim" -- Have packer manage itself
   use "nvim-lua/popup.nvim" -- An implementation of the Popup API from vim in Neovim
@@ -51,6 +50,7 @@ return packer.startup(function(use)
   use "kyazdani42/nvim-tree.lua"
   use "akinsho/bufferline.nvim"
   use "moll/vim-bbye"
+
   use "nvim-lualine/lualine.nvim"
   -- use "christianchiarulli/lualine.nvim"
   -- use "akinsho/toggleterm.nvim"
@@ -127,6 +127,8 @@ end}
   -- use "sharkdp/fd"
   use 'junegunn/fzf'
   use 'junegunn/fzf.vim'
+
+
   -- Treesitter
   use {
     "nvim-treesitter/nvim-treesitter",
@@ -134,7 +136,7 @@ end}
   }
   use "JoosepAlviste/nvim-ts-context-commentstring"
   use "windwp/nvim-ts-autotag"
-  -- use "RRethy/vim-illuminate"
+  use "RRethy/vim-illuminate"
 
   -- Dap
  -- DAP
@@ -150,9 +152,17 @@ end}
   -- use "kdheepak/lazygit.nvim"-- was not working
   
   --Some extra stuff
-  use "tpope/vim-surround"
+  -- use "tpope/vim-surround"
+ use({
+    "kylechui/nvim-surround",
+    config = function()
+        require("nvim-surround").setup({
+            -- Configuration here, or leave empty to use defaults
+        })
+    end
+}) 
   -- use "metakirby5/codi.vim"
-  use "unblevable/quick-scope"
+  -- use "unblevable/quick-scope"
   -- use "justinmk/vim-sneak"
   -- use "ggandor/lightspeed.nvim"
   -- use "easymotion/vim-easymotion"
