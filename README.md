@@ -54,7 +54,7 @@ Next we need to install python support (node is optional)
 - Neovim node support
 
   ```
-  npm i -g neovim
+  npm i -g neovim (do it with sudo )
   ```
 ---
 
