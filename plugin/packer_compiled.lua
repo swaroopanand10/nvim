@@ -9,23 +9,26 @@ vim.api.nvim_command('packadd packer.nvim')
 
 local no_errors, error_msg = pcall(function()
 
-  local time
-  local profile_info
-  local should_profile = false
-  if should_profile then
-    local hrtime = vim.loop.hrtime
-    profile_info = {}
-    time = function(chunk, start)
-      if start then
-        profile_info[chunk] = hrtime()
-      else
-        profile_info[chunk] = (hrtime() - profile_info[chunk]) / 1e6
-      end
+_G._packer = _G._packer or {}
+_G._packer.inside_compile = true
+
+local time
+local profile_info
+local should_profile = false
+if should_profile then
+  local hrtime = vim.loop.hrtime
+  profile_info = {}
+  time = function(chunk, start)
+    if start then
+      profile_info[chunk] = hrtime()
+    else
+      profile_info[chunk] = (hrtime() - profile_info[chunk]) / 1e6
     end
-  else
-    time = function(chunk, start) end
   end
-  
+else
+  time = function(chunk, start) end
+end
+
 local function save_profiles(threshold)
   local sorted_times = {}
   for chunk_name, time_taken in pairs(profile_info) do
@@ -38,8 +41,10 @@ local function save_profiles(threshold)
       results[i] = elem[1] .. ' took ' .. elem[2] .. 'ms'
     end
   end
+  if threshold then
+    table.insert(results, '(Only showing plugins that took longer than ' .. threshold .. ' ms ' .. 'to load)')
+  end
 
-  _G._packer = _G._packer or {}
   _G._packer.profile_output = results
 end
 
@@ -134,6 +139,11 @@ _G.packer_plugins = {
     path = "/home/swaroop/.local/share/nvim/site/pack/packer/start/darkplus.nvim",
     url = "https://github.com/lunarvim/darkplus.nvim"
   },
+  ["doom-one.vim"] = {
+    loaded = true,
+    path = "/home/swaroop/.local/share/nvim/site/pack/packer/start/doom-one.vim",
+    url = "https://github.com/romgrk/doom-one.vim"
+  },
   ["emmet-vim"] = {
     loaded = true,
     path = "/home/swaroop/.local/share/nvim/site/pack/packer/start/emmet-vim",
@@ -169,6 +179,11 @@ _G.packer_plugins = {
     path = "/home/swaroop/.local/share/nvim/site/pack/packer/start/glowbeamdark",
     url = "https://github.com/swaroopanand10/glowbeamdark"
   },
+  gruvbox = {
+    loaded = true,
+    path = "/home/swaroop/.local/share/nvim/site/pack/packer/start/gruvbox",
+    url = "https://github.com/morhetz/gruvbox"
+  },
   ["impatient.nvim"] = {
     loaded = true,
     path = "/home/swaroop/.local/share/nvim/site/pack/packer/start/impatient.nvim",
@@ -183,16 +198,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/swaroop/.local/share/nvim/site/pack/packer/start/lualine.nvim",
     url = "https://github.com/nvim-lualine/lualine.nvim"
-  },
-  monocustom = {
-    loaded = true,
-    path = "/home/swaroop/.local/share/nvim/site/pack/packer/start/monocustom",
-    url = "https://github.com/swaroopanand10/monocustom"
-  },
-  monovibrantdark = {
-    loaded = true,
-    path = "/home/swaroop/.local/share/nvim/site/pack/packer/start/monovibrantdark",
-    url = "https://github.com/swaroopanand10/monovibrantdark"
   },
   ["nlsp-settings.nvim"] = {
     loaded = true,
@@ -270,6 +275,16 @@ _G.packer_plugins = {
     path = "/home/swaroop/.local/share/nvim/site/pack/packer/start/nvim-web-devicons",
     url = "https://github.com/kyazdani42/nvim-web-devicons"
   },
+  ["onedark.vim"] = {
+    loaded = true,
+    path = "/home/swaroop/.local/share/nvim/site/pack/packer/start/onedark.vim",
+    url = "https://github.com/joshdick/onedark.vim"
+  },
+  ["onedarkhc.vim"] = {
+    loaded = true,
+    path = "/home/swaroop/.local/share/nvim/site/pack/packer/start/onedarkhc.vim",
+    url = "https://github.com/pacokwon/onedarkhc.vim"
+  },
   ["packer.nvim"] = {
     loaded = true,
     path = "/home/swaroop/.local/share/nvim/site/pack/packer/start/packer.nvim",
@@ -289,6 +304,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/swaroop/.local/share/nvim/site/pack/packer/start/project.nvim",
     url = "https://github.com/ahmedkhalf/project.nvim"
+  },
+  sonokai = {
+    loaded = true,
+    path = "/home/swaroop/.local/share/nvim/site/pack/packer/start/sonokai",
+    url = "https://github.com/sainnhe/sonokai"
   },
   ["telescope-dap.nvim"] = {
     loaded = true,
@@ -310,6 +330,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/swaroop/.local/share/nvim/site/pack/packer/start/toggleterm.nvim",
     url = "https://github.com/akinsho/toggleterm.nvim"
+  },
+  ["tokyonight.nvim"] = {
+    loaded = true,
+    path = "/home/swaroop/.local/share/nvim/site/pack/packer/start/tokyonight.nvim",
+    url = "https://github.com/folke/tokyonight.nvim"
   },
   ultisnips = {
     loaded = true,
@@ -349,14 +374,21 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
--- Config for: nvim-surround
-time([[Config for nvim-surround]], true)
-try_loadstring("\27LJ\2\n?\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\18nvim-surround\frequire\0", "config", "nvim-surround")
-time([[Config for nvim-surround]], false)
 -- Config for: toggleterm.nvim
 time([[Config for toggleterm.nvim]], true)
 try_loadstring("\27LJ\2\n8\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\15toggleterm\frequire\0", "config", "toggleterm.nvim")
 time([[Config for toggleterm.nvim]], false)
+-- Config for: nvim-surround
+time([[Config for nvim-surround]], true)
+try_loadstring("\27LJ\2\n?\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\18nvim-surround\frequire\0", "config", "nvim-surround")
+time([[Config for nvim-surround]], false)
+
+_G._packer.inside_compile = false
+if _G._packer.needs_bufread == true then
+  vim.cmd("doautocmd BufRead")
+end
+_G._packer.needs_bufread = false
+
 if should_profile then save_profiles() end
 
 end)

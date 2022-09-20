@@ -73,9 +73,11 @@ local lualine = require('lualine')
 -- Color table for highlights
 -- stylua: ignore
 local colors = {
-  -- bg       = '#202328',
   -- fg       = '#bbc2cf',
-  bg       = '#0c0c0c',
+  --[[ bg       = '#0c0c0c', ]]
+  --[[ bg       = '#121212', ]]
+  bg    = '#16161e';
+  --[[ bg       = '#202328', ]]
   fg       = '#51afef',
   yellow   = '#ECBE7B',
   cyan     = '#008080',
@@ -111,6 +113,7 @@ local conditions = {
 local config = {
   options = {
     -- Disable sections and component separators
+    --[[ theme = auto, ]]
     component_separators = '',
     section_separators = '',
     theme = {

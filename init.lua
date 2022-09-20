@@ -11,9 +11,9 @@ require "user.comment"
 require "user.gitsigns"
 require "user.nvim-tree"
 -- require "user.bufferline"
--- require "user.lualine"
 require "user.lualine1"
--- require "user.lualine2" 
+--[[ require "user.lualine3" ]]
+--[[ require "user.lualine2" ]]
 require "user.toggleterm"
 require "user.project"
 require "user.impatient"

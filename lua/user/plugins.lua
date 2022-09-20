@@ -57,9 +57,9 @@ return packer.startup(function(use)
   use "ahmedkhalf/project.nvim"
   use "lewis6991/impatient.nvim"
   use "lukas-reineke/indent-blankline.nvim"
-use {"akinsho/toggleterm.nvim", tag = 'v2.*', config = function()
+  use {"akinsho/toggleterm.nvim", tag = 'v2.*', config = function()
   require("toggleterm").setup()
-end}
+  end}
   -- use {
   --   'goolord/alpha-nvim',
   --   config = function ()
@@ -83,16 +83,21 @@ end}
   -- use "lunarvim/colorschemes" -- A bunch of colorschemes you can try out
   use "lunarvim/darkplus.nvim"
   -- use "gleich/monovibrant"
-  use "swaroopanand10/monocustom"
-  use "swaroopanand10/monovibrantdark"
+  --[[ use "swaroopanand10/monocustom" ]]
+  --[[ use "swaroopanand10/monovibrantdark" ]]
   use "swaroopanand10/glowbeamdark"
   -- use "rafamadriz/neon"
   -- use "bignimbus/pop-punk.vim"
   use "cooperuser/glowbeam.nvim"
   -- use "betoissues/contrastneed-theme"
   -- use "nonetallt/vim-neon-dark"
-  -- use 'folke/tokyonight.nvim'
-  
+  use 'folke/tokyonight.nvim'
+  use 'romgrk/doom-one.vim'
+  use 'morhetz/gruvbox'
+  use 'sainnhe/sonokai'
+  use 'pacokwon/onedarkhc.vim'
+  use 'joshdick/onedark.vim'
+
   -- cmp plugins
   use "hrsh7th/nvim-cmp" -- The completion plugin
   use "hrsh7th/cmp-buffer" -- buffer completions
