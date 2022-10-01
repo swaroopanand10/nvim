@@ -92,11 +92,13 @@ return packer.startup(function(use)
   -- use "betoissues/contrastneed-theme"
   -- use "nonetallt/vim-neon-dark"
   use 'folke/tokyonight.nvim'
-  use 'romgrk/doom-one.vim'
-  use 'morhetz/gruvbox'
-  use 'sainnhe/sonokai'
+  --[[ use 'romgrk/doom-one.vim' ]]
+  --[[ use 'morhetz/gruvbox' ]]
+  --[[ use 'sainnhe/sonokai' ]]
   use 'pacokwon/onedarkhc.vim'
-  use 'joshdick/onedark.vim'
+  --[[ use 'joshdick/onedark.vim' ]]
+  --[[ use 'rakr/vim-one' ]]
+  use 'ukyouz/onedark.vim'
 
   -- cmp plugins
   use "hrsh7th/nvim-cmp" -- The completion plugin

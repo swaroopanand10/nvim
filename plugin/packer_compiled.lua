@@ -139,11 +139,6 @@ _G.packer_plugins = {
     path = "/home/swaroop/.local/share/nvim/site/pack/packer/start/darkplus.nvim",
     url = "https://github.com/lunarvim/darkplus.nvim"
   },
-  ["doom-one.vim"] = {
-    loaded = true,
-    path = "/home/swaroop/.local/share/nvim/site/pack/packer/start/doom-one.vim",
-    url = "https://github.com/romgrk/doom-one.vim"
-  },
   ["emmet-vim"] = {
     loaded = true,
     path = "/home/swaroop/.local/share/nvim/site/pack/packer/start/emmet-vim",
@@ -178,11 +173,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/swaroop/.local/share/nvim/site/pack/packer/start/glowbeamdark",
     url = "https://github.com/swaroopanand10/glowbeamdark"
-  },
-  gruvbox = {
-    loaded = true,
-    path = "/home/swaroop/.local/share/nvim/site/pack/packer/start/gruvbox",
-    url = "https://github.com/morhetz/gruvbox"
   },
   ["impatient.nvim"] = {
     loaded = true,
@@ -278,7 +268,7 @@ _G.packer_plugins = {
   ["onedark.vim"] = {
     loaded = true,
     path = "/home/swaroop/.local/share/nvim/site/pack/packer/start/onedark.vim",
-    url = "https://github.com/joshdick/onedark.vim"
+    url = "https://github.com/ukyouz/onedark.vim"
   },
   ["onedarkhc.vim"] = {
     loaded = true,
@@ -304,11 +294,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/swaroop/.local/share/nvim/site/pack/packer/start/project.nvim",
     url = "https://github.com/ahmedkhalf/project.nvim"
-  },
-  sonokai = {
-    loaded = true,
-    path = "/home/swaroop/.local/share/nvim/site/pack/packer/start/sonokai",
-    url = "https://github.com/sainnhe/sonokai"
   },
   ["telescope-dap.nvim"] = {
     loaded = true,
