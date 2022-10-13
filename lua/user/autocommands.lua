@@ -44,6 +44,7 @@ if vim.fn.has "nvim-0.8" == 1 then
     {
       callback = function()
         require("user.winbar").get_winbar()
+        --[[ print("working"); ]]
       end,
     }
   )

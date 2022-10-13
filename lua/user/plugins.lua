@@ -69,11 +69,11 @@ return packer.startup(function(use)
   use "antoinemadec/FixCursorHold.nvim" -- This is needed to fix lsp doc highlight
   use "folke/which-key.nvim"
 	use "mhinz/vim-startify" -- startify
-  use {
-    "SmiteshP/nvim-navic",
-    requires = "neovim/nvim-lspconfig"
-   }
-  -- use { "christianchiarulli/nvim-gps", branch = "text_hl" }
+  --[[ use { ]]
+  --[[   "SmiteshP/nvim-navic", ]]
+  --[[   requires = "neovim/nvim-lspconfig" ]]
+  --[[  } ]]
+  use { "christianchiarulli/nvim-gps", branch = "text_hl" }
   use {'rrethy/vim-hexokinase', 
   run = 'cd ~/.local/share/nvim/site/pack/packer/start/vim-hexokinase && make hexokinase'}
   -- use { "christianchiarulli/JABS.nvim" }

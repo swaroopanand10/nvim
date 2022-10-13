@@ -1,5 +1,8 @@
 local M = {}
 
+--[[ M.capabilities = vim.lsp.protocol.make_client_capabilities() ]]
+--[[ M.capabilities = vim.lsp.protocol.make_server_capabilities() ]]
+
 -- TODO: backfill this to template
 M.setup = function()
   local signs = {
@@ -86,22 +89,6 @@ local function lsp_highlight_document(client)
   illuminate.on_attach(client)
 end
 
--- local function attach_navic(client, bufnr)
---   vim.g.navic_silence = true
---   local status_ok, navic = pcall(require, "nvim-navic")
---   if not status_ok then
---     return
---   end
---   navic.attach(client, bufnr)
--- end
-
-local navic = require("nvim-navic")
-
-require("lspconfig").clangd.setup {
-    on_attach = function(client, bufnr)
-        navic.attach(client, bufnr)
-    end
-}
 
 local function lsp_keymaps(bufnr)
   local opts = { noremap = true, silent = true }
@@ -130,6 +117,30 @@ local function lsp_keymaps(bufnr)
   -- vim.cmd [[ command! Format execute 'lua vim.lsp.buf.formatting()' ]] -- option depcreciated
 end
 
+
+--[[ local navic = require("nvim-navic") ]]
+--[[]]
+--[[ require("lspconfig").clangd.setup { ]]
+--[[     on_attach = function(client, bufnr) ]]
+--[[         navic.attach(client, bufnr) ]]
+--[[     end ]]
+--[[ } ]]
+
+--[[it is not working]]
+local on_attach = function(client, bufnr)
+    if client.server_capabilities.documentSymbolProvider then
+        require("nvim-navic").attach(client, bufnr)
+    end
+end
+
+
+require("lspconfig").clangd.setup {
+    on_attach = on_attach
+}
+
+require("lspconfig").pyright.setup {
+    on_attach = on_attach
+}
 
 --depcreciated
 -- M.on_attach = function(client, bufnr)

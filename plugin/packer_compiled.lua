@@ -219,6 +219,11 @@ _G.packer_plugins = {
     path = "/home/swaroop/.local/share/nvim/site/pack/packer/start/nvim-dap-ui",
     url = "https://github.com/rcarriga/nvim-dap-ui"
   },
+  ["nvim-gps"] = {
+    loaded = true,
+    path = "/home/swaroop/.local/share/nvim/site/pack/packer/start/nvim-gps",
+    url = "https://github.com/christianchiarulli/nvim-gps"
+  },
   ["nvim-lsp-installer"] = {
     loaded = true,
     path = "/home/swaroop/.local/share/nvim/site/pack/packer/start/nvim-lsp-installer",
@@ -228,11 +233,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/swaroop/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
     url = "https://github.com/neovim/nvim-lspconfig"
-  },
-  ["nvim-navic"] = {
-    loaded = true,
-    path = "/home/swaroop/.local/share/nvim/site/pack/packer/start/nvim-navic",
-    url = "https://github.com/SmiteshP/nvim-navic"
   },
   ["nvim-surround"] = {
     config = { "\27LJ\2\n?\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\18nvim-surround\frequire\0" },

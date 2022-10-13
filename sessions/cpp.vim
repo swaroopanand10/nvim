@@ -13,9 +13,9 @@ if &shortmess =~ 'A'
 else
   set shortmess=aoO
 endif
-badd +2 Desktop/prg/cf/cpp.cpp
+badd +23 Desktop/prg/cf/cpp.cpp
 badd +1 Desktop/prg/cf/in.txt
-badd +0 Desktop/prg/cf/out.txt
+badd +1 Desktop/prg/cf/out.txt
 argglobal
 %argdel
 edit Desktop/prg/cf/cpp.cpp
@@ -56,11 +56,11 @@ setlocal fdn=20
 setlocal fen
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 2 - ((1 * winheight(0) + 19) / 38)
+let s:l = 23 - ((22 * winheight(0) + 19) / 38)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 2
+keepjumps 23
 normal! 0
 lcd ~/Desktop/prg/cf
 wincmd w
