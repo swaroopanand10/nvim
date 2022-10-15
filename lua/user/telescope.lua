@@ -4,8 +4,9 @@ if not status_ok then
 end
 
 local actions = require "telescope.actions"
--- local action_state = require('telescope.actions.state')
+local mybuffer = require('user/telescopebuffer')
 -- local selection = action_state.get_current_selection()
+
 
 
 
@@ -47,6 +48,8 @@ telescope.setup {
         ["<M-q>"] = actions.send_selected_to_qflist + actions.open_qflist,
         ["<C-l>"] = actions.complete_tag,
         ["<C-_>"] = actions.which_key, -- keys from pressing <C-/>
+        -- ["<a-h>"] = "which_key",
+        ['<a-d>'] = actions.delete_buffer
       },
 
       n = {
@@ -80,8 +83,11 @@ telescope.setup {
         ["<PageDown>"] = actions.results_scrolling_down,
 
         ["?"] = actions.which_key,
+        ["."] = actions.add_selection, -- not working
         -- ["<a-h>"] = "which_key",
         -- ["d"] = delete_buf
+        ['<a-d>'] = actions.delete_buffer
+        --[[ ['<a-d>'] = require("telescope").mybuffer(), ]]
       },
     },
   },
@@ -108,23 +114,6 @@ telescope.setup {
     -- please take a look at the readme of the extension you want to configure
   },
 }
-
--- functionality for deleting buffers from the buffermenu itself
-require('telescope').setup {
-  defaults = {
-    -- Default configuration for telescope goes here:
-    -- config_key = value,
-    mappings = {
-      n = {
-        ['<a-d>'] = actions.delete_buffer
-      }, -- n
-      i = {
-        -- ["<a-h>"] = "which_key",
-        ['<a-d>'] = actions.delete_buffer
-      } -- i
-    } -- mappings
-  }, -- defaults
-} -- telescope setup
 
 
 -- Telescope file browser

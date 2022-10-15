@@ -4,15 +4,15 @@
 -- command = vim.fn.getcwd() .. string.format("%s/bin/python",venv)
 
 local dap = require('dap')
+
 dap.adapters.python = {
   type = 'executable';
   -- command = '~/.config/nvim/dbg/debugpy/bin/python';
   -- command = os.getenv('HOME') .. '/.config/nvim/dbg/debugpy/bin/python';
-  command = os.getenv('HOME') .. '/.local/share/nvim/dapinstall/python/bin/python'; 
+  command = os.getenv('HOME') .. '/.local/share/nvim/dapinstall/python/bin/python';
   args = { '-m', 'debugpy.adapter' };
 }
 
-local dap = require('dap')
 dap.configurations.python = {
   {
     -- The first three options are required by nvim-dap
@@ -41,7 +41,6 @@ dap.configurations.python = {
 
 
 -- C++/C/Rust config here:
-
 dap.adapters.codelldb = {
   type = 'server',
   port = "${port}",
@@ -56,7 +55,6 @@ dap.adapters.codelldb = {
   }
 }
 
-local dap = require('dap')
 dap.configurations.cpp = {
   {
     name = "Launch file",
@@ -75,7 +73,6 @@ dap.configurations.rust = dap.configurations.cpp
 
 -- Node/javascript config here:
 
-local dap = require('dap')
 dap.adapters.node2 = {
   type = 'executable',
   command = 'node',
