@@ -54,31 +54,8 @@ M.get_filename = function()
 end
 
 --[[using gps and is working]]
-local get_gps = function()
-  local status_gps_ok, gps = pcall(require, "nvim-gps")
-  if not status_gps_ok then
-    return ""
-  end
-
-  local status_ok, gps_location = pcall(gps.get_location, {})
-  if not status_ok then
-    return ""
-  end
-
-  if not gps.is_available() or gps_location == "error" then
-    return ""
-  end
-
-  if not require("user.functions").isempty(gps_location) then
-    return require("user.icons").ui.ChevronRight .. " " .. gps_location
-  else
-    return ""
-  end
-end
-
---[[ using navic but didn't working ]]
 --[[ local get_gps = function() ]]
---[[   local status_gps_ok, gps = pcall(require, "nvim-navic") ]]
+--[[   local status_gps_ok, gps = pcall(require, "nvim-gps") ]]
 --[[   if not status_gps_ok then ]]
 --[[     return "" ]]
 --[[   end ]]
@@ -98,6 +75,29 @@ end
 --[[     return "" ]]
 --[[   end ]]
 --[[ end ]]
+
+--[[now navic is also working after mason.lua]]
+local get_gps = function()
+  local status_gps_ok, gps = pcall(require, "nvim-navic")
+  if not status_gps_ok then
+    return ""
+  end
+
+  local status_ok, gps_location = pcall(gps.get_location, {})
+  if not status_ok then
+    return ""
+  end
+
+  if not gps.is_available() or gps_location == "error" then
+    return ""
+  end
+
+  if not require("user.functions").isempty(gps_location) then
+    return require("user.icons").ui.ChevronRight .. " " .. gps_location
+  else
+    return ""
+  end
+end
 
 local excludes = function()
   if vim.tbl_contains(M.winbar_filetype_exclude, vim.bo.filetype) then

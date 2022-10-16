@@ -9,8 +9,10 @@ dap.adapters.python = {
   type = 'executable';
   -- command = '~/.config/nvim/dbg/debugpy/bin/python';
   -- command = os.getenv('HOME') .. '/.config/nvim/dbg/debugpy/bin/python';
-  command = os.getenv('HOME') .. '/.local/share/nvim/dapinstall/python/bin/python';
+  --[[ command = os.getenv('HOME') .. '/.local/share/nvim/dapinstall/python/bin/python'; ]]
+  command = os.getenv('HOME') .. '/.local/share/nvim/mason/packages/debugpy/venv/bin/python';
   args = { '-m', 'debugpy.adapter' };
+  
 }
 
 dap.configurations.python = {
@@ -73,29 +75,45 @@ dap.configurations.rust = dap.configurations.cpp
 
 -- Node/javascript config here:
 
-dap.adapters.node2 = {
-  type = 'executable',
-  command = 'node',
-  -- args = {os.getenv('HOME') .. '/dev/microsoft/vscode-node-debug2/out/src/nodeDebug.js'},
-  args = {os.getenv('HOME') .. '/.local/share/nvim/dapinstall/jsnode/vscode-node-debug2/gulpfile.js'}, --not working for some reason
-}
-dap.configurations.javascript = {
-  {
-    name = 'Launch',
-    type = 'node2',
-    request = 'launch',
-    program = '${file}',
-    cwd = vim.fn.getcwd(),
-    sourceMaps = true,
-    protocol = 'inspector',
-    console = 'integratedTerminal',
-  },
-  {
-    -- For this to work you need to make sure the node process is started with the `--inspect` flag.
-    name = 'Attach to process',
-    type = 'node2',
-    request = 'attach',
-    processId = require'dap.utils'.pick_process,
-  },
-}
+--[[ dap.adapters.node2 = { ]]
+--[[   type = 'executable', ]]
+--[[   command = 'node', ]]
+--[[   -- args = {os.getenv('HOME') .. '/dev/microsoft/vscode-node-debug2/out/src/nodeDebug.js'}, ]]
+--[[   args = {os.getenv('HOME') .. '/.local/share/nvim/dapinstall/jsnode/vscode-node-debug2/gulpfile.js'}, --not working for some reason ]]
+--[[ } ]]
+--[[ dap.configurations.javascript = { ]]
+--[[   { ]]
+--[[     name = 'Launch', ]]
+--[[     type = 'node2', ]]
+--[[     request = 'launch', ]]
+--[[     program = '${file}', ]]
+--[[     cwd = vim.fn.getcwd(), ]]
+--[[     sourceMaps = true, ]]
+--[[     protocol = 'inspector', ]]
+--[[     console = 'integratedTerminal', ]]
+--[[   }, ]]
+--[[   { ]]
+--[[     -- For this to work you need to make sure the node process is started with the `--inspect` flag. ]]
+--[[     name = 'Attach to process', ]]
+--[[     type = 'node2', ]]
+--[[     request = 'attach', ]]
+--[[     processId = require'dap.utils'.pick_process, ]]
+--[[   }, ]]
+--[[ } ]]
+
+
+
+require("dap-vscode-js").setup({
+   node_path = "node", -- Path of node executable. Defaults to $NODE_PATH, and then "node"
+   debugger_path = "(runtimedir)/site/pack/packer/opt/vscode-js-debug", -- Path to vscode-js-debug installation.
+   debugger_cmd = { "js-debug-adapter" }, -- Command to use to launch the debug server. Takes precedence over `node_path` and `debugger_path`.
+  adapters = { 'pwa-node', 'pwa-chrome', 'pwa-msedge', 'node-terminal', 'pwa-extensionHost' }, -- which adapters to register in nvim-dap
+})
+
+for _, language in ipairs({ "typescript", "javascript" }) do
+  require("dap").configurations[language] = {
+    ... -- see below
+  }
+end
+
 

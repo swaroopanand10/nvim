@@ -59,7 +59,8 @@ return packer.startup(function(use)
   use "lukas-reineke/indent-blankline.nvim"
   use {"akinsho/toggleterm.nvim", tag = 'v2.*', config = function()
   require("toggleterm").setup()
-  end}
+  end
+  }
   -- use {
   --   'goolord/alpha-nvim',
   --   config = function ()
@@ -69,10 +70,10 @@ return packer.startup(function(use)
   use "antoinemadec/FixCursorHold.nvim" -- This is needed to fix lsp doc highlight
   use "folke/which-key.nvim"
 	use "mhinz/vim-startify" -- startify
-  --[[ use { ]]
-  --[[   "SmiteshP/nvim-navic", ]]
-  --[[   requires = "neovim/nvim-lspconfig" ]]
-  --[[  } ]]
+  use {
+    "SmiteshP/nvim-navic",
+    requires = "neovim/nvim-lspconfig"
+   }
   use { "christianchiarulli/nvim-gps", branch = "text_hl" }
   use {'rrethy/vim-hexokinase', 
   run = 'cd ~/.local/share/nvim/site/pack/packer/start/vim-hexokinase && make hexokinase'}
@@ -116,17 +117,19 @@ return packer.startup(function(use)
   use "L3MON4D3/LuaSnip" --snippet engine
   use "rafamadriz/friendly-snippets" -- a bunch of snippets to use
   use "SirVer/ultisnips"
-  use { "williamboman/mason.nvim",
-"williamboman/mason-lspconfig.nvim",
-  }
+
   -- LSP
+  use { "williamboman/mason.nvim",
+   "williamboman/mason-lspconfig.nvim",
+    "WhoIsSethDaniel/mason-tool-installer.nvim"
+  }
   use "neovim/nvim-lspconfig" -- enable LSP
 -- local use = require('packer').use
 -- require('packer').startup(function()
 --   use 'wbthomason/packer.nvim' -- Package manager
 --   use 'neovim/nvim-lspconfig' -- Configurations for Nvim LSP
 -- end)
-  use "williamboman/nvim-lsp-installer" -- simple to use language server installer
+  --[[ use "williamboman/nvim-lsp-installer" -- simple to use language server installer ]]
   use "tamago324/nlsp-settings.nvim" -- language server settings defined in json for
   use "jose-elias-alvarez/null-ls.nvim" -- for formatters and linters
   use ""
@@ -154,13 +157,21 @@ return packer.startup(function(use)
   -- use "theHamsta/nvim-dap-virtual-text"
   use "rcarriga/nvim-dap-ui"
   -- use "Pocco81/DAPInstall.nvim"
-  use "Pocco81/dap-buddy.nvim"
-  use { "ravenxrz/DAPInstall.nvim", commit = "8798b4c36d33723e7bba6ed6e2c202f84bb300de" }
+  --[[ use "Pocco81/dap-buddy.nvim" ]]
+  --[[ use { "ravenxrz/DAPInstall.nvim", commit = "8798b4c36d33723e7bba6ed6e2c202f84bb300de" } ]]
   use "nvim-telescope/telescope-dap.nvim"
   -- Git
   use "lewis6991/gitsigns.nvim"
   -- use "kdheepak/lazygit.nvim"-- was not working
-  
+  use { "mxsdev/nvim-dap-vscode-js", requires = {"mfussenegger/nvim-dap"} }
+  use {
+  "microsoft/vscode-js-debug",
+  opt = true,
+  run = "npm install --legacy-peer-deps && npm run compile" 
+  }
+
+
+
   --Some extra stuff
   -- use "tpope/vim-surround"
  use({

@@ -18,3 +18,5 @@ vim.cmd [[nnoremap <C-x> :!%:p:h/a.out < %:p:h/in.txt &> %:p:h/out.txt <Enter><C
 -- For python...
 -- vim.cmd [[ autocmd filetype python nnoremap <C-c> :w <bar> !python % <Enter><CR> ]]
 vim.cmd [[ autocmd filetype python nnoremap <C-x> :w <bar> !python % < %:p:h/in.txt &> %:p:h/out.txt <Enter><CR> ]] -- had to change the shortcut form C-c to C-x so that i can cancel the buggy code at any time
+vim.cmd [[ autocmd filetype javascript nnoremap <C-x> :w <bar> !node % &> %:p:h/out.txt <Enter><CR> ]] -- had to change the shortcut form C-c to C-x so that i can cancel the buggy code at any time
+

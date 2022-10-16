@@ -212,6 +212,9 @@ local mappings = {
       "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>",
       "Workspace Symbols",
     },
+    m = {
+      "<cmd>Mason<cr>" , "mason",
+    },
   },
   s = {
     name = "Search",
