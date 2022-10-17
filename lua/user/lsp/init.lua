@@ -26,7 +26,8 @@ M.server_capabilities = function()  --dont know what this does
 end
 
 --[[ require "user.lsp.lsp-installer" ]]
-require("user.lsp.handlers").setup()
-require "user.lsp.null-ls"
 require("user.lsp.mason")
+require "user.lsp.null-ls"
+require("user.lsp.handlers").setup()
+require("user.lsp.mason-nvim-dap")
 --[[ require("user.lsp.mason2") ]]

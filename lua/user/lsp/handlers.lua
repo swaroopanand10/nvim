@@ -3,12 +3,12 @@ local M = {}
 M.capabilities = vim.lsp.protocol.make_client_capabilities()
 --[[ M.capabilities = vim.lsp.protocol.make_server_capabilities() ]]
 
-local status_cmp_ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
-if not status_cmp_ok then
-  return
-end
-M.capabilities.textDocument.completion.completionItem.snippetSupport = true
-M.capabilities = cmp_nvim_lsp.default_capabilities(M.capabilities)
+--[[ local status_cmp_ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp") ]]
+--[[ if not status_cmp_ok then ]]
+--[[   return ]]
+--[[ end ]]
+--[[ M.capabilities.textDocument.completion.completionItem.snippetSupport = true ]]
+--[[ M.capabilities = cmp_nvim_lsp.default_capabilities(M.capabilities) ]]
 
 
 -- TODO: backfill this to template
@@ -55,22 +55,6 @@ M.setup = function()
   })
 end
 
--- these options were depcreciated
--- local function lsp_highlight_document(client)
---   -- Set autocommands conditional on server_capabilities
---   if client.resolved_capabilities.document_highlight then
---     vim.api.nvim_exec(
---       [[
---       augroup lsp_document_highlight
---         autocmd! * <buffer>
---         autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight()
---         autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
---       augroup END
---     ]],
---       false
---     )
---   end
--- end
 
 -- local function lsp_highlight_document(client)
 --   -- Set autocommands conditional on server_capabilities
@@ -98,27 +82,33 @@ local function lsp_highlight_document(client)
 end
 
 
+--[[ Setting keybindings ]]
+local opts = { noremap=true, silent=true }
+  vim.keymap.set('n', 'gl', vim.diagnostic.open_float, opts)
+  vim.keymap.set('n', 'K', vim.lsp.buf.hover, bufopts)
+
+
+
+
 local function lsp_keymaps(bufnr)
   local opts = { noremap = true, silent = true }
+  --[[ vim.api.nvim_buf_set_keymap(bufnr, "n", "gl", "<cmd>lua vim.diagnostic.open_float()<CR>", opts) -- border= rounded was not working so i removed it ]]
   vim.api.nvim_buf_set_keymap(bufnr, "n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
   vim.api.nvim_buf_set_keymap(bufnr, "n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
-  vim.api.nvim_buf_set_keymap(bufnr, "n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
+  --[[ vim.api.nvim_buf_set_keymap(bufnr, "n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", opts) ]]
   vim.api.nvim_buf_set_keymap(bufnr, "n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
   vim.api.nvim_buf_set_keymap(bufnr, "n", "<C-s>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts) --I changed it form <C-k> to <C-s> becuase of collision
   -- vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
   vim.api.nvim_buf_set_keymap(bufnr, "n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
   -- vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
   -- vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>f", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
-  vim.api.nvim_buf_set_keymap(bufnr, "n", "[d", '<cmd>lua vim.diagnostic.goto_prev({ border = "rounded" })<CR>', opts)
-  vim.api.nvim_buf_set_keymap(
-    bufnr,
-    "n",
-    "gl",
-    -- '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics({ border = "rounded" })<CR>',
-    '<cmd>lua vim.diagnostic.open_float({ border = "rounded" })<CR>',
-    opts
-  )
-  vim.api.nvim_buf_set_keymap(bufnr, "n", "]d", '<cmd>lua vim.diagnostic.goto_next({ border = "rounded" })<CR>', opts)
+  vim.api.nvim_buf_set_keymap(bufnr, "n", "[d", '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
+  --[[ vim.api.nvim_buf_set_keymap(bufnr, "n", "[d", '<cmd>lua vim.diagnostic.goto_prev({ border = "rounded" })<CR>', opts) ]]
+  --[[ vim.api.nvim_buf_set_keymap(bufnr, "n", "gL", '<cmd>lua vim.diagnostic.open_float()<CR>', opts) -- border= rounded was not working so i removed it ]]
+  --[[ vim.api.nvim_buf_set_keymap(bufnr, "n", "gl", '<cmd>lua vim.diagnostic.open_float({ border = "rounded" })<CR>', opts) ]]
+  -- '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics({ border = "rounded" })<CR>',
+  vim.api.nvim_buf_set_keymap(bufnr, "n", "]d", '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
+  --[[ vim.api.nvim_buf_set_keymap(bufnr, "n", "]d", '<cmd>lua vim.diagnostic.goto_next({ border = "rounded" })<CR>', opts) ]]
   -- vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>q", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts) -- I edited this because it was clashing with quit shortcut
   -- vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>Q", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts) -- edited it bcz it exists in whichkey and it was also clashing with quit shortcut
   vim.cmd [[ command! Format execute 'lua vim.lsp.buf.format {async = true}' ]]
@@ -128,29 +118,33 @@ end
 
 
 
+
 local on_attach = function(client, bufnr)
-    if client.server_capabilities.documentSymbolProvider then
-        require("nvim-navic").attach(client, bufnr)
-    end
+  if client.server_capabilities.documentSymbolProvider then
+    require("nvim-navic").attach(client, bufnr)
+  end
 end
 
 
 require("lspconfig").clangd.setup {
-    on_attach = on_attach
+  on_attach = on_attach
 }
 
 require("lspconfig").pyright.setup {
-    on_attach = on_attach
+  on_attach = on_attach
 }
 
 require("lspconfig").sumneko_lua.setup {
-    on_attach = on_attach
+  on_attach = on_attach
 }
 
 require("lspconfig").tsserver.setup {
-    on_attach = on_attach
+  on_attach = on_attach
 }
 
+require("lspconfig").bashls.setup {
+  on_attach = on_attach
+}
 
 --[[below code make the tsserver lsp working but I don't know how]]
 local function attach_navic(client, bufnr)
@@ -212,12 +206,12 @@ end
 
 -- local capabilities = vim.lsp.protocol.make_server_capabilities()
 
---[[ local status_ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp") ]]
---[[ if not status_ok then ]]
---[[   return ]]
---[[ end ]]
+local status_ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
+if not status_ok then
+  return
+end
 --[[]]
 --[[ --[[ M.capabilities = cmp_nvim_lsp.update_capabilities(capabilities) ]] -- depcreciated ]]
---[[ M.capabilities = cmp_nvim_lsp.default_capabilities(capabilities) ]]
+M.capabilities = cmp_nvim_lsp.default_capabilities(capabilities)
 
 return M

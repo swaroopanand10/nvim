@@ -215,7 +215,14 @@ local mappings = {
     m = {
       "<cmd>Mason<cr>" , "mason",
     },
+    g = {
+      "<cmd>lua vim.diagnostic.open_float()<CR>", "diagnostic",
+    },
+    n = {
+      "<cmd>NullLsInfo<cr>", "null-ls info",
+    },
   },
+
   s = {
     name = "Search",
     b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
