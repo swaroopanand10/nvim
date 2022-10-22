@@ -18,5 +18,10 @@ vim.cmd [[nnoremap <C-x> :!%:p:h/a.out < %:p:h/in.txt &> %:p:h/out.txt <Enter><C
 -- For python...
 -- vim.cmd [[ autocmd filetype python nnoremap <C-c> :w <bar> !python % <Enter><CR> ]]
 vim.cmd [[ autocmd filetype python nnoremap <C-x> :w <bar> !python % < %:p:h/in.txt &> %:p:h/out.txt <Enter><CR> ]] -- had to change the shortcut form C-c to C-x so that i can cancel the buggy code at any time
+
+-- for javascript
 vim.cmd [[ autocmd filetype javascript nnoremap <C-x> :w <bar> !node % &> %:p:h/out.txt <Enter><CR> ]] -- had to change the shortcut form C-c to C-x so that i can cancel the buggy code at any time
 
+-- for rust 
+vim.cmd [[autocmd filetype rust nnoremap <F9> :w <bar> !rustc % &> %:p:h/extra/out.txt -o %:p:h/extra/a.out && %:p:h/extra/a.out < %:p:h/extra/in.txt &> %:p:h/extra/out.txt <Enter><CR>]]
+vim.cmd [[nnoremap <C-x> :!%:p:h/extra/a.out < %:p:h/extra/in.txt &> %:p:h/extra/out.txt <Enter><CR>]]

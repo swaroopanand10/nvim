@@ -29,5 +29,5 @@ end
 require("user.lsp.mason")
 require "user.lsp.null-ls"
 require("user.lsp.handlers").setup()
-require("user.lsp.mason-nvim-dap")
+--[[ require("user.lsp.mason-nvim-dap") ]] -- not working
 --[[ require("user.lsp.mason2") ]]

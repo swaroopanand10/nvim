@@ -34,6 +34,6 @@ require("user.icons")
 require("user.functions")
 -- require "user.jabs"
 require("user.dap")
---[[ require "user.dbgconfig" ]]
+require "user.dbgconfig"
 require("user.illuminate")
 -- require "user.rooter"

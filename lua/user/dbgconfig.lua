@@ -50,7 +50,7 @@ dap.adapters.codelldb = {
     -- CHANGE THIS to your path!
     -- command = '/usr/bin/lldb-vscode',
     -- command = '/absolute/path/to/codelldb/extension/adapter/codelldb',
-    command = '/home/swaroop/.local/share/nvim/dapinstall/codelldb/extension/adapter/codelldb',
+    command = '/home/swaroop/.local/share/nvim/mason/packages/codelldb/extension/adapter/codelldb',
     args = {"--port", "${port}"},
     -- On windows you may have to uncomment this:
     -- detached = false,
@@ -78,8 +78,8 @@ dap.configurations.rust = dap.configurations.cpp
 --[[ dap.adapters.node2 = { ]]
 --[[   type = 'executable', ]]
 --[[   command = 'node', ]]
---[[   -- args = {os.getenv('HOME') .. '/dev/microsoft/vscode-node-debug2/out/src/nodeDebug.js'}, ]]
---[[   args = {os.getenv('HOME') .. '/.local/share/nvim/dapinstall/jsnode/vscode-node-debug2/gulpfile.js'}, --not working for some reason ]]
+--[[   args = {os.getenv('HOME') .. '.local/share/nvim/mason/packages/node-debug2-adapter/node-debug2-adapter'}, --not working for some reason ]]
+--[[]]
 --[[ } ]]
 --[[ dap.configurations.javascript = { ]]
 --[[   { ]]
@@ -91,29 +91,56 @@ dap.configurations.rust = dap.configurations.cpp
 --[[     sourceMaps = true, ]]
 --[[     protocol = 'inspector', ]]
 --[[     console = 'integratedTerminal', ]]
+--[[     port = 9222, ]]
 --[[   }, ]]
 --[[   { ]]
 --[[     -- For this to work you need to make sure the node process is started with the `--inspect` flag. ]]
 --[[     name = 'Attach to process', ]]
 --[[     type = 'node2', ]]
+--[[     cwd = vim.fn.getcwd(), ]]
+--[[     program = '${file}', ]]
 --[[     request = 'attach', ]]
 --[[     processId = require'dap.utils'.pick_process, ]]
+--[[     sourceMaps = true, ]]
+--[[     port = 9222, ]]
 --[[   }, ]]
 --[[ } ]]
 
 
-
 require("dap-vscode-js").setup({
-   node_path = "node", -- Path of node executable. Defaults to $NODE_PATH, and then "node"
+   node_path = "node --inspect", -- Path of node executable. Defaults to $NODE_PATH, and then "node"
    debugger_path = "(runtimedir)/site/pack/packer/opt/vscode-js-debug", -- Path to vscode-js-debug installation.
    debugger_cmd = { "js-debug-adapter" }, -- Command to use to launch the debug server. Takes precedence over `node_path` and `debugger_path`.
   adapters = { 'pwa-node', 'pwa-chrome', 'pwa-msedge', 'node-terminal', 'pwa-extensionHost' }, -- which adapters to register in nvim-dap
 })
 
 for _, language in ipairs({ "typescript", "javascript" }) do
-  require("dap").configurations[language] = {
-    ... -- see below
+require("dap").configurations[language] = {
+{
+  {
+    name = "Launch file",
+    type = "pwa-node",
+    request = "launch",
+    program = "${file}",
+    cwd = "${workspaceFolder}",
+  },
+  {
+    name = "Attach",
+    type = "pwa-node",
+    request = "attach",
+    processId = require'dap.utils'.pick_process,
+    program = "${file}",
+    cwd = "${workspaceFolder}",
+  }
+}
   }
 end
 
 
+
+    --[[ type = 'node2', ]]
+    --[[ request = 'attach', ]]
+    --[[ cwd = vim.fn.getcwd(), ]]
+    --[[ sourceMaps = true, ]]
+    --[[ protocol = 'inspector', ]]
+    --[[ skipFiles = {'<node_internals>/**/*.js'}, ]]

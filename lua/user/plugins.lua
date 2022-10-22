@@ -77,7 +77,7 @@ return packer.startup(function(use)
 		"SmiteshP/nvim-navic",
 		requires = "neovim/nvim-lspconfig",
 	})
-	use({ "christianchiarulli/nvim-gps", branch = "text_hl" })
+	--[[ use({ "christianchiarulli/nvim-gps", branch = "text_hl" }) ]]
 	use({
 		"rrethy/vim-hexokinase",
 		run = "cd ~/.local/share/nvim/site/pack/packer/start/vim-hexokinase && make hexokinase",

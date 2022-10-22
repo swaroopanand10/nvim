@@ -146,6 +146,10 @@ require("lspconfig").bashls.setup {
   on_attach = on_attach
 }
 
+require("lspconfig").rust_analyzer.setup {
+  on_attach = on_attach
+}
+
 --[[below code make the tsserver lsp working but I don't know how]]
 local function attach_navic(client, bufnr)
   vim.g.navic_silence = true
