@@ -24,8 +24,17 @@ let g:startify_bookmarks = [
       \ {'z' : '~/.config/zsh/.zshrc'},
       \ {'t' : '~/.config/tmux/tmux.conf'}      
       \ ] 
-]]) 
+]])
 
+vim.cmd([[
+let g:startify_lists = [
+          \ { 'type': 'sessions',  'header': ['   Sessions']       },
+          \ { 'type': 'files',     'header': ['   MRU']            },
+          \ { 'type': 'dir',       'header': ['   MRU '. getcwd()] },
+          \ { 'type': 'bookmarks', 'header': ['   Bookmarks']      },
+          \ { 'type': 'commands',  'header': ['   Commands']       },
+          \ ]
+]])
 --
 -- g.startify_enable_special = 0
 -- g.startify_session_autoload = 1
