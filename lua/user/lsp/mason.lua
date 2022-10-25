@@ -29,7 +29,7 @@ local servers = {
   "taplo",
   --[[ "zk@v0.10.1", ]]
   --[[ "lemminx" ]]
-  'lua-language-server',
+  --[[ 'lua-language-server', ]]
 }
 
 local settings = {

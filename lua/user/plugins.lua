@@ -114,6 +114,7 @@ return packer.startup(function(use)
 	use("saadparwaiz1/cmp_luasnip") -- snippet completions
 	use("hrsh7th/cmp-nvim-lsp")
 	use("hrsh7th/cmp-nvim-lua")
+  use("quangnguyen30192/cmp-nvim-ultisnips")
 	use("mattn/emmet-vim") -- emmet (just install it this way and it's fine)
 	use("mlaursen/vim-react-snippets") -- react snippets
 
