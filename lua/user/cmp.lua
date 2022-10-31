@@ -8,12 +8,6 @@ if not snip_status_ok then
   return
 end
 
---[[ local ultisnip_status_ok, ultisnips = pcall(require, "ultisnips") ]]
---[[ if not ultisnip_status_ok then ]]
---[[   print("error"); ]]
---[[   return ]]
---[[ end ]]
-
 require("luasnip/loaders/from_vscode").lazy_load()
 
 local check_backspace = function()
@@ -51,8 +45,6 @@ local kind_icons = {
 }
 -- find more here: https://www.nerdfonts.com/cheat-sheet
 
---[[ local cmp_ultisnips_mappings = require("cmp_nvim_ultisnips.mappings") ]]
---[[ local ultisnips = require("cmp_nvim_ultisnips") ]]
 
 cmp.setup {
   snippet = {
@@ -78,17 +70,12 @@ cmp.setup {
     -- Set `select` to `false` to only confirm explicitly selected items.
     ["<CR>"] = cmp.mapping.confirm { select = false },
     ["<Tab>"] = cmp.mapping(function(fallback)
-      --[[ cmp_ultisnips_mappings.expand_or_jump_forwards(fallback) ]]
       if cmp.visible() then
         cmp.select_next_item()
       elseif luasnip.expandable() then
         luasnip.expand()
       elseif luasnip.expand_or_jumpable() then
         luasnip.expand_or_jump()
-      --[[ elseif ultisnips.expandable() then ]]
-      --[[   ultisnips.expand() ]]
-      --[[ elseif ultisnips.expand_or_jumpable() then ]]
-      --[[   ultisnips.expand_or_jump() ]]
       elseif check_backspace() then
         fallback()
       else
@@ -98,13 +85,12 @@ cmp.setup {
       "i",
       "s",
     }),
+
     ["<S-Tab>"] = cmp.mapping(function(fallback)
       if cmp.visible() then
         cmp.select_prev_item()
       elseif luasnip.jumpable(-1) then
         luasnip.jump(-1)
-      --[[ elseif ultisnips.jumpable(-1) then ]]
-      --[[   ultisnips.jump(-1) ]]
       else
         fallback()
       end
@@ -113,6 +99,7 @@ cmp.setup {
       "s",
     }),
   },
+
   formatting = {
     fields = { "kind", "abbr", "menu" },
     format = function(entry, vim_item)
@@ -141,28 +128,6 @@ cmp.setup {
     select = false,
   },
 
-
-  --  option = {
-  --   behavior = cmp.ConfirmBehavior.Replace,
-  --   select = false,
-  -- },
-
-  -- window = {                                              -- these were old
-  --  -- documentation = false,
-  -- documentation = {
-  --   border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
-  -- },
-  --   -- completion = cmp.config.window.bordered(),
-  --   -- documentation = cmp.config.window.bordered(),
-  -- },
-  -- -- experimental = {
-  -- --   ghost_text = false,
-  -- --   native_menu = false,
-  -- -- },
-  -- view = {
-  --   -- entries = 'native',
-  --   entries = {name = 'custom', selection_order = 'near_cursor' }
-  -- },
 
 window = {
     documentation = {

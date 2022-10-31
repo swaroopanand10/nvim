@@ -37,3 +37,4 @@ require("user.dap")
 require "user.dbgconfig"
 require("user.illuminate")
 -- require "user.rooter"
+require("user.luasnip")

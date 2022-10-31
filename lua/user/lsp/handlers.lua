@@ -3,12 +3,12 @@ local M = {}
 M.capabilities = vim.lsp.protocol.make_client_capabilities()
 --[[ M.capabilities = vim.lsp.protocol.make_server_capabilities() ]]
 
---[[ local status_cmp_ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp") ]]
---[[ if not status_cmp_ok then ]]
---[[   return ]]
---[[ end ]]
---[[ M.capabilities.textDocument.completion.completionItem.snippetSupport = true ]]
---[[ M.capabilities = cmp_nvim_lsp.default_capabilities(M.capabilities) ]]
+local status_cmp_ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
+if not status_cmp_ok then
+  return
+end
+M.capabilities.textDocument.completion.completionItem.snippetSupport = true
+M.capabilities = cmp_nvim_lsp.default_capabilities(M.capabilities)
 
 
 -- TODO: backfill this to template
@@ -116,9 +116,6 @@ local function lsp_keymaps(bufnr)
 end
 
 
-
-
-
 local on_attach = function(client, bufnr)
   if client.server_capabilities.documentSymbolProvider then
     require("nvim-navic").attach(client, bufnr)
@@ -210,12 +207,12 @@ end
 
 -- local capabilities = vim.lsp.protocol.make_server_capabilities()
 
-local status_ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
-if not status_ok then
-  return
-end
+--[[ local status_ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp") ]]
+--[[ if not status_ok then ]]
+--[[   return ]]
+--[[ end ]]
 --[[]]
 --[[ --[[ M.capabilities = cmp_nvim_lsp.update_capabilities(capabilities) ]] -- depcreciated ]]
-M.capabilities = cmp_nvim_lsp.default_capabilities(capabilities)
+--[[ M.capabilities = cmp_nvim_lsp.default_capabilities(capabilities) ]]
 
 return M

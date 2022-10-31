@@ -186,6 +186,7 @@ return packer.startup(function(use)
 			})
 		end,
 	})
+  --[[ use("p00f/cphelper.nvim") ]]
 
 	-- use "metakirby5/codi.vim"
 	-- use "unblevable/quick-scope"
