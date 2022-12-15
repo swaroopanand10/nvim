@@ -20,7 +20,7 @@ local postfix = require("luasnip.extras.postfix").postfix
 -- adding snippets for cpp
 ls.add_snippets("cpp", {
 	s("cpp", {
-		t({ "#include <iostream>", "using namespace std;","#define ll long long"," ", "void solve(){", "  " }),
+		t({ "#include <bits/stdc++.h>", "using namespace std;","#define ll long long"," ", "void solve(){", "  " }),
 		i(1),
 		t({ " ", "}", " ", "int main(){", '  // cout<<"hello";',"  ios::sync_with_stdio(false);","  cin.tie(nullptr);","  int t=1;","  cin>>t;","  while(t--){","    solve();", "  }", "}" }),
 	}),
