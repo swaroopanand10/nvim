@@ -29,6 +29,10 @@ keymap("n", "<A-j>", "<C-w>j", opts)
 keymap("n", "<A-k>", "<C-w>k", opts)
 keymap("n", "<A-l>", "<C-w>l", opts)
 
+vim.cmd([[
+nnoremap <expr> k (v:count == 0 ? 'gk' : 'k')
+nnoremap <expr> j (v:count == 0 ? 'gj' : 'j')
+]])
 
 -- Resize with arrows
 --keymap("n", "<C-Up>", ":resize -2<CR>", opts)

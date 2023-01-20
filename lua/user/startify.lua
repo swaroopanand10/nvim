@@ -13,6 +13,7 @@ vim.cmd [[let g:startify_padding_left = 3]]
 vim.cmd [[let g:startify_custom_header = ['   Neovim'] ]]
 vim.cmd [[let g:startify_relative_path = 1]] -- If the file is in or below the current working directory, use a relative path.Otherwise an absolute path is used
 vim.cmd [[let g:startify_session_dir = '~/.config/nvim/sessions/']] 
+
 vim.cmd([[
 let g:startify_bookmarks = [
       \ {'c' : '~/.config/i3/config'},

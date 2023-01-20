@@ -99,10 +99,21 @@ _G.packer_plugins = {
     path = "/home/swaroop/.local/share/nvim/site/pack/packer/start/cmp-buffer",
     url = "https://github.com/hrsh7th/cmp-buffer"
   },
+  ["cmp-calc"] = {
+    loaded = true,
+    path = "/home/swaroop/.local/share/nvim/site/pack/packer/start/cmp-calc",
+    url = "https://github.com/hrsh7th/cmp-calc"
+  },
   ["cmp-cmdline"] = {
     loaded = true,
     path = "/home/swaroop/.local/share/nvim/site/pack/packer/start/cmp-cmdline",
     url = "https://github.com/hrsh7th/cmp-cmdline"
+  },
+  ["cmp-color-names.nvim"] = {
+    config = {},
+    loaded = true,
+    path = "/home/swaroop/.local/share/nvim/site/pack/packer/start/cmp-color-names.nvim",
+    url = "https://github.com/nat-418/cmp-color-names.nvim"
   },
   ["cmp-nvim-lsp"] = {
     loaded = true,
@@ -346,6 +357,11 @@ _G.packer_plugins = {
     path = "/home/swaroop/.local/share/nvim/site/pack/packer/start/vim-bbye",
     url = "https://github.com/moll/vim-bbye"
   },
+  ["vim-be-good"] = {
+    loaded = true,
+    path = "/home/swaroop/.local/share/nvim/site/pack/packer/start/vim-be-good",
+    url = "https://github.com/ThePrimeagen/vim-be-good"
+  },
   ["vim-hexokinase"] = {
     loaded = true,
     path = "/home/swaroop/.local/share/nvim/site/pack/packer/start/vim-hexokinase",
@@ -388,6 +404,9 @@ time([[Config for nvim-surround]], false)
 time([[Config for toggleterm.nvim]], true)
 try_loadstring("\27LJ\2\n8\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\15toggleterm\frequire\0", "config", "toggleterm.nvim")
 time([[Config for toggleterm.nvim]], false)
+-- Config for: cmp-color-names.nvim
+time([[Config for cmp-color-names.nvim]], true)
+time([[Config for cmp-color-names.nvim]], false)
 
 _G._packer.inside_compile = false
 if _G._packer.needs_bufread == true then

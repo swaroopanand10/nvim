@@ -186,6 +186,14 @@ return packer.startup(function(use)
 			})
 		end,
 	})
+ use({"ThePrimeagen/vim-be-good"})
+use({
+  'nat-418/cmp-color-names.nvim',
+  config = {
+    require('cmp-color-names').setup()
+  }
+})
+  use({"hrsh7th/cmp-calc"})
   --[[ use("p00f/cphelper.nvim") ]]
 
 	-- use "metakirby5/codi.vim"

@@ -122,6 +122,8 @@ cmp.setup {
     { name = "ultisnips" },
     { name = "buffer" },
     { name = "path" },
+    { name = "calc" },
+    { name = "color_names" },
   },
   confirm_opts = {
     behavior = cmp.ConfirmBehavior.Replace,

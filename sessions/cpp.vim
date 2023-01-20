@@ -3,7 +3,7 @@ let s:so_save = &g:so | let s:siso_save = &g:siso | setg so=0 siso=0 | setl so=-
 let v:this_session=expand("<sfile>:p")
 silent only
 silent tabonly
-cd ~
+cd ~/Desktop/prg
 if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
   let s:wipebuf = bufnr('%')
 endif
@@ -13,12 +13,13 @@ if &shortmess =~ 'A'
 else
   set shortmess=aoO
 endif
-badd +23 Desktop/prg/cf/cpp.cpp
+badd +5 cf/cpp.cpp
+badd +1 cf/in.txt
+badd +1 cf/out.txt
 badd +1 Desktop/prg/cf/in.txt
-badd +1 Desktop/prg/cf/out.txt
 argglobal
 %argdel
-edit Desktop/prg/cf/cpp.cpp
+edit cf/cpp.cpp
 let s:save_splitbelow = &splitbelow
 let s:save_splitright = &splitright
 set splitbelow splitright
@@ -40,9 +41,9 @@ set winheight=1
 set winminwidth=0
 set winwidth=1
 exe 'vert 1resize ' . ((&columns * 78 + 78) / 157)
-exe '2resize ' . ((&lines * 19 + 20) / 41)
+exe '2resize ' . ((&lines * 20 + 20) / 41)
 exe 'vert 2resize ' . ((&columns * 78 + 78) / 157)
-exe '3resize ' . ((&lines * 19 + 20) / 41)
+exe '3resize ' . ((&lines * 18 + 20) / 41)
 exe 'vert 3resize ' . ((&columns * 78 + 78) / 157)
 argglobal
 balt Desktop/prg/cf/in.txt
@@ -56,20 +57,19 @@ setlocal fdn=20
 setlocal fen
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 23 - ((22 * winheight(0) + 19) / 38)
+let s:l = 5 - ((4 * winheight(0) + 19) / 38)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 23
-normal! 0
-lcd ~/Desktop/prg/cf
+keepjumps 5
+normal! 02|
 wincmd w
 argglobal
-if bufexists(fnamemodify("~/Desktop/prg/cf/in.txt", ":p")) | buffer ~/Desktop/prg/cf/in.txt | else | edit ~/Desktop/prg/cf/in.txt | endif
+if bufexists(fnamemodify("cf/in.txt", ":p")) | buffer cf/in.txt | else | edit cf/in.txt | endif
 if &buftype ==# 'terminal'
-  silent file ~/Desktop/prg/cf/in.txt
+  silent file cf/in.txt
 endif
-balt ~/Desktop/prg/cf/out.txt
+balt cf/out.txt
 setlocal fdm=manual
 setlocal fde=0
 setlocal fmr={{{,}}}
@@ -80,7 +80,7 @@ setlocal fdn=20
 setlocal fen
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 1 - ((0 * winheight(0) + 9) / 18)
+let s:l = 1 - ((0 * winheight(0) + 9) / 19)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
@@ -104,7 +104,7 @@ setlocal fdn=20
 setlocal fen
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 1 - ((0 * winheight(0) + 9) / 18)
+let s:l = 1 - ((0 * winheight(0) + 8) / 17)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
@@ -113,9 +113,9 @@ normal! 0
 lcd ~/Desktop/prg/cf
 wincmd w
 exe 'vert 1resize ' . ((&columns * 78 + 78) / 157)
-exe '2resize ' . ((&lines * 19 + 20) / 41)
+exe '2resize ' . ((&lines * 20 + 20) / 41)
 exe 'vert 2resize ' . ((&columns * 78 + 78) / 157)
-exe '3resize ' . ((&lines * 19 + 20) / 41)
+exe '3resize ' . ((&lines * 18 + 20) / 41)
 exe 'vert 3resize ' . ((&columns * 78 + 78) / 157)
 tabnext 1
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0 && getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'

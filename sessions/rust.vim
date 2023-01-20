@@ -13,12 +13,12 @@ if &shortmess =~ 'A'
 else
   set shortmess=aoO
 endif
-badd +1 dev/rust/sample/src/main.rs
-badd +0 dev/rust/sample/src/extra/in.txt
+badd +4 ~/Desktop/prg/dev/rust/sample/src/main.rs
+badd +0 ~/Desktop/prg/dev/rust/sample/src/extra/in.txt
 badd +0 ~/Desktop/prg/dev/rust/sample/src/extra/out.txt
 argglobal
 %argdel
-edit dev/rust/sample/src/main.rs
+edit ~/Desktop/prg/dev/rust/sample/src/main.rs
 let s:save_splitbelow = &splitbelow
 let s:save_splitright = &splitright
 set splitbelow splitright
@@ -39,13 +39,13 @@ set winminheight=0
 set winheight=1
 set winminwidth=0
 set winwidth=1
-exe 'vert 1resize ' . ((&columns * 79 + 80) / 160)
-exe '2resize ' . ((&lines * 19 + 21) / 42)
-exe 'vert 2resize ' . ((&columns * 80 + 80) / 160)
-exe '3resize ' . ((&lines * 20 + 21) / 42)
-exe 'vert 3resize ' . ((&columns * 80 + 80) / 160)
+exe 'vert 1resize ' . ((&columns * 78 + 78) / 157)
+exe '2resize ' . ((&lines * 19 + 20) / 41)
+exe 'vert 2resize ' . ((&columns * 78 + 78) / 157)
+exe '3resize ' . ((&lines * 19 + 20) / 41)
+exe 'vert 3resize ' . ((&columns * 78 + 78) / 157)
 argglobal
-balt dev/rust/sample/src/extra/in.txt
+balt ~/Desktop/prg/dev/rust/sample/src/extra/in.txt
 setlocal fdm=manual
 setlocal fde=0
 setlocal fmr={{{,}}}
@@ -56,17 +56,17 @@ setlocal fdn=20
 setlocal fen
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 1 - ((0 * winheight(0) + 19) / 39)
+let s:l = 4 - ((3 * winheight(0) + 19) / 38)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 1
+keepjumps 4
 normal! 0
 wincmd w
 argglobal
-if bufexists(fnamemodify("dev/rust/sample/src/extra/in.txt", ":p")) | buffer dev/rust/sample/src/extra/in.txt | else | edit dev/rust/sample/src/extra/in.txt | endif
+if bufexists(fnamemodify("~/Desktop/prg/dev/rust/sample/src/extra/in.txt", ":p")) | buffer ~/Desktop/prg/dev/rust/sample/src/extra/in.txt | else | edit ~/Desktop/prg/dev/rust/sample/src/extra/in.txt | endif
 if &buftype ==# 'terminal'
-  silent file dev/rust/sample/src/extra/in.txt
+  silent file ~/Desktop/prg/dev/rust/sample/src/extra/in.txt
 endif
 balt ~/Desktop/prg/dev/rust/sample/src/extra/out.txt
 setlocal fdm=manual
@@ -91,7 +91,7 @@ if bufexists(fnamemodify("~/Desktop/prg/dev/rust/sample/src/extra/out.txt", ":p"
 if &buftype ==# 'terminal'
   silent file ~/Desktop/prg/dev/rust/sample/src/extra/out.txt
 endif
-balt dev/rust/sample/src/extra/in.txt
+balt ~/Desktop/prg/dev/rust/sample/src/extra/in.txt
 setlocal fdm=manual
 setlocal fde=0
 setlocal fmr={{{,}}}
@@ -102,18 +102,18 @@ setlocal fdn=20
 setlocal fen
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 2 - ((1 * winheight(0) + 9) / 19)
+let s:l = 1 - ((0 * winheight(0) + 9) / 18)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 2
+keepjumps 1
 normal! 0
 wincmd w
-exe 'vert 1resize ' . ((&columns * 79 + 80) / 160)
-exe '2resize ' . ((&lines * 19 + 21) / 42)
-exe 'vert 2resize ' . ((&columns * 80 + 80) / 160)
-exe '3resize ' . ((&lines * 20 + 21) / 42)
-exe 'vert 3resize ' . ((&columns * 80 + 80) / 160)
+exe 'vert 1resize ' . ((&columns * 78 + 78) / 157)
+exe '2resize ' . ((&lines * 19 + 20) / 41)
+exe 'vert 2resize ' . ((&columns * 78 + 78) / 157)
+exe '3resize ' . ((&lines * 19 + 20) / 41)
+exe 'vert 3resize ' . ((&columns * 78 + 78) / 157)
 tabnext 1
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0 && getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'
   silent exe 'bwipe ' . s:wipebuf

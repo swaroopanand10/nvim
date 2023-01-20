@@ -104,7 +104,7 @@ local mappings = {
     "Find files",
   },
 
-  ["u"] = { "<cmd>:lcd %:p:h<cr>", "fzf_file" },
+  ["u"] = { "<cmd>:lcd %:p:h<cr>", "path_to_file" },
   ["W"] = { "<cmd>:set wrap!<cr>", "wrap" },
   ["D"] = { "<cmd>%d<cr>", "clear buffer" },
 
