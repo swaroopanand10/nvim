@@ -13,7 +13,9 @@ if &shortmess =~ 'A'
 else
   set shortmess=aoO
 endif
-badd +4 index.js
+badd +1 ~/web/css-exercises/index.js
+badd +1 ~/web/css-exercises/out.txt
+badd +10 index.js
 badd +1 out.txt
 argglobal
 %argdel
@@ -37,7 +39,6 @@ set winwidth=1
 exe 'vert 1resize ' . ((&columns * 78 + 78) / 157)
 exe 'vert 2resize ' . ((&columns * 78 + 78) / 157)
 argglobal
-balt out.txt
 setlocal fdm=manual
 setlocal fde=0
 setlocal fmr={{{,}}}
@@ -48,11 +49,11 @@ setlocal fdn=20
 setlocal fen
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 4 - ((3 * winheight(0) + 19) / 38)
+let s:l = 10 - ((9 * winheight(0) + 19) / 38)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 4
+keepjumps 10
 normal! 0
 lcd ~/Desktop/prg/dev/web/sample
 wincmd w
@@ -61,7 +62,6 @@ if bufexists(fnamemodify("~/Desktop/prg/dev/web/sample/out.txt", ":p")) | buffer
 if &buftype ==# 'terminal'
   silent file ~/Desktop/prg/dev/web/sample/out.txt
 endif
-balt ~/Desktop/prg/dev/web/sample/index.js
 setlocal fdm=manual
 setlocal fde=0
 setlocal fmr={{{,}}}
@@ -78,7 +78,6 @@ keepjumps exe s:l
 normal! zt
 keepjumps 1
 normal! 0
-lcd ~/Desktop/prg/dev/web/sample
 wincmd w
 exe 'vert 1resize ' . ((&columns * 78 + 78) / 157)
 exe 'vert 2resize ' . ((&columns * 78 + 78) / 157)

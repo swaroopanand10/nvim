@@ -38,3 +38,5 @@ require "user.dbgconfig"
 require("user.illuminate")
 -- require "user.rooter"
 require("user.luasnip")
+--[[ require("user.hologram") ]]
+--[[ require("user.image") ]]

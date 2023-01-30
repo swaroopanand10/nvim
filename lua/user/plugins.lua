@@ -194,6 +194,13 @@ use({
   }
 })
   use({"hrsh7th/cmp-calc"})
+use {'edluffy/hologram.nvim'}
+use {
+  'samodostal/image.nvim',
+  requires = {
+    'nvim-lua/plenary.nvim'
+  },
+}
   --[[ use("p00f/cphelper.nvim") ]]
 
 	-- use "metakirby5/codi.vim"
