@@ -168,12 +168,12 @@ return packer.startup(function(use)
 	-- Git
 	use("lewis6991/gitsigns.nvim")
 	-- use "kdheepak/lazygit.nvim"-- was not working
-	use({ "mxsdev/nvim-dap-vscode-js", requires = { "mfussenegger/nvim-dap" } })
-	use({
-		"microsoft/vscode-js-debug",
-		opt = true,
-		run = "npm install --legacy-peer-deps && npm run compile",
-	})
+	--[[ use({ "mxsdev/nvim-dap-vscode-js", requires = { "mfussenegger/nvim-dap" } }) ]]
+	--[[ use({ ]]
+	--[[ 	"microsoft/vscode-js-debug", ]]
+	--[[ 	opt = true, ]]
+	--[[ 	run = "npm install --legacy-peer-deps && npm run compile", ]]
+	--[[ }) ]]
 	use("jayp0521/mason-nvim-dap.nvim")
 
 	--Some extra stuff
@@ -194,13 +194,13 @@ use({
   }
 })
   use({"hrsh7th/cmp-calc"})
-use {'edluffy/hologram.nvim'}
-use {
-  'samodostal/image.nvim',
-  requires = {
-    'nvim-lua/plenary.nvim'
-  },
-}
+--[[ use {'edluffy/hologram.nvim'} ]]
+--[[ use { ]]
+--[[   'samodostal/image.nvim', ]]
+--[[   requires = { ]]
+--[[     'nvim-lua/plenary.nvim' ]]
+--[[   }, ]]
+--[[ } ]]
   --[[ use("p00f/cphelper.nvim") ]]
 
 	-- use "metakirby5/codi.vim"
