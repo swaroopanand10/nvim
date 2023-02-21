@@ -131,7 +131,10 @@ require("lspconfig").pyright.setup {
   on_attach = on_attach
 }
 
-require("lspconfig").sumneko_lua.setup {
+--[[ require("lspconfig").sumneko_lua.setup { ]]
+--[[   on_attach = on_attach ]]
+--[[ } ]]
+require("lspconfig").lua_ls.setup {
   on_attach = on_attach
 }
 

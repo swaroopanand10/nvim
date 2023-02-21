@@ -17,7 +17,8 @@ local servers = {
   "jsonls",
   --[[ "solc", ]]
   --[[ "solidity_ls", ]]
-  "sumneko_lua",
+  --[[ "sumneko_lua", ]]
+  "lua_ls",
   "tflint",
   --[[ "terraformls", ]]
   "tsserver",

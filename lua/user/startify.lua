@@ -16,14 +16,15 @@ vim.cmd [[let g:startify_session_dir = '~/.config/nvim/sessions/']]
 
 vim.cmd([[
 let g:startify_bookmarks = [
-      \ {'c' : '~/.config/i3/config'},
-      \ {'i' : '~/.config/nvim/init.lua'},
+      \ {'i' : '~/.config/install.txt'},
+      \ {'c' : '~/.config/nvim/init.lua'},
       \ {'p' : '~/.config/polybar/config.ini'},
       \ {'b' : '~/.config/bspwm/bspwmrc'},
       \ {'s' : '~/.config/sxhkd/sxhkdrc'},
       \ {'m' : '~/.local/share/nvim/site/pack/packer/start/monovibrantdark/colors/monovibrantdark.vim'},
       \ {'z' : '~/.config/zsh/.zshrc'},
-      \ {'t' : '~/.config/tmux/tmux.conf'}      
+      \ {'t' : '~/.config/tmux/tmux.conf'},
+      \ {'h' : '~/.config/hypr/hyprland.conf'}      
       \ ] 
 ]])
 

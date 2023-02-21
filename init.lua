@@ -38,5 +38,5 @@ require("user.functions")
 require("user.illuminate")
 -- require "user.rooter"
 require("user.luasnip")
---[[ require("user.hologram") ]]
+require("user.hologram")
 --[[ require("user.image") ]]

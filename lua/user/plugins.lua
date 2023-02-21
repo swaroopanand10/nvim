@@ -194,7 +194,7 @@ use({
   }
 })
   use({"hrsh7th/cmp-calc"})
---[[ use {'edluffy/hologram.nvim'} ]]
+use {'edluffy/hologram.nvim'}
 --[[ use { ]]
 --[[   'samodostal/image.nvim', ]]
 --[[   requires = { ]]
