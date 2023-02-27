@@ -1,4 +1,5 @@
 require("user.options")
+require("user.nvim-tree")
 require("user.keymaps")
 require("user.plugins")
 require("user.colorscheme")
@@ -9,7 +10,7 @@ require("user.treesitter")
 require("user.autopairs")
 require("user.comment")
 require("user.gitsigns")
-require("user.nvim-tree")
+--[[ require("user.nvim-tree") ]]
 -- require "user.bufferline"
 require("user.lualine1")
 --[[ require "user.lualine3" ]]
@@ -40,3 +41,4 @@ require("user.illuminate")
 require("user.luasnip")
 require("user.hologram")
 --[[ require("user.image") ]]
+--[[ require("user.filetype") ]]

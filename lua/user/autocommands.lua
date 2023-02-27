@@ -50,6 +50,15 @@ if vim.fn.has "nvim-0.8" == 1 then
   )
 end
 
+
+vim.cmd([[autocmd BufEnter *.pdf execute "silent !zathura '%'" | Bdelete ]]) 
+--[[ vim.cmd("autocmd BufEnter *.jpg,*.jpeg,*png !sxiv '%'") ]]
+vim.cmd([[autocmd BufEnter *.jpg,*jpeg,*png execute "silent !sxiv '%'" | Bdelete ]]) 
+
+
+
+--[[ vim.cmd("autocmd BufEnter *.jpeg !sxiv '%'") ]]
+--[[ vim.cmd("autocmd BufEnter *.png !sxiv '%'") ]]
 -- vim.api.nvim_create_autocmd({ "User" }, {
 --   pattern = { "AlphaReady" },
 --   callback = function()

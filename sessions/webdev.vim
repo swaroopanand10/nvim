@@ -13,10 +13,10 @@ if &shortmess =~ 'A'
 else
   set shortmess=aoO
 endif
-badd +1 ~/web/css-exercises/index.js
-badd +1 ~/web/css-exercises/out.txt
-badd +10 index.js
+badd +1 index.js
 badd +1 out.txt
+badd +1 css/style.css
+badd +1 index.html
 argglobal
 %argdel
 edit index.js
@@ -36,9 +36,10 @@ set winminheight=0
 set winheight=1
 set winminwidth=0
 set winwidth=1
-exe 'vert 1resize ' . ((&columns * 78 + 78) / 157)
-exe 'vert 2resize ' . ((&columns * 78 + 78) / 157)
+exe 'vert 1resize ' . ((&columns * 150 + 96) / 192)
+exe 'vert 2resize ' . ((&columns * 41 + 96) / 192)
 argglobal
+balt index.html
 setlocal fdm=manual
 setlocal fde=0
 setlocal fmr={{{,}}}
@@ -49,11 +50,11 @@ setlocal fdn=20
 setlocal fen
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 10 - ((9 * winheight(0) + 19) / 38)
+let s:l = 1 - ((0 * winheight(0) + 22) / 45)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 10
+keepjumps 1
 normal! 0
 lcd ~/Desktop/prg/dev/web/sample
 wincmd w
@@ -62,6 +63,7 @@ if bufexists(fnamemodify("~/Desktop/prg/dev/web/sample/out.txt", ":p")) | buffer
 if &buftype ==# 'terminal'
   silent file ~/Desktop/prg/dev/web/sample/out.txt
 endif
+balt ~/Desktop/prg/dev/web/sample/index.js
 setlocal fdm=manual
 setlocal fde=0
 setlocal fmr={{{,}}}
@@ -72,15 +74,15 @@ setlocal fdn=20
 setlocal fen
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 1 - ((0 * winheight(0) + 19) / 38)
+let s:l = 1 - ((0 * winheight(0) + 22) / 45)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
 keepjumps 1
 normal! 0
 wincmd w
-exe 'vert 1resize ' . ((&columns * 78 + 78) / 157)
-exe 'vert 2resize ' . ((&columns * 78 + 78) / 157)
+exe 'vert 1resize ' . ((&columns * 150 + 96) / 192)
+exe 'vert 2resize ' . ((&columns * 41 + 96) / 192)
 tabnext 1
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0 && getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'
   silent exe 'bwipe ' . s:wipebuf

@@ -24,7 +24,8 @@ let g:startify_bookmarks = [
       \ {'m' : '~/.local/share/nvim/site/pack/packer/start/monovibrantdark/colors/monovibrantdark.vim'},
       \ {'z' : '~/.config/zsh/.zshrc'},
       \ {'t' : '~/.config/tmux/tmux.conf'},
-      \ {'h' : '~/.config/hypr/hyprland.conf'}      
+      \ {'h' : '~/.config/hypr/hyprland.conf'},
+      \ {'w' : '~/.config/waybar/config'}
       \ ] 
 ]])
 

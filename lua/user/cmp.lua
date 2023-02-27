@@ -8,6 +8,8 @@ if not snip_status_ok then
   return
 end
 
+--[[ local lsp = require("nvim_lsp") ]]
+
 require("luasnip/loaders/from_vscode").lazy_load()
 
 local check_backspace = function()
@@ -49,7 +51,7 @@ local kind_icons = {
 cmp.setup {
   snippet = {
     expand = function(args)
-      luasnip.lsp_expand(args.body) -- For `luasnip` users.
+      --[[ luasnip.lsp_expand(args.body) -- For `luasnip` users. ]] -- removing this line fixed some completion issues
       vim.fn["UltiSnips#Anon"](args.body)
     end,
   },
@@ -112,6 +114,7 @@ cmp.setup {
         ultisnips = "[uSnippet]",
         buffer = "[Buffer]",
         path = "[Path]",
+        color_names = "[color]",
       })[entry.source.name]
       return vim_item
     end,

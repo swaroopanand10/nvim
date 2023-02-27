@@ -47,7 +47,10 @@ return packer.startup(function(use)
 	use("windwp/nvim-autopairs") -- Autopairs, integrates with both cmp and treesitter
 	use("numToStr/Comment.nvim") -- Easily comment stuff
 	use("kyazdani42/nvim-web-devicons")
-	use("kyazdani42/nvim-tree.lua")
+	--[[ use("kyazdani42/nvim-tree.lua") ]]
+  --[[ use("nvim-tree/nvim-tree.lua") ]]
+use { 'nvim-tree/nvim-tree.lua', commit= '9c97e6449b0b0269bd44e1fd4857184dfa57bb4c',}
+
 	use("akinsho/bufferline.nvim")
 	use("moll/vim-bbye")
 
@@ -195,6 +198,7 @@ use({
 })
   use({"hrsh7th/cmp-calc"})
 use {'edluffy/hologram.nvim'}
+  --[[ use {"nathom/filetype.nvim"} ]]
 --[[ use { ]]
 --[[   'samodostal/image.nvim', ]]
 --[[   requires = { ]]
