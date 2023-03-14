@@ -1,7 +1,8 @@
 require("user.options")
-require("user.nvim-tree")
+--[[ require("user.nvim-tree") ]]
 require("user.keymaps")
 require("user.plugins")
+require("user.neotree")
 require("user.colorscheme")
 require("user.cmp")
 require("user.lsp")

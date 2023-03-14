@@ -1,221 +1,201 @@
-local fn = vim.fn
-
--- Automatically install packer
-local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
-if fn.empty(fn.glob(install_path)) > 0 then
-	PACKER_BOOTSTRAP = fn.system({
-		"git",
-		"clone",
-		"--depth",
-		"1",
-		"https://github.com/wbthomason/packer.nvim",
-		install_path,
-	})
-	print("Installing packer close and reopen Neovim...")
-	vim.cmd([[packadd packer.nvim]])
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable", -- latest stable release
+    lazypath,
+  })
 end
-
--- Autocommand that reloads neovim whenever you save the plugins.lua file
-vim.cmd([[
-  augroup packer_user_config
-    autocmd!
-    autocmd BufWritePost plugins.lua source <afile> | PackerSync
-  augroup end
-]])
-
--- Use a protected call so we don't error out on first use
-local status_ok, packer = pcall(require, "packer")
-if not status_ok then
-	return
-end
-
--- Have packer use a popup window
-packer.init({
-	display = {
-		open_fn = function()
-			return require("packer.util").float({ border = "rounded" })
-		end,
-	},
-})
-
--- Install your plugins here
-return packer.startup(function(use)
+vim.opt.rtp:prepend(lazypath)
+require("lazy").setup({
 	-- My plugins here
-	use("wbthomason/packer.nvim") -- Have packer manage itself
-	use("nvim-lua/popup.nvim") -- An implementation of the Popup API from vim in Neovim
-	use("nvim-lua/plenary.nvim") -- Useful lua functions used by lots of plugins
-	use("windwp/nvim-autopairs") -- Autopairs, integrates with both cmp and treesitter
-	use("numToStr/Comment.nvim") -- Easily comment stuff
-	use("kyazdani42/nvim-web-devicons")
-	--[[ use("kyazdani42/nvim-tree.lua") ]]
-  --[[ use("nvim-tree/nvim-tree.lua") ]]
-use { 'nvim-tree/nvim-tree.lua', commit= '9c97e6449b0b0269bd44e1fd4857184dfa57bb4c',}
+	"nvim-lua/popup.nvim", -- An implementation of the Popup API from vim in Neovim
+	"nvim-lua/plenary.nvim", -- Useful lua functions used by lots of plugins
+	"windwp/nvim-autopairs", -- Autopairs, integrates with both cmp and treesitter
+	"numToStr/Comment.nvim",-- Easily comment stuff
+	--[[ "kyazdani42/nvim-web-devicons", ]]
+  "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
+	--[[ ("kyazdani42/nvim-tree.lua") ]]
+  --[[ ("nvim-tree/nvim-tree.lua") ]]
+  --[[ {'nvim-tree/nvim-tree.lua', commit= '9c97e6449b0b0269bd44e1fd4857184dfa57bb4c'}, ]]
+  --[[ 'nvim-tree/nvim-tree.lua', ]]
+{
+  "nvim-neo-tree/neo-tree.nvim",
+    branch = "v2.x",
+    dependencies = { 
+      "nvim-lua/plenary.nvim",
+      --[[ "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended ]]
+      "MunifTanjim/nui.nvim",
+    }
+  },
 
-	use("akinsho/bufferline.nvim")
-	use("moll/vim-bbye")
 
-	use("nvim-lualine/lualine.nvim")
-	-- use "christianchiarulli/lualine.nvim"
-	-- use "akinsho/toggleterm.nvim"
-	use("ahmedkhalf/project.nvim")
-	use("lewis6991/impatient.nvim")
-	use("lukas-reineke/indent-blankline.nvim")
-	use({
+
+	"akinsho/bufferline.nvim",
+	"moll/vim-bbye",
+
+	"nvim-lualine/lualine.nvim",
+	--  "christianchiarulli/lualine.nvim"
+	--  "akinsho/toggleterm.nvim"
+	"ahmedkhalf/project.nvim",
+	"lewis6991/impatient.nvim",
+	"lukas-reineke/indent-blankline.nvim",
+	{
 		"akinsho/toggleterm.nvim",
 		tag = "v2.*",
 		config = function()
 			require("toggleterm").setup()
 		end,
-	})
-	-- use {
+  },
+	--  {
 	--   'goolord/alpha-nvim',
 	--   config = function ()
 	--       require'alpha'.setup(require'alpha.themes.dashboard'.config)
 	--   end
 	-- }
-	use("antoinemadec/FixCursorHold.nvim") -- This is needed to fix lsp doc highlight
-	use("folke/which-key.nvim")
-	use("mhinz/vim-startify") -- startify
-	use({
+	"antoinemadec/FixCursorHold.nvim" ,-- This is needed to fix lsp doc highlight
+	"folke/which-key.nvim",
+	"mhinz/vim-startify", -- startify
+	{
 		"SmiteshP/nvim-navic",
 		requires = "neovim/nvim-lspconfig",
-	})
-	--[[ use({ "christianchiarulli/nvim-gps", branch = "text_hl" }) ]]
-	use({
+	},
+
+	--[[ ({ "christianchiarulli/nvim-gps", branch = "text_hl" }) ]]
+	--  { "christianchiarulli/JABS.nvim" }
+	--  {'ygm2/rooter.nvim'}
+
+	{
 		"rrethy/vim-hexokinase",
-		run = "cd ~/.local/share/nvim/site/pack/packer/start/vim-hexokinase && make hexokinase",
-	})
-	-- use { "christianchiarulli/JABS.nvim" }
-	-- use {'ygm2/rooter.nvim'}
+		build = "cd ~/.local/share/nvim/lazy/vim-hexokinase && make hexokinase",
+	},
 
 	-- Colorschemes
-	-- use "lunarvim/colorschemes" -- A bunch of colorschemes you can try out
-	use("lunarvim/darkplus.nvim")
-	-- use "gleich/monovibrant"
-	--[[ use "swaroopanand10/monocustom" ]]
-	--[[ use "swaroopanand10/monovibrantdark" ]]
-	use("swaroopanand10/glowbeamdark")
-	-- use "rafamadriz/neon"
-	-- use "bignimbus/pop-punk.vim"
-	use("cooperuser/glowbeam.nvim")
-	-- use "betoissues/contrastneed-theme"
-	-- use "nonetallt/vim-neon-dark"
-	use("folke/tokyonight.nvim")
-	--[[ use 'romgrk/doom-one.vim' ]]
-	--[[ use 'morhetz/gruvbox' ]]
-	--[[ use 'sainnhe/sonokai' ]]
-	use("pacokwon/onedarkhc.vim")
-	--[[ use 'joshdick/onedark.vim' ]]
-	--[[ use 'rakr/vim-one' ]]
-	use("ukyouz/onedark.vim")
+	--  "lunarvim/colorschemes" -- A bunch of colorschemes you can try out
+	"lunarvim/darkplus.nvim",
+	--  "gleich/monovibrant"
+	--[[  "swaroopanand10/monocustom" ]]
+	--[[  "swaroopanand10/monovibrantdark" ]]
+	"swaroopanand10/glowbeamdark",
+	--  "rafamadriz/neon"
+	--  "bignimbus/pop-punk.vim"
+	"cooperuser/glowbeam.nvim",
+	--  "betoissues/contrastneed-theme"
+	--  "nonetallt/vim-neon-dark"
+	"folke/tokyonight.nvim",
+	--[[  'romgrk/doom-one.vim' ]]
+	--[[  'morhetz/gruvbox' ]]
+	--[[  'sainnhe/sonokai' ]]
+	"pacokwon/onedarkhc.vim",
+	--[[  'joshdick/onedark.vim' ]]
+	--[[  'rakr/vim-one' ]]
+	"ukyouz/onedark.vim",
 
 	-- cmp plugins
-	use("hrsh7th/nvim-cmp") -- The completion plugin
-	use("hrsh7th/cmp-buffer") -- buffer completions
-	use("hrsh7th/cmp-path") -- path completions
-	use("hrsh7th/cmp-cmdline") -- cmdline completions
-	use("saadparwaiz1/cmp_luasnip") -- snippet completions
-	use("hrsh7th/cmp-nvim-lsp")
-	use("hrsh7th/cmp-nvim-lua")
-  use("quangnguyen30192/cmp-nvim-ultisnips")
-	use("mattn/emmet-vim") -- emmet (just install it this way and it's fine)
-	use("mlaursen/vim-react-snippets") -- react snippets
+	"hrsh7th/nvim-cmp", -- The completion plugin
+	"hrsh7th/cmp-buffer", -- buffer completions
+	"hrsh7th/cmp-path", -- path completions
+	"hrsh7th/cmp-cmdline", -- cmdline completions
+	"saadparwaiz1/cmp_luasnip", -- snippet completions
+	"hrsh7th/cmp-nvim-lsp",
+	"hrsh7th/cmp-nvim-lua",
+  "quangnguyen30192/cmp-nvim-ultisnips",
+	"mattn/emmet-vim", -- emmet (just install it this way and it's fine)
+	"mlaursen/vim-react-snippets", -- react snippets
 
 	-- snippets
-	use("L3MON4D3/LuaSnip") --snippet engine
-	use("rafamadriz/friendly-snippets") -- a bunch of snippets to use
-	use("SirVer/ultisnips")
+	"L3MON4D3/LuaSnip", --snippet engine
+	"rafamadriz/friendly-snippets", -- a bunch of snippets to 
+	"SirVer/ultisnips",
 
 	-- LSP
-	use({
+	{
 		"williamboman/mason.nvim",
 		"williamboman/mason-lspconfig.nvim",
 		"WhoIsSethDaniel/mason-tool-installer.nvim",
-	})
-	use("neovim/nvim-lspconfig") -- enable LSP
-	-- local use = require('packer').use
+	},
+	"neovim/nvim-lspconfig" ,-- enable LSP
+	-- local  = require('packer').
 	-- require('packer').startup(function()
-	--   use 'wbthomason/packer.nvim' -- Package manager
-	--   use 'neovim/nvim-lspconfig' -- Configurations for Nvim LSP
+	--    'wbthomason/packer.nvim' -- Package manager
+	--    'neovim/nvim-lspconfig' -- Configurations for Nvim LSP
 	-- end)
-	--[[ use "williamboman/nvim-lsp-installer" -- simple to use language server installer ]]
-	use("tamago324/nlsp-settings.nvim") -- language server settings defined in json for
-	use("jose-elias-alvarez/null-ls.nvim") -- for formatters and linters
-	--[[ use("jayp0521/mason-null-ls.nvim") ]] -- will install it later when needed
+	--[[  "williamboman/nvim-lsp-installer" -- simple to  language server installer ]]
+	"tamago324/nlsp-settings.nvim", -- language server settings defined in json for
+	"jose-elias-alvarez/null-ls.nvim", -- for formatters and linters
+	--[[ ("jayp0521/mason-null-ls.nvim") ]] -- will install it later when needed
 
 	-- Telescope
-	use("nvim-telescope/telescope.nvim") -- ripgrep is important for livegrep so install it seperately by pacman
-	use({ "nvim-telescope/telescope-file-browser.nvim" })
-	-- use "sharkdp/fd"
-	use("junegunn/fzf")
-	use("junegunn/fzf.vim")
+	"nvim-telescope/telescope.nvim",-- ripgrep is important for livegrep so install it seperately by pacman
+	{ "nvim-telescope/telescope-file-browser.nvim" },
+	--  "sharkdp/fd"
+	"junegunn/fzf",
+	"junegunn/fzf.vim",
 
 	-- Treesitter
-	use({
+	{
 		"nvim-treesitter/nvim-treesitter",
-		run = ":TSUpdate",
-	})
-	use("JoosepAlviste/nvim-ts-context-commentstring")
-	use("windwp/nvim-ts-autotag")
-	use("RRethy/vim-illuminate")
+    lazy=false,
+		--[[ build = ":TSUpdate", ]]
+	},
+	"JoosepAlviste/nvim-ts-context-commentstring",
+	"windwp/nvim-ts-autotag",
+	"RRethy/vim-illuminate",
 
 	-- Dap
 	-- DAP
-	use("mfussenegger/nvim-dap")
-	-- use "theHamsta/nvim-dap-virtual-text"
-	use("rcarriga/nvim-dap-ui")
-	-- use "Pocco81/DAPInstall.nvim"
-	--[[ use "Pocco81/dap-buddy.nvim" ]]
-	--[[ use { "ravenxrz/DAPInstall.nvim", commit = "8798b4c36d33723e7bba6ed6e2c202f84bb300de" } ]]
-	use("nvim-telescope/telescope-dap.nvim")
+	"mfussenegger/nvim-dap",
+	--  "theHamsta/nvim-dap-virtual-text"
+	"rcarriga/nvim-dap-ui",
+	--  "Pocco81/DAPInstall.nvim"
+	--[[  "Pocco81/dap-buddy.nvim" ]]
+	--[[  { "ravenxrz/DAPInstall.nvim", commit = "8798b4c36d33723e7bba6ed6e2c202f84bb300de" } ]]
+	"nvim-telescope/telescope-dap.nvim",
 	-- Git
-	use("lewis6991/gitsigns.nvim")
-	-- use "kdheepak/lazygit.nvim"-- was not working
-	--[[ use({ "mxsdev/nvim-dap-vscode-js", requires = { "mfussenegger/nvim-dap" } }) ]]
-	--[[ use({ ]]
+	"lewis6991/gitsigns.nvim",
+	--  "kdheepak/lazygit.nvim"-- was not working
+	--[[ ({ "mxsdev/nvim-dap-vscode-js", requires = { "mfussenegger/nvim-dap" } }) ]]
+	--[[ ({ ]]
 	--[[ 	"microsoft/vscode-js-debug", ]]
 	--[[ 	opt = true, ]]
 	--[[ 	run = "npm install --legacy-peer-deps && npm run compile", ]]
 	--[[ }) ]]
-	use("jayp0521/mason-nvim-dap.nvim")
+	"jayp0521/mason-nvim-dap.nvim",
 
 	--Some extra stuff
-	-- use "tpope/vim-surround"
-	use({
+	--  "tpope/vim-surround"
+	{
 		"kylechui/nvim-surround",
 		config = function()
 			require("nvim-surround").setup({
-				-- Configuration here, or leave empty to use defaults
+				-- Configuration here, or leave empty to  defaults
 			})
 		end,
-	})
- use({"ThePrimeagen/vim-be-good"})
-use({
-  'nat-418/cmp-color-names.nvim',
-  config = {
-    require('cmp-color-names').setup()
-  }
-})
-  use({"hrsh7th/cmp-calc"})
-use {'edluffy/hologram.nvim'}
-  --[[ use {"nathom/filetype.nvim"} ]]
---[[ use { ]]
+	},
+ "ThePrimeagen/vim-be-good",
+--[[ { ]]
+--[[   'nat-418/cmp-color-names.nvim', ]]
+--[[   config = { ]]
+--[[     require('cmp-color-names').setup() ]]
+--[[   } ]]
+--[[ }, ]]
+  "hrsh7th/cmp-calc",
+ 'edluffy/hologram.nvim'
+  --[[  {"nathom/filetype.nvim"} ]]
+--[[  { ]]
 --[[   'samodostal/image.nvim', ]]
 --[[   requires = { ]]
 --[[     'nvim-lua/plenary.nvim' ]]
 --[[   }, ]]
 --[[ } ]]
-  --[[ use("p00f/cphelper.nvim") ]]
+  --[[ ("p00f/cphelper.nvim") ]]
 
-	-- use "metakirby5/codi.vim"
-	-- use "unblevable/quick-scope"
-	-- use "justinmk/vim-sneak"
-	-- use "ggandor/lightspeed.nvim"
-	-- use "easymotion/vim-easymotion"
-
-	-- Automatically set up your configuration after cloning packer.nvim
-	-- Put this at the end after all plugins
-	if PACKER_BOOTSTRAP then
-		require("packer").sync()
-	end
-end)
+	--  "metakirby5/codi.vim"
+	--  "unblevable/quick-scope"
+	--  "justinmk/vim-sneak"
+	--  "ggandor/lightspeed.nvim"
+	--  "easymotion/vim-easymotion"
+})

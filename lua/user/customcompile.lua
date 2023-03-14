@@ -8,6 +8,7 @@
 -- For cpp ...
 -- vim.cmd [[autocmd filetype cpp nnoremap <F9> :w <bar> !g++ -O2 % -o %:p:h/a.out && %:p:h/a.out<Enter><CR>]]
 vim.cmd [[autocmd filetype cpp nnoremap <F9> :w <bar> !g++ -O2 % &>%:p:h/out.txt -o %:p:h/a.out && %:p:h/a.out < %:p:h/in.txt &> %:p:h/out.txt <Enter><CR>]]
+vim.cmd [[autocmd filetype c nnoremap <F9> :w <bar> !gcc -O2 % &>%:p:h/out.txt -o %:p:h/a.out && %:p:h/a.out < %:p:h/in.txt &> %:p:h/out.txt <Enter><CR>]]
 
 -- vim.cmd [[nnoremap <C-c> :!g++ -o %:p:h/a.out % -std=c++17<Enter><CR>]]
 -- vim.cmd [[nnoremap <C-x> :!%:p:h/a.out<Enter><CR>]]

@@ -13,13 +13,17 @@ if &shortmess =~ 'A'
 else
   set shortmess=aoO
 endif
-badd +12 cf/cpp.cpp
+badd +2 cf/cpp.cpp
 badd +1 cf/in.txt
 badd +1 cf/out.txt
 badd +1 Desktop/prg/cf/in.txt
+badd +1 dev/c/c.c
+badd +1 dev/c/in.txt
+badd +1 dev/c/out.txt
+badd +6 .gitignore
 argglobal
 %argdel
-edit cf/cpp.cpp
+edit dev/c/c.c
 let s:save_splitbelow = &splitbelow
 let s:save_splitright = &splitright
 set splitbelow splitright
@@ -41,12 +45,12 @@ set winheight=1
 set winminwidth=0
 set winwidth=1
 exe 'vert 1resize ' . ((&columns * 96 + 96) / 192)
-exe '2resize ' . ((&lines * 24 + 24) / 48)
+exe '2resize ' . ((&lines * 22 + 24) / 48)
 exe 'vert 2resize ' . ((&columns * 95 + 96) / 192)
-exe '3resize ' . ((&lines * 21 + 24) / 48)
+exe '3resize ' . ((&lines * 23 + 24) / 48)
 exe 'vert 3resize ' . ((&columns * 95 + 96) / 192)
 argglobal
-balt Desktop/prg/cf/in.txt
+balt dev/c/in.txt
 setlocal fdm=manual
 setlocal fde=0
 setlocal fmr={{{,}}}
@@ -57,43 +61,19 @@ setlocal fdn=20
 setlocal fen
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 12 - ((11 * winheight(0) + 22) / 45)
-if s:l < 1 | let s:l = 1 | endif
-keepjumps exe s:l
-normal! zt
-keepjumps 12
-normal! 015|
-wincmd w
-argglobal
-if bufexists(fnamemodify("cf/in.txt", ":p")) | buffer cf/in.txt | else | edit cf/in.txt | endif
-if &buftype ==# 'terminal'
-  silent file cf/in.txt
-endif
-balt cf/out.txt
-setlocal fdm=manual
-setlocal fde=0
-setlocal fmr={{{,}}}
-setlocal fdi=#
-setlocal fdl=0
-setlocal fml=1
-setlocal fdn=20
-setlocal fen
-silent! normal! zE
-let &fdl = &fdl
-let s:l = 1 - ((0 * winheight(0) + 11) / 23)
+let s:l = 1 - ((0 * winheight(0) + 22) / 45)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
 keepjumps 1
 normal! 0
-lcd ~/Desktop/prg/cf
 wincmd w
 argglobal
-if bufexists(fnamemodify("~/Desktop/prg/cf/out.txt", ":p")) | buffer ~/Desktop/prg/cf/out.txt | else | edit ~/Desktop/prg/cf/out.txt | endif
+if bufexists(fnamemodify("dev/c/in.txt", ":p")) | buffer dev/c/in.txt | else | edit dev/c/in.txt | endif
 if &buftype ==# 'terminal'
-  silent file ~/Desktop/prg/cf/out.txt
+  silent file dev/c/in.txt
 endif
-balt ~/Desktop/prg/cf/in.txt
+balt dev/c/out.txt
 setlocal fdm=manual
 setlocal fde=0
 setlocal fmr={{{,}}}
@@ -104,18 +84,40 @@ setlocal fdn=20
 setlocal fen
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 1 - ((0 * winheight(0) + 10) / 20)
+let s:l = 1 - ((0 * winheight(0) + 10) / 21)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
 keepjumps 1
 normal! 0
-lcd ~/Desktop/prg/cf
+wincmd w
+argglobal
+if bufexists(fnamemodify("dev/c/out.txt", ":p")) | buffer dev/c/out.txt | else | edit dev/c/out.txt | endif
+if &buftype ==# 'terminal'
+  silent file dev/c/out.txt
+endif
+balt dev/c/in.txt
+setlocal fdm=manual
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal fen
+silent! normal! zE
+let &fdl = &fdl
+let s:l = 1 - ((0 * winheight(0) + 11) / 22)
+if s:l < 1 | let s:l = 1 | endif
+keepjumps exe s:l
+normal! zt
+keepjumps 1
+normal! 0
 wincmd w
 exe 'vert 1resize ' . ((&columns * 96 + 96) / 192)
-exe '2resize ' . ((&lines * 24 + 24) / 48)
+exe '2resize ' . ((&lines * 22 + 24) / 48)
 exe 'vert 2resize ' . ((&columns * 95 + 96) / 192)
-exe '3resize ' . ((&lines * 21 + 24) / 48)
+exe '3resize ' . ((&lines * 23 + 24) / 48)
 exe 'vert 3resize ' . ((&columns * 95 + 96) / 192)
 tabnext 1
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0 && getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'
