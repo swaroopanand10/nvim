@@ -1,5 +1,4 @@
--- vim.cmd[[let g:UltiSnipsExpandTrigger=",,"]] --old
-vim.cmd[[let g:UltiSnipsExpandTrigger=".."]]
+--vim.cmd[[let g:UltiSnipsExpandTrigger=",,"]] --old
 
 require("cmp_nvim_ultisnips").setup {
   filetype_source = "treesitter",
@@ -8,3 +7,4 @@ require("cmp_nvim_ultisnips").setup {
     return snippet.description
   end
 }
+vim.cmd[[let g:UltiSnipsExpandTrigger=".."]]

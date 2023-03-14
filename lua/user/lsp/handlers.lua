@@ -123,9 +123,9 @@ local on_attach = function(client, bufnr)
 end
 
 
-require("lspconfig").clangd.setup {
-  on_attach = on_attach
-}
+--[[ require("lspconfig").clangd.setup { ]]
+--[[   on_attach = on_attach ]]
+--[[ } ]]
 
 require("lspconfig").pyright.setup {
   on_attach = on_attach
@@ -134,6 +134,7 @@ require("lspconfig").pyright.setup {
 --[[ require("lspconfig").sumneko_lua.setup { ]]
 --[[   on_attach = on_attach ]]
 --[[ } ]]
+
 require("lspconfig").lua_ls.setup {
   on_attach = on_attach
 }

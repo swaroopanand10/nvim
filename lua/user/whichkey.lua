@@ -151,13 +151,20 @@ local mappings = {
     x = { "<cmd>lua require'dap'.terminate()<cr>", "Exit" },
   },
 
+  --[[ p = { ]]
+  --[[   name = "Packer", ]]
+  --[[   c = { "<cmd>PackerCompile<cr>", "Compile" }, ]]
+  --[[   i = { "<cmd>PackerInstall<cr>", "Install" }, ]]
+  --[[   s = { "<cmd>PackerSync<cr>", "Sync" }, ]]
+  --[[   S = { "<cmd>PackerStatus<cr>", "Status" }, ]]
+  --[[   u = { "<cmd>PackerUpdate<cr>", "Update" }, ]]
+  --[[ }, ]]
+
   p = {
-    name = "Packer",
-    c = { "<cmd>PackerCompile<cr>", "Compile" },
-    i = { "<cmd>PackerInstall<cr>", "Install" },
-    s = { "<cmd>PackerSync<cr>", "Sync" },
-    S = { "<cmd>PackerStatus<cr>", "Status" },
-    u = { "<cmd>PackerUpdate<cr>", "Update" },
+    name = "lazygit",
+    c = { "<cmd>Lazy clean<cr>", "clean" },
+    s = { "<cmd>Lazy sync<cr>", "Sync" },
+    l = {"<cmd>Lazy<cr>"}
   },
 
   g = {
@@ -235,6 +242,7 @@ local mappings = {
     R = { "<cmd>Telescope registers<cr>", "Registers" },
     k = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
     C = { "<cmd>Telescope commands<cr>", "Commands" },
+    --[[ s = { 'function() require("ssr").open() end', "ssr" }, ]]
   },
 
   t = {

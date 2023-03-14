@@ -11,7 +11,7 @@ end
 local servers = {
   "cssls",
   "cssmodules_ls",
-  --[[ "emmet_ls", ]]
+  "emmet_ls",
   "html",
   --[[ "jdtls", ]]
   "jsonls",
@@ -111,10 +111,11 @@ for _, server in pairs(servers) do
   end
 
 
-  if server == "pyright" then
-    local pyright_opts = require "user.lsp.settings.pyright"
-    opts = vim.tbl_deep_extend("force", pyright_opts, opts)
-  end
+  --[[ if server == "pyright" then ]]
+  --[[   local pyright_opts = require "user.lsp.settings.pyright" ]]
+  --[[   opts = vim.tbl_deep_extend("force", pyright_opts, opts) ]]
+  --[[ end ]]
+
 
   if server == "solc" then
     local solc_opts = require "user.lsp.settings.solc"

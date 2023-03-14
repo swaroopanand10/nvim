@@ -51,8 +51,8 @@ local kind_icons = {
 cmp.setup {
   snippet = {
     expand = function(args)
-      --[[ luasnip.lsp_expand(args.body) -- For `luasnip` users. ]] -- removing this line fixed some completion issues
-      vim.fn["UltiSnips#Anon"](args.body)
+      luasnip.lsp_expand(args.body) -- For `luasnip` users. ]] --added it again
+      --[[ vim.fn["UltiSnips#Anon"](args.body)  ]]
     end,
   },
   mapping = {
