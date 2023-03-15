@@ -1,12 +1,13 @@
 local M = {}
 
+local cmp_nvim_lsp = require("cmp_nvim_lsp")
 M.capabilities = vim.lsp.protocol.make_client_capabilities()
 --[[ M.capabilities = vim.lsp.protocol.make_server_capabilities() ]]
 
-local status_cmp_ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
-if not status_cmp_ok then
-  return
-end
+ -- local status_cmp_ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp") 
+ -- if not status_cmp_ok then 
+ --   return 
+ -- end 
 M.capabilities.textDocument.completion.completionItem.snippetSupport = true
 M.capabilities = cmp_nvim_lsp.default_capabilities(M.capabilities)
 
@@ -116,6 +117,8 @@ local function lsp_keymaps(bufnr)
 end
 
 
+
+
 local on_attach = function(client, bufnr)
   if client.server_capabilities.documentSymbolProvider then
     require("nvim-navic").attach(client, bufnr)
@@ -123,17 +126,18 @@ local on_attach = function(client, bufnr)
 end
 
 
---[[ require("lspconfig").clangd.setup { ]]
---[[   on_attach = on_attach ]]
---[[ } ]]
+require("lspconfig").clangd.setup {
+  on_attach = on_attach,
+  capabilities=capabilities
+}
 
 require("lspconfig").pyright.setup {
   on_attach = on_attach
 }
 
---[[ require("lspconfig").sumneko_lua.setup { ]]
---[[   on_attach = on_attach ]]
---[[ } ]]
+-- require("lspconfig").sumneko_lua.setup {
+--   on_attach = on_attach
+-- }
 
 require("lspconfig").lua_ls.setup {
   on_attach = on_attach
@@ -165,9 +169,9 @@ M.on_attach = function(client, bufnr)
   lsp_keymaps(bufnr)
   attach_navic(client, bufnr)
 
-  --[[ if client.name == "tsserver" then ]]
-  --[[   require("lsp-inlayhints").on_attach(client, bufnr) ]]
-  --[[ end ]]
+  if client.name == "tsserver" then
+    require("lsp-inlayhints").on_attach(client, bufnr)
+  end
 
   if client.name == "jdt.ls" then
     vim.lsp.codelens.refresh()
@@ -211,12 +215,11 @@ end
 
 -- local capabilities = vim.lsp.protocol.make_server_capabilities()
 
---[[ local status_ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp") ]]
---[[ if not status_ok then ]]
---[[   return ]]
---[[ end ]]
---[[]]
---[[ --[[ M.capabilities = cmp_nvim_lsp.update_capabilities(capabilities) ]] -- depcreciated ]]
---[[ M.capabilities = cmp_nvim_lsp.default_capabilities(capabilities) ]]
+-- local status_ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
+-- if not status_ok then
+--   return
+-- end
+-- --[[ --[[ M.capabilities = cmp_nvim_lsp.update_capabilities(capabilities) ]] -- depcreciated ]]
+-- M.capabilities = cmp_nvim_lsp.default_capabilities(capabilities)
 
 return M

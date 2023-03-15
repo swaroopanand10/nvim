@@ -82,7 +82,6 @@ require("lazy").setup({
     build = "cd ~/.local/share/nvim/lazy/vim-hexokinase && make hexokinase",
   },
   -- Colorschemes
-  --  "lunarvim/colorschemes" -- A bunch of colorschemes you can try out
   "lunarvim/darkplus.nvim",
   --  "gleich/monovibrant"
   --[[  "swaroopanand10/monocustom" ]]
@@ -101,6 +100,8 @@ require("lazy").setup({
   --[[  'joshdick/onedark.vim' ]]
   --[[  'rakr/vim-one' ]]
   "ukyouz/onedark.vim",
+  "ray-x/aurora",
+
   -- cmp plugins
   "hrsh7th/nvim-cmp",        -- The completion plugin
   "hrsh7th/cmp-buffer",      -- buffer completions
@@ -116,6 +117,9 @@ require("lazy").setup({
   "L3MON4D3/LuaSnip",            --snippet engine
   "rafamadriz/friendly-snippets", -- a bunch of snippets to
   "SirVer/ultisnips",
+
+
+
   -- LSP
   {
     "williamboman/mason.nvim",
@@ -132,6 +136,9 @@ require("lazy").setup({
   "tamago324/nlsp-settings.nvim",        -- language server settings defined in json for
   "jose-elias-alvarez/null-ls.nvim",     -- for formatters and linters
   --[[ ("jayp0521/mason-null-ls.nvim") ]] -- will install it later when needed
+"ray-x/lsp_signature.nvim",
+
+
 
   -- Telescope
   "nvim-telescope/telescope.nvim", -- ripgrep is important for livegrep so install it seperately by pacman
@@ -139,6 +146,19 @@ require("lazy").setup({
   --  "sharkdp/fd"
   "junegunn/fzf",
   "junegunn/fzf.vim",
+  'barrett-ruth/telescope-http.nvim',
+ 'nvim-telescope/telescope-media-files.nvim',
+'ibhagwan/fzf-lua',
+  'sudormrfbin/cheatsheet.nvim',
+ "LinArcX/telescope-env.nvim",
+  "debugloop/telescope-undo.nvim",
+"fhill2/telescope-ultisnips.nvim",
+"tsakirist/telescope-lazy.nvim",
+{
+    "benfowler/telescope-luasnip.nvim",
+    module = "telescope._extensions.luasnip",  -- if you wish to lazy-load
+},
+  
   -- Treesitter
   {
     "nvim-treesitter/nvim-treesitter",
@@ -148,6 +168,8 @@ require("lazy").setup({
   "JoosepAlviste/nvim-ts-context-commentstring",
   "windwp/nvim-ts-autotag",
   "RRethy/vim-illuminate",
+
+
   -- Dap
   -- DAP
   "mfussenegger/nvim-dap",
@@ -185,7 +207,7 @@ require("lazy").setup({
   --[[   } ]]
   --[[ }, ]]
   "hrsh7th/cmp-calc",
-  'edluffy/hologram.nvim',
+  -- 'edluffy/hologram.nvim',
 --[[ {  ]]
 --[[   'gen740/SmoothCursor.nvim', ]]
 --[[   config = function() ]]
