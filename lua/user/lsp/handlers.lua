@@ -1,13 +1,12 @@
 local M = {}
 
-local cmp_nvim_lsp = require("cmp_nvim_lsp")
 M.capabilities = vim.lsp.protocol.make_client_capabilities()
 --[[ M.capabilities = vim.lsp.protocol.make_server_capabilities() ]]
 
- -- local status_cmp_ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp") 
- -- if not status_cmp_ok then 
- --   return 
- -- end 
+ local status_cmp_ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp") 
+ if not status_cmp_ok then 
+   return 
+ end 
 M.capabilities.textDocument.completion.completionItem.snippetSupport = true
 M.capabilities = cmp_nvim_lsp.default_capabilities(M.capabilities)
 
@@ -125,31 +124,33 @@ local on_attach = function(client, bufnr)
   end
 end
 
+-- all these functions below are just for navic attach which is already being done below in navic attach function except for rust
+-- require("lspconfig").clangd.setup {
+--   on_attach = on_attach,
+-- }
 
-require("lspconfig").clangd.setup {
-  on_attach = on_attach,
-  capabilities=capabilities
-}
-
-require("lspconfig").pyright.setup {
-  on_attach = on_attach
-}
+-- require("lspconfig").pyright.setup {
+--   on_attach = on_attach
+--   -- on_attach = function(client, bufnr)
+--   --   require "lsp_signature".on_attach(signature_setup, bufnr)  -- Note: add in lsp client on-attach
+--   -- end,
+-- }
 
 -- require("lspconfig").sumneko_lua.setup {
 --   on_attach = on_attach
 -- }
 
-require("lspconfig").lua_ls.setup {
-  on_attach = on_attach
-}
+-- require("lspconfig").lua_ls.setup {
+--   on_attach = on_attach
+-- }
 
-require("lspconfig").tsserver.setup {
-  on_attach = on_attach
-}
+-- require("lspconfig").tsserver.setup {
+--   on_attach = on_attach
+-- }
 
-require("lspconfig").bashls.setup {
-  on_attach = on_attach
-}
+-- require("lspconfig").bashls.setup {
+--   on_attach = on_attach
+-- }
 
 require("lspconfig").rust_analyzer.setup {
   on_attach = on_attach
@@ -160,18 +161,26 @@ local function attach_navic(client, bufnr)
   vim.g.navic_silence = true
   local status_ok, navic = pcall(require, "nvim-navic")
   if not status_ok then
+    print("navic")
     return
   end
   navic.attach(client, bufnr)
 end
 
+local function lsp_signature(client, bufnr)
+    require "lsp_signature".on_attach(signature_setup, bufnr)  -- Note: add in lsp client on-attach
+end
+
 M.on_attach = function(client, bufnr)
   lsp_keymaps(bufnr)
   attach_navic(client, bufnr)
+  -- lsp_signature(client,bufnr)
 
-  if client.name == "tsserver" then
-    require("lsp-inlayhints").on_attach(client, bufnr)
-  end
+
+
+  -- if client.name == "tsserver" then
+  --   require("lsp-inlayhints").on_attach(client, bufnr)
+  -- end
 
   if client.name == "jdt.ls" then
     vim.lsp.codelens.refresh()

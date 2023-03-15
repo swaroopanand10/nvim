@@ -58,43 +58,13 @@
 -- recommended:
 require'lsp_signature'.setup(cfg) -- no need to specify bufnr if you don't use toggle_key
 
-local clangd_setup = {
-  on_attach = function(client, bufnr)
-    require "lsp_signature".on_attach(signature_setup, bufnr)  -- Note: add in lsp client on-attach
-  end,
-}
 
-require'lspconfig'.clangd.setup(clangd_setup)
+-- CALLING lspconfig multipletimes throws error because new settings override the old ones, so add all settings in one place
+-- local clangd_setup = {
+--   on_attach = function(client, bufnr)
+--     require "lsp_signature".on_attach(signature_setup, bufnr)  -- Note: add in lsp client on-attach
+--   end,
+-- }
 
-local pyright_setup = {
-  on_attach = function(client, bufnr)
-    require "lsp_signature".on_attach(signature_setup, bufnr)  -- Note: add in lsp client on-attach
-  end,
-}
-
-require'lspconfig'.pyright.setup(pyright_setup)
-
-local rust_setup = {
-  on_attach = function(client, bufnr)
-    require "lsp_signature".on_attach(signature_setup, bufnr)  -- Note: add in lsp client on-attach
-  end,
-}
-
-require'lspconfig'.rust_analyzer.setup(rust_setup)
-
-local tsserver_setup = {
-  on_attach = function(client, bufnr)
-    require "lsp_signature".on_attach(signature_setup, bufnr)  -- Note: add in lsp client on-attach
-  end,
-}
-
-require'lspconfig'.tsserver.setup(tsserver_setup)
-
-local lua_setup = {
-  on_attach = function(client, bufnr)
-    require "lsp_signature".on_attach(signature_setup, bufnr)  -- Note: add in lsp client on-attach
-  end,
-}
-
-require'lspconfig'.lua_ls.setup(lua_setup)
+-- require'lspconfig'.clangd.setup(clangd_setup)
 
