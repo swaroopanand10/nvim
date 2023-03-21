@@ -7,9 +7,11 @@ require("user.ultisnip")
 require("user.neotree")
 require("user.windowpicker")
 require("user.colorscheme")
+-- require("user.starry")
 require("user.cmp")
+-- require("user.notify")
 require("user.lsp")
-require("user.lsp_signature")
+-- require("user.lsp_signature") -- removed it for now because of noice.vim( seems to give better syntax)
 require("user.telescope")
 require("user.treesitter")
 require("user.autopairs")
@@ -42,7 +44,16 @@ require("user.functions")
 require("user.illuminate")
 -- require "user.rooter"
 require("user.luasnip")
+require("user.noice")
 --[[ require("user.ssr") ]]
 --[[ require("user.hologram") ]]
 --[[ require("user.image") ]]
 --[[ require("user.filetype") ]]
+
+
+
+
+
+
+-- vim.cmd[[hi! EndOfBuffer ctermbg=bg ctermfg=bg guibg=bg guifg=bg]]
+-- vim.cmd[[hi! EndOfBuffer ctermbg=bg ctermfg=bg guibg=#000000 guifg=#000000]]

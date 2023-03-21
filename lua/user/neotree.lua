@@ -138,7 +138,7 @@ require("neo-tree").setup({
       ["?"] = "show_help",
       ["<"] = "prev_source",
       [">"] = "next_source",
-      ["o"] = "system_open", --not working
+      -- ["o"] = "system_open", --not working
     }
   },
   nesting_rules = {},
@@ -190,7 +190,7 @@ require("neo-tree").setup({
         ["<c-x>"] = "clear_filter",
         ["[g"] = "prev_git_modified",
         ["]g"] = "next_git_modified",
-        ["o"] = "system_open", --not working
+        -- ["o"] = "system_open", --not working
       }
     }
   },

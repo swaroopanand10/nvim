@@ -46,8 +46,13 @@ M.get_filename = function()
     end
     -- vim.api.nvim_set_hl(0, "Winbar", { fg = "#6b737f" })
     --[[ vim.api.nvim_set_hl(0, "Winbar", { fg = "#ffffff" }) ]]
-    local navic_text = vim.api.nvim_get_hl_by_name("NavicText", true)
-    vim.api.nvim_set_hl(0, "Winbar", { fg = navic_text.foreground })
+
+    -- The below code tries to find the "NavicText" property in the colorscheme file to get it's color, but if it does not find it(in some colorschemes it is not present) then it throws and error
+    -- So without the below code the winbar's fg will be of plain color
+
+    -- local navic_text = vim.api.nvim_get_hl_by_name("NavicText", true)
+    -- vim.api.nvim_set_hl(0, "Winbar", { fg = navic_text.foreground })
+
 
     return " " .. "%#" .. hl_group .. "#" .. file_icon .. "%*" .. " " .. "%#Winbar#" .. filename .. "%*"
   end

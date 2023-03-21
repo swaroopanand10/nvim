@@ -15,10 +15,10 @@ else
 endif
 badd +1 dev/python/sample/in.txt
 badd +1 dev/python/sample/out.txt
-badd +1 ~/Desktop/prg/dev/python/sample/py.py
+badd +4 dev/python/sample/py.py
 argglobal
 %argdel
-edit ~/Desktop/prg/dev/python/sample/py.py
+edit dev/python/sample/py.py
 let s:save_splitbelow = &splitbelow
 let s:save_splitright = &splitright
 set splitbelow splitright
@@ -39,11 +39,7 @@ set winminheight=0
 set winheight=1
 set winminwidth=0
 set winwidth=1
-exe 'vert 1resize ' . ((&columns * 78 + 78) / 157)
-exe '2resize ' . ((&lines * 19 + 20) / 41)
-exe 'vert 2resize ' . ((&columns * 78 + 78) / 157)
-exe '3resize ' . ((&lines * 19 + 20) / 41)
-exe 'vert 3resize ' . ((&columns * 78 + 78) / 157)
+wincmd =
 argglobal
 balt dev/python/sample/out.txt
 setlocal fdm=manual
@@ -56,12 +52,12 @@ setlocal fdn=20
 setlocal fen
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 1 - ((0 * winheight(0) + 19) / 38)
+let s:l = 4 - ((3 * winheight(0) + 22) / 44)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 1
-normal! 0
+keepjumps 4
+normal! 02|
 wincmd w
 argglobal
 if bufexists(fnamemodify("dev/python/sample/in.txt", ":p")) | buffer dev/python/sample/in.txt | else | edit dev/python/sample/in.txt | endif
@@ -79,7 +75,7 @@ setlocal fdn=20
 setlocal fen
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 1 - ((0 * winheight(0) + 9) / 18)
+let s:l = 1 - ((0 * winheight(0) + 11) / 22)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
@@ -103,7 +99,7 @@ setlocal fdn=20
 setlocal fen
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 1 - ((0 * winheight(0) + 9) / 18)
+let s:l = 1 - ((0 * winheight(0) + 10) / 20)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
@@ -111,11 +107,7 @@ keepjumps 1
 normal! 0
 lcd ~/Desktop/prg/dev/python/sample
 wincmd w
-exe 'vert 1resize ' . ((&columns * 78 + 78) / 157)
-exe '2resize ' . ((&lines * 19 + 20) / 41)
-exe 'vert 2resize ' . ((&columns * 78 + 78) / 157)
-exe '3resize ' . ((&lines * 19 + 20) / 41)
-exe 'vert 3resize ' . ((&columns * 78 + 78) / 157)
+wincmd =
 tabnext 1
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0 && getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'
   silent exe 'bwipe ' . s:wipebuf

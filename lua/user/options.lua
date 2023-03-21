@@ -37,8 +37,8 @@ local options = {
   scrolloff = 8,                           -- is one of my fav
   sidescrolloff = 8,
   --[[ guifont = "monospace:h12",               -- the font used in graphical neovim applications ]]
-  guifont = "JetBrainsMono Nerd Font:h12",               -- the font used in graphical neovim applications
-  laststatus=3,
+  guifont = "JetBrainsMono Nerd Font:h11",               -- the font used in graphical neovim applications
+  laststatus=3
   -- background="dark",
   -- autochdir = true,
 }

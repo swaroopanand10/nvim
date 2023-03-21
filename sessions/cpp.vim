@@ -13,7 +13,7 @@ if &shortmess =~ 'A'
 else
   set shortmess=aoO
 endif
-badd +9 cf/cpp.cpp
+badd +10 cf/cpp.cpp
 badd +1 cf/in.txt
 badd +1 cf/out.txt
 argglobal
@@ -39,11 +39,7 @@ set winminheight=0
 set winheight=1
 set winminwidth=0
 set winwidth=1
-exe 'vert 1resize ' . ((&columns * 94 + 94) / 189)
-exe '2resize ' . ((&lines * 23 + 23) / 46)
-exe 'vert 2resize ' . ((&columns * 94 + 94) / 189)
-exe '3resize ' . ((&lines * 20 + 23) / 46)
-exe 'vert 3resize ' . ((&columns * 94 + 94) / 189)
+wincmd =
 argglobal
 setlocal fdm=manual
 setlocal fde=0
@@ -55,12 +51,12 @@ setlocal fdn=20
 setlocal fen
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 9 - ((8 * winheight(0) + 21) / 43)
+let s:l = 10 - ((9 * winheight(0) + 23) / 46)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 9
-normal! 03|
+keepjumps 10
+normal! 02|
 wincmd w
 argglobal
 if bufexists(fnamemodify("cf/in.txt", ":p")) | buffer cf/in.txt | else | edit cf/in.txt | endif
@@ -78,7 +74,7 @@ setlocal fdn=20
 setlocal fen
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 1 - ((0 * winheight(0) + 11) / 22)
+let s:l = 1 - ((0 * winheight(0) + 11) / 23)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
@@ -102,7 +98,7 @@ setlocal fdn=20
 setlocal fen
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 1 - ((0 * winheight(0) + 9) / 19)
+let s:l = 1 - ((0 * winheight(0) + 10) / 21)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
@@ -110,11 +106,7 @@ keepjumps 1
 normal! 0
 lcd ~/Desktop/prg/cf
 wincmd w
-exe 'vert 1resize ' . ((&columns * 94 + 94) / 189)
-exe '2resize ' . ((&lines * 23 + 23) / 46)
-exe 'vert 2resize ' . ((&columns * 94 + 94) / 189)
-exe '3resize ' . ((&lines * 20 + 23) / 46)
-exe 'vert 3resize ' . ((&columns * 94 + 94) / 189)
+wincmd =
 if exists(':tcd') == 2 | tcd ~/Desktop/prg | endif
 tabnext 1
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0 && getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'

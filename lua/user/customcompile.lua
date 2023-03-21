@@ -14,7 +14,8 @@ vim.cmd [[autocmd filetype c nnoremap <F9> :w <bar> !gcc -O2 % &>%:p:h/out.txt -
 -- vim.cmd [[nnoremap <C-x> :!%:p:h/a.out<Enter><CR>]]
 
 -- vim.cmd [[nnoremap <C-c> :w <bar> :!g++ -o %:p:h/a.out % &>%:p:h/out.txt -std=c++17<Enter><CR>]]
-vim.cmd [[nnoremap <C-x> :!%:p:h/a.out < %:p:h/in.txt &> %:p:h/out.txt <Enter><CR>]]
+-- vim.cmd [[nnoremap <C-x> :!%:p:h/a.out < %:p:h/in.txt &> %:p:h/out.txt <Enter><CR>]]
+vim.cmd [[autocmd filetype cpp nnoremap <C-x> :!%:p:h/a.out < %:p:h/in.txt &> %:p:h/out.txt <Enter><CR>]]
 
 -- For python...
 -- vim.cmd [[ autocmd filetype python nnoremap <C-c> :w <bar> !python % <Enter><CR> ]]
@@ -25,4 +26,5 @@ vim.cmd [[ autocmd filetype javascript nnoremap <C-x> :w <bar> !node % &> %:p:h/
 
 -- for rust 
 vim.cmd [[autocmd filetype rust nnoremap <F9> :w <bar> !rustc % &> %:p:h/extra/out.txt -o %:p:h/extra/a.out && %:p:h/extra/a.out < %:p:h/extra/in.txt &> %:p:h/extra/out.txt <Enter><CR>]]
-vim.cmd [[nnoremap <C-x> :!%:p:h/extra/a.out < %:p:h/extra/in.txt &> %:p:h/extra/out.txt <Enter><CR>]]
+-- vim.cmd [[nnoremap <C-x> :!%:p:h/extra/a.out < %:p:h/extra/in.txt &> %:p:h/extra/out.txt <Enter><CR>]]
+vim.cmd [[autocmd filetype rust nnoremap <C-x> :!%:p:h/extra/a.out < %:p:h/extra/in.txt &> %:p:h/extra/out.txt <Enter><CR>]]

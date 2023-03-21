@@ -100,7 +100,7 @@ local mappings = {
 	-- ["F"] = { "<cmd>Telescope live_grep theme=ivy<cr>", "Find Text" },
 	["P"] = { "<cmd>lua require('telescope').extensions.projects.projects()<cr>", "Projects" },
 	["o"] = { "<cmd>FZF! --layout=reverse ~<cr>", "fzf_file" },
-  -- ['o'] = { "<cmd>FzfLua files cwd=~<cr> --preview-window=hidden<cr>", "fzf_file_prv" },
+	-- ['o'] = { "<cmd>FzfLua files cwd=~<cr> --preview-window=hidden<cr>", "fzf_file_prv" },
 	["j"] = {
 		"<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>",
 		"Find files",
@@ -129,13 +129,12 @@ local mappings = {
 		F = { "<cmd>FzfLua<cr>", "fzf_lua" },
 		a = { "<cmd>FzfLua files cwd=~<cr>", "files_in_~_prev" },
 		r = { "<cmd>FzfLua lgrep_curbuf<cr>", "buffer_grep" },
-		v = { "<cmd>FzfLua grep_visual<cr>", "buffer_grep" },
+		v = { "<cmd>FzfLua grep_visual<cr>", "visual_grep" },
 		f = { "<cmd>FzfLua live_grep<cr>", "normal_grep" },
 		p = { "<cmd>FzfLua files<cr>", "files_in_._prev" },
-		p = { "<cmd>FzfLua buffers<cr>", "buffers" },
+		b = { "<cmd>FzfLua buffers<cr>", "buffers" },
 		-- d = { "<cmd>FzfLua command_history<cr>", "command history" },
 	},
-
 	f = {
 		name = "telescope",
 		-- f = {
@@ -176,7 +175,7 @@ local mappings = {
 		name = "lazyvim",
 		c = { "<cmd>Lazy clean<cr>", "clean" },
 		s = { "<cmd>Lazy sync<cr>", "Sync" },
-		l = { "<cmd>Lazy<cr>","lazy" },
+		l = { "<cmd>Lazy<cr>", "lazy" },
 	},
 	g = {
 		name = "Git",
@@ -204,11 +203,11 @@ local mappings = {
 		name = "LSP",
 		a = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action" },
 		d = {
-			"<cmd>Telescope lsp_document_diagnostics<cr>",
+		"<cmd>lua require('telescope.builtin').diagnostics({bufnr = 0})<cr>",
 			"Document Diagnostics",
 		},
 		w = {
-			"<cmd>Telescope lsp_workspace_diagnostics<cr>",
+			"<cmd>Telescope diagnostics<cr>",
 			"Workspace Diagnostics",
 		},
 		f = { "<cmd>lua vim.lsp.buf.format {async=true}<cr>", "Format" },
@@ -225,7 +224,7 @@ local mappings = {
 		},
 		l = { "<cmd>lua vim.lsp.codelens.run()<cr>", "CodeLens Action" },
 		q = { "<cmd>lua vim.lsp.diagnostic.set_loclist()<cr>", "Quickfix" },
-		r = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename" },
+		-- r = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename" },  -- another rename functionality in the handlers.lua file by increname
 		s = { "<cmd>Telescope lsp_document_symbols<cr>", "Document Symbols" },
 		S = {
 			"<cmd>Telescope lsp_dynamic_workspace_symbols<cr>",
@@ -243,6 +242,7 @@ local mappings = {
 			"<cmd>NullLsInfo<cr>",
 			"null-ls info",
 		},
+		h = { "<cmd>lua vim.lsp.buf.signature_help()<cr>", "signature_help" },
 	},
 	s = {
 		name = "Search",
