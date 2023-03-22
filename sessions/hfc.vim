@@ -13,12 +13,14 @@ if &shortmess =~ 'A'
 else
   set shortmess=aoO
 endif
-badd +1 ~/Desktop/prg/dev/c/sample/in.txt
-badd +4 ~/Desktop/prg/dev/c/sample/c.c
-badd +1 ~/Desktop/prg/dev/c/sample/out.txt
+badd +3 ~/Desktop/prg/dev/c/books/headfirstc.txt
+badd +1 ~/Desktop/prg/dev/c/books/in.txt
+badd +1 ~/Desktop/prg/dev/c/books/out.txt
+badd +1 ~/Desktop/prg/dev/c/books/string.c
 argglobal
 %argdel
-edit ~/Desktop/prg/dev/c/sample/c.c
+set lines=53 columns=191
+edit ~/Desktop/prg/dev/c/books/string.c
 let s:save_splitbelow = &splitbelow
 let s:save_splitright = &splitright
 set splitbelow splitright
@@ -51,30 +53,7 @@ setlocal fdn=20
 setlocal fen
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 4 - ((3 * winheight(0) + 24) / 48)
-if s:l < 1 | let s:l = 1 | endif
-keepjumps exe s:l
-normal! zt
-keepjumps 4
-normal! 0
-wincmd w
-argglobal
-if bufexists(fnamemodify("~/Desktop/prg/dev/c/sample/in.txt", ":p")) | buffer ~/Desktop/prg/dev/c/sample/in.txt | else | edit ~/Desktop/prg/dev/c/sample/in.txt | endif
-if &buftype ==# 'terminal'
-  silent file ~/Desktop/prg/dev/c/sample/in.txt
-endif
-balt ~/Desktop/prg/dev/c/sample/c.c
-setlocal fdm=manual
-setlocal fde=0
-setlocal fmr={{{,}}}
-setlocal fdi=#
-setlocal fdl=0
-setlocal fml=1
-setlocal fdn=20
-setlocal fen
-silent! normal! zE
-let &fdl = &fdl
-let s:l = 1 - ((0 * winheight(0) + 11) / 23)
+let s:l = 1 - ((0 * winheight(0) + 25) / 51)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
@@ -82,11 +61,10 @@ keepjumps 1
 normal! 0
 wincmd w
 argglobal
-if bufexists(fnamemodify("~/Desktop/prg/dev/c/sample/out.txt", ":p")) | buffer ~/Desktop/prg/dev/c/sample/out.txt | else | edit ~/Desktop/prg/dev/c/sample/out.txt | endif
+if bufexists(fnamemodify("~/Desktop/prg/dev/c/books/in.txt", ":p")) | buffer ~/Desktop/prg/dev/c/books/in.txt | else | edit ~/Desktop/prg/dev/c/books/in.txt | endif
 if &buftype ==# 'terminal'
-  silent file ~/Desktop/prg/dev/c/sample/out.txt
+  silent file ~/Desktop/prg/dev/c/books/in.txt
 endif
-balt ~/Desktop/prg/dev/c/sample/c.c
 setlocal fdm=manual
 setlocal fde=0
 setlocal fmr={{{,}}}
@@ -97,7 +75,29 @@ setlocal fdn=20
 setlocal fen
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 1 - ((0 * winheight(0) + 11) / 23)
+let s:l = 1 - ((0 * winheight(0) + 12) / 24)
+if s:l < 1 | let s:l = 1 | endif
+keepjumps exe s:l
+normal! zt
+keepjumps 1
+normal! 0
+wincmd w
+argglobal
+if bufexists(fnamemodify("~/Desktop/prg/dev/c/books/out.txt", ":p")) | buffer ~/Desktop/prg/dev/c/books/out.txt | else | edit ~/Desktop/prg/dev/c/books/out.txt | endif
+if &buftype ==# 'terminal'
+  silent file ~/Desktop/prg/dev/c/books/out.txt
+endif
+setlocal fdm=manual
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal fen
+silent! normal! zE
+let &fdl = &fdl
+let s:l = 1 - ((0 * winheight(0) + 12) / 25)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt

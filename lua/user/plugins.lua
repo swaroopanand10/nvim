@@ -63,9 +63,9 @@ require("lazy").setup({
 	--  {
 	--   'goolord/alpha-nvim',
 	--   config = function ()
-	--       require'alpha'.setup(require'alpha.themes.dashboard'.config)
+	--       require'alpha'.setup(require'alpha.themes.startify'.config)
 	--   end
-	-- }
+	-- },
 	"antoinemadec/FixCursorHold.nvim", -- This is needed to fix lsp doc highlight
 	"folke/which-key.nvim",
 	"mhinz/vim-startify", -- startify
@@ -236,17 +236,17 @@ require("lazy").setup({
  -- dependencies= "rcarriga/nvim-notify"
   },
 	-- "rcarriga/nvim-notify",
-  -- {
-  --   'rcarriga/nvim-notify',
-  --   config = function ()
-  --     require("notify").setup {
-  --       stages = 'fade_in_slide_out',
-  --       background_colour = 'FloatShadow',
-  --       timeout = 100,
-  --     }
-  --     vim.notify = require('notify')
-  --   end
-  -- },
+ --  {
+ --    'rcarriga/nvim-notify',
+ --    config = function ()
+ --      require("notify").setup {
+ --        stages = 'fade_in_slide_out',
+ --        background_colour = 'FloatShadow',
+ --        timeout = 100,
+ --      }
+ --      vim.notify = require('notify')
+ --    end
+ --  },
 	{
 		"smjonas/inc-rename.nvim",
 		config = function()

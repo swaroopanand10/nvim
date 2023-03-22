@@ -38,11 +38,13 @@ local options = {
   sidescrolloff = 8,
   --[[ guifont = "monospace:h12",               -- the font used in graphical neovim applications ]]
   guifont = "JetBrainsMono Nerd Font:h11",               -- the font used in graphical neovim applications
-  laststatus=3
+  laststatus=3,
   -- background="dark",
   -- autochdir = true,
 }
-
+vim.api.nvim_command('set noequalalways')
+-- vim.api.nvim_command('set sessionoptions+=resize,winpos,winsize')
+-- vim.api.nvim_command('set sessionoptions+=resize')
 
 vim.opt.shortmess:append "c"
 

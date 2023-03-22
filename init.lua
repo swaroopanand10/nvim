@@ -3,6 +3,7 @@ require("user.options")
 require("user.keymaps")
 require("user.emmet")
 require("user.plugins")
+require("user.noice")
 require("user.ultisnip")
 require("user.neotree")
 require("user.windowpicker")
@@ -26,7 +27,7 @@ require("user.toggleterm")
 require("user.project")
 require("user.impatient")
 require("user.indentline")
--- require "user.alpha"
+-- require("user.alpha")
 require("user.whichkey")
 require("user.autocommands")
 require("user.startify")
@@ -44,7 +45,6 @@ require("user.functions")
 require("user.illuminate")
 -- require "user.rooter"
 require("user.luasnip")
-require("user.noice")
 --[[ require("user.ssr") ]]
 --[[ require("user.hologram") ]]
 --[[ require("user.image") ]]

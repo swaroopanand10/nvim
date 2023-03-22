@@ -25,3 +25,10 @@ ls.add_snippets("cpp", {
 		t({ " ", "}", " ", "int main(){", '  // cout<<"hello";',"  ios::sync_with_stdio(false);","  cin.tie(nullptr);","  int t=1;","  cin>>t;","  while(t--){","    solve();", '    cout<<"\\n";', "  }", "}" }),
 	}),
 })
+ls.add_snippets("c", {
+	s("c", {
+		t({ "#include <stdio.h>", " ", "int main(int argc, char *argv[]) {", "  " }),
+		i(1),
+		t({ " ","  return 0;", "}", " " }),
+	}),
+})
