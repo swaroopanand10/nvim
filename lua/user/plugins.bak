@@ -190,12 +190,29 @@ use { 'nvim-tree/nvim-tree.lua', commit= '9c97e6449b0b0269bd44e1fd4857184dfa57bb
 		end,
 	})
  use({"ThePrimeagen/vim-be-good"})
-use({
-  'nat-418/cmp-color-names.nvim',
-  config = {
-    require('cmp-color-names').setup()
+
+ use {
+  "nvim-neo-tree/neo-tree.nvim",
+    branch = "v2.x",
+    requires = {
+      "nvim-lua/plenary.nvim",
+      "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
+      "MunifTanjim/nui.nvim",
+    }
   }
-})
+use {
+    's1n7ax/nvim-window-picker',
+    tag = 'v1.*',
+    config = function()
+        require'window-picker'.setup()
+    end,
+}
+--use({
+ -- 'nat-418/cmp-color-names.nvim',
+ -- config = {
+  --  require('cmp-color-names').setup()
+ -- }
+--})
   use({"hrsh7th/cmp-calc"})
 use {'edluffy/hologram.nvim'}
   --[[ use {"nathom/filetype.nvim"} ]]

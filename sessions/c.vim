@@ -14,7 +14,7 @@ else
   set shortmess=aoO
 endif
 badd +1 ~/Desktop/prg/dev/c/sample/in.txt
-badd +4 ~/Desktop/prg/dev/c/sample/c.c
+badd +1 ~/Desktop/prg/dev/c/sample/c.c
 badd +1 ~/Desktop/prg/dev/c/sample/out.txt
 argglobal
 %argdel
@@ -51,12 +51,12 @@ setlocal fdn=20
 setlocal fen
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 4 - ((3 * winheight(0) + 24) / 48)
+let s:l = 1 - ((0 * winheight(0) + 22) / 45)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 4
-normal! 0
+keepjumps 1
+normal! 03|
 wincmd w
 argglobal
 if bufexists(fnamemodify("~/Desktop/prg/dev/c/sample/in.txt", ":p")) | buffer ~/Desktop/prg/dev/c/sample/in.txt | else | edit ~/Desktop/prg/dev/c/sample/in.txt | endif
@@ -74,7 +74,7 @@ setlocal fdn=20
 setlocal fen
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 1 - ((0 * winheight(0) + 11) / 23)
+let s:l = 1 - ((0 * winheight(0) + 7) / 15)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
@@ -97,7 +97,7 @@ setlocal fdn=20
 setlocal fen
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 1 - ((0 * winheight(0) + 11) / 23)
+let s:l = 1 - ((0 * winheight(0) + 14) / 28)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt

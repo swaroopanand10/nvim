@@ -130,7 +130,10 @@ require("lazy").setup({
 		"williamboman/mason-lspconfig.nvim",
 		"WhoIsSethDaniel/mason-tool-installer.nvim",
 	},
-	"neovim/nvim-lspconfig", -- enable LSP
+  {"neovim/nvim-lspconfig", -- enable LSP
+    lazy=false,
+  },
+
 	-- local  = require('packer').
 	-- require('packer').startup(function()
 	--    'wbthomason/packer.nvim' -- Package manager
@@ -163,8 +166,8 @@ require("lazy").setup({
 	-- Treesitter
 	{
 		"nvim-treesitter/nvim-treesitter",
-		--[[ lazy=false, ]]
-		--[[ build = ":TSUpdate", ]]
+    -- lazy=false,
+		-- build = ":TSUpdate",
 	},
 	"JoosepAlviste/nvim-ts-context-commentstring",
 	"windwp/nvim-ts-autotag",
