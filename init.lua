@@ -46,6 +46,7 @@ require("user.illuminate")
 -- require "user.rooter"
 require("user.luasnip")
 require("user.noice")
+-- require("user.wilder")
 --[[ require("user.ssr") ]]
 --[[ require("user.hologram") ]]
 --[[ require("user.image") ]]

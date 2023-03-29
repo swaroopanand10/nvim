@@ -45,7 +45,7 @@ require("lazy").setup({
 	config = function()
 		require("window-picker").setup()
 	end,
-	--[[ "akinsho/bufferline.nvim", ]]
+	"akinsho/bufferline.nvim", 
 	"moll/vim-bbye",
 	"nvim-lualine/lualine.nvim",
 	--  "christianchiarulli/lualine.nvim"
@@ -81,6 +81,10 @@ require("lazy").setup({
 		"rrethy/vim-hexokinase",
 		build = "cd ~/.local/share/nvim/lazy/vim-hexokinase && make hexokinase",
 	},
+
+
+
+
 	-- Colorschemes
 	"lunarvim/darkplus.nvim",
 	--  "gleich/monovibrant"
@@ -124,6 +128,10 @@ require("lazy").setup({
 	"L3MON4D3/LuaSnip", --snippet engine
 	"rafamadriz/friendly-snippets", -- a bunch of snippets to
 	"SirVer/ultisnips",
+
+
+
+
 	-- LSP
 	{
 		"williamboman/mason.nvim",
@@ -163,6 +171,11 @@ require("lazy").setup({
 		"benfowler/telescope-luasnip.nvim",
 		module = "telescope._extensions.luasnip", -- if you wish to lazy-load
 	},
+
+
+
+
+
 	-- Treesitter
 	{
 		"nvim-treesitter/nvim-treesitter",
@@ -193,6 +206,10 @@ require("lazy").setup({
 	-- Git
 	"lewis6991/gitsigns.nvim",
 	--  "kdheepak/lazygit.nvim"-- was not working
+
+
+
+
 
 	--Some extra stuff
 	--  "tpope/vim-surround"
@@ -236,6 +253,7 @@ require("lazy").setup({
 	--  "easymotion/vim-easymotion"
   {
     "folke/noice.nvim",
+     'gelguy/wilder.nvim',
  -- dependencies= "rcarriga/nvim-notify"
   },
 	-- "rcarriga/nvim-notify",

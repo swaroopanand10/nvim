@@ -14,12 +14,12 @@ else
   set shortmess=aoO
 endif
 badd +1 ~/Desktop/prg/dev/c/books/hfc/out.txt
-badd +4 ~/Desktop/prg/dev/c/books/hfc/cardprogram.c
-badd +37 ~/Desktop/prg/dev/c/books/hfc/pointers2.c
 badd +1 ~/Desktop/prg/dev/c/books/hfc/in.txt
+badd +12 ~/Desktop/prg/dev/c/books/hfc/string.c
+badd +5 ~/Desktop/prg/dev/c/books/hfc/string1.c
 argglobal
 %argdel
-edit ~/Desktop/prg/dev/c/books/hfc/pointers2.c
+edit ~/Desktop/prg/dev/c/books/hfc/string1.c
 let s:save_splitbelow = &splitbelow
 let s:save_splitright = &splitright
 set splitbelow splitright
@@ -42,7 +42,7 @@ set winminwidth=0
 set winwidth=1
 wincmd =
 argglobal
-balt ~/Desktop/prg/dev/c/books/hfc/out.txt
+balt ~/Desktop/prg/dev/c/books/hfc/string.c
 setlocal fdm=manual
 setlocal fde=0
 setlocal fmr={{{,}}}
@@ -53,12 +53,12 @@ setlocal fdn=20
 setlocal fen
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 37 - ((36 * winheight(0) + 25) / 50)
+let s:l = 5 - ((4 * winheight(0) + 25) / 50)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 37
-normal! 02|
+keepjumps 5
+normal! 0
 wincmd w
 argglobal
 if bufexists(fnamemodify("~/Desktop/prg/dev/c/books/hfc/in.txt", ":p")) | buffer ~/Desktop/prg/dev/c/books/hfc/in.txt | else | edit ~/Desktop/prg/dev/c/books/hfc/in.txt | endif
