@@ -13,13 +13,15 @@ if &shortmess =~ 'A'
 else
   set shortmess=aoO
 endif
-badd +1 ~/Desktop/prg/dev/c/books/hfc/out.txt
-badd +1 ~/Desktop/prg/dev/c/books/hfc/in.txt
-badd +12 ~/Desktop/prg/dev/c/books/hfc/string.c
-badd +5 ~/Desktop/prg/dev/c/books/hfc/string1.c
+badd +1 ~/Desktop/prg/dev/c/sample/in.txt
+badd +1 ~/Desktop/prg/dev/c/sample/out.txt
+badd +1 ~/Desktop/prg/dev/c/books/hfc/buildingwithmake/main.c
+badd +1 ~/Desktop/prg/dev/c/books/hfc/buildingwithmake/main.h
+badd +1 ~/Desktop/prg/dev/c/books/hfc/buildingwithmake/sum.c
+badd +3 ~/Desktop/prg/dev/c/books/hfc/buildingwithmake/sum.h
 argglobal
 %argdel
-edit ~/Desktop/prg/dev/c/books/hfc/string1.c
+edit ~/Desktop/prg/dev/c/sample/in.txt
 let s:save_splitbelow = &splitbelow
 let s:save_splitright = &splitright
 set splitbelow splitright
@@ -42,7 +44,7 @@ set winminwidth=0
 set winwidth=1
 wincmd =
 argglobal
-balt ~/Desktop/prg/dev/c/books/hfc/string.c
+balt ~/Desktop/prg/dev/c/books/hfc/buildingwithmake/sum.h
 setlocal fdm=manual
 setlocal fde=0
 setlocal fmr={{{,}}}
@@ -53,19 +55,18 @@ setlocal fdn=20
 setlocal fen
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 5 - ((4 * winheight(0) + 25) / 50)
+let s:l = 1 - ((0 * winheight(0) + 25) / 50)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 5
+keepjumps 1
 normal! 0
 wincmd w
 argglobal
-if bufexists(fnamemodify("~/Desktop/prg/dev/c/books/hfc/in.txt", ":p")) | buffer ~/Desktop/prg/dev/c/books/hfc/in.txt | else | edit ~/Desktop/prg/dev/c/books/hfc/in.txt | endif
+if bufexists(fnamemodify("~/Desktop/prg/dev/c/sample/in.txt", ":p")) | buffer ~/Desktop/prg/dev/c/sample/in.txt | else | edit ~/Desktop/prg/dev/c/sample/in.txt | endif
 if &buftype ==# 'terminal'
-  silent file ~/Desktop/prg/dev/c/books/hfc/in.txt
+  silent file ~/Desktop/prg/dev/c/sample/in.txt
 endif
-balt ~/Desktop/prg/dev/c/books/hfc/out.txt
 setlocal fdm=manual
 setlocal fde=0
 setlocal fmr={{{,}}}
@@ -81,14 +82,13 @@ if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
 keepjumps 1
-normal! 0
+normal! 02|
 wincmd w
 argglobal
-if bufexists(fnamemodify("~/Desktop/prg/dev/c/books/hfc/out.txt", ":p")) | buffer ~/Desktop/prg/dev/c/books/hfc/out.txt | else | edit ~/Desktop/prg/dev/c/books/hfc/out.txt | endif
+if bufexists(fnamemodify("~/Desktop/prg/dev/c/sample/out.txt", ":p")) | buffer ~/Desktop/prg/dev/c/sample/out.txt | else | edit ~/Desktop/prg/dev/c/sample/out.txt | endif
 if &buftype ==# 'terminal'
-  silent file ~/Desktop/prg/dev/c/books/hfc/out.txt
+  silent file ~/Desktop/prg/dev/c/sample/out.txt
 endif
-balt ~/Desktop/prg/dev/c/books/hfc/in.txt
 setlocal fdm=manual
 setlocal fde=0
 setlocal fmr={{{,}}}
